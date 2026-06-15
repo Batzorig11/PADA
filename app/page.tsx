@@ -33,7 +33,7 @@ export default function HubPage() {
               Вэб сайт юу болох, түүний гарал үүсэл ба түүх, терминал, фронтенд ба
               бэкенд, HTML / CSS / JavaScript болон үндсэн HTML таг.
             </div>
-            <div className={styles.stFoot}>Хичээл нээх · 33 слайд</div>
+            <div className={styles.stFoot}>Хичээл нээх · 36 слайд</div>
           </Link>
 
           <div className={`${styles.stage} ${styles.soon}`}>
@@ -60,6 +60,9 @@ export default function HubPage() {
         </div>
 
         <div className={styles.tools}>
+          <Link className={styles.tool} href="/class-intro">
+            <span className={styles.k}>01</span> Ангийн танилцуулга — 3 слайд
+          </Link>
           <Link className={styles.tool} href="/template">
             <span className={styles.k}>+</span> Шинэ хичээл — загвар нээх
           </Link>

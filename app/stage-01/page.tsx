@@ -31,7 +31,7 @@ export const metadata = {
   title: "erxes · Хичээл 01 — Вэб хөгжүүлэлтийн үндэс",
 };
 
-const TOTAL = "33";
+const TOTAL = "36";
 
 export default function Stage01() {
   return (
@@ -60,8 +60,95 @@ export default function Stage01() {
         }
       />
 
-      {/* 02 · ӨНӨӨДРИЙН ТӨЛӨВЛӨГӨӨ */}
-      <Slide label="Төлөвлөгөө" page="02" total={TOTAL}>
+      {/* 02 · ХУВААРЬ БА ДҮРЭМ */}
+      <Slide
+        label="Хуваарь ба дүрэм"
+        page="02"
+        total={TOTAL}
+        footer={{ tag: "танилцуулга", topic: "хуваарь / дүрэм" }}
+        grid
+      >
+        <Frame>
+          <Eyebrow className="anim">Хичээлийн хуваарь</Eyebrow>
+          <h2 className="slide-title anim anim-2">Хуваарь ба дүрэм</h2>
+          <ConceptList
+            compact
+            className="anim anim-3"
+            items={[
+              {
+                idx: "09",
+                title: "Даваагаас Пүрэв гараг",
+                desc: "Хичээл үргэлж 09:00-д эхэлж, 12:00-д дуусна.",
+              },
+              {
+                idx: "PC",
+                title: "Академийн компьютерийг цэвэр байлгах",
+                desc: "Компьютерийг зөв хэрэглэж, дараагийн сурагч ашиглахад бэлэн үлдээнэ.",
+              },
+              {
+                idx: "OK",
+                title: "Явахаасаа өмнө ширээгээ цэгцлэх",
+                desc: "Гарахын өмнө ширээгээ цэвэрлэж, бүх зүйлийг байранд нь тавина.",
+              },
+            ]}
+          />
+        </Frame>
+      </Slide>
+
+      {/* 03 · КОМПЬЮТЕР БА WI-FI */}
+      <Slide
+        label="Компьютер ба Wi-Fi нэвтрэлт"
+        page="03"
+        total={TOTAL}
+        footer={{ tag: "танилцуулга", topic: "компьютер / wi-fi" }}
+        grid
+      >
+        <Frame>
+          <Eyebrow className="anim">Нэвтрэх мэдээлэл</Eyebrow>
+          <h2 className="slide-title sm anim anim-2">Компьютер ба Wi-Fi</h2>
+          <CompareTable
+            compact
+            className="anim anim-3"
+            columns={[
+              { head: "Хэрэглэх зүйл", width: "32%" },
+              { head: "Мэдээлэл" },
+            ]}
+            rows={[
+              ["Компьютерийн хэрэглэгчийн нэр", <code key="u">PADA-1-9-XX</code>],
+              ["Компьютерийн нууц үг", <code key="p">padA-XX</code>],
+              ["Wi-Fi нэр", <code key="w">Erxes mongolia</code>],
+              ["Wi-Fi нууц үг", <code key="wp">Erxes$999</code>],
+            ]}
+          />
+          <p className="lead anim anim-4" style={{ maxWidth: 1180 }}>
+            <b>XX</b>-ийн оронд өөрт оноогдсон компьютерийн дугаараа ашиглана.
+          </p>
+        </Frame>
+      </Slide>
+
+      {/* 04 · ТАНИЛЦАХ ДАСГАЛ */}
+      <Exercise
+        label="Танилцах дасгал"
+        page="04"
+        total={TOTAL}
+        tag="Танилцах дасгал"
+        title="Нэрээ зургаар илэрхийл"
+        tasks={[
+          <>Өөрийн нэрийг үсгээр шууд бичихгүйгээр цаасан дээр зургаар илэрхийл.</>,
+          <>Зургаа ашиглан өөрийгөө ангийнхандаа танилцуул.</>,
+          <>Бусад нь зураг ба танилцуулгаас чиний нэрийг таана.</>,
+        ]}
+        hintsTitle="Зорилго"
+        hints={[
+          "Бие биенийхээ нэрийг тогтоох.",
+          "Ангийн өмнө ярих дадал эхлүүлэх.",
+          "Богино, нөхөрсөг, хөгжилтэй байлгах.",
+        ]}
+        time="10-15 минут"
+      />
+
+      {/* 05 · ӨНӨӨДРИЙН ТӨЛӨВЛӨГӨӨ */}
+      <Slide label="Төлөвлөгөө" page="05" total={TOTAL}>
         <Frame>
           <Eyebrow className="anim">Өнөөдөр · 2–3 цаг</Eyebrow>
           <h2 className="slide-title anim anim-2">Бид юу үзэх вэ?</h2>
@@ -99,10 +186,10 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 03 · ХЭСЭГ 01 */}
+      {/* 06 · ХЭСЭГ 01 */}
       <SectionDivider
         label="§ Вэб сайт гэж юу вэ"
-        page="03"
+        page="06"
         total={TOTAL}
         ghost="01"
         section="ХЭСЭГ 01"
@@ -116,10 +203,10 @@ export default function Stage01() {
         lead="Эхлээд бид өдөр бүр хэрэглэдэг вэб сайт юунаас бүрддэгийг ойлгоё."
       />
 
-      {/* 04 · ГОЛ ОЙЛГОЛТ: ВЭБ САЙТ */}
+      {/* 07 · ГОЛ ОЙЛГОЛТ: ВЭБ САЙТ */}
       <KeyTerm
         label="Гол ойлголт: Вэб сайт"
-        page="04"
+        page="07"
         total={TOTAL}
         term="Вэб сайт"
         def={
@@ -132,10 +219,10 @@ export default function Stage01() {
         note="вэб хуудас → вэб сайт → интернэт"
       />
 
-      {/* 05 · ВЭБ ЮУНААС БҮРДДЭГ ВЭ */}
+      {/* 08 · ВЭБ ЮУНААС БҮРДДЭГ ВЭ */}
       <Slide
         label="Үндсэн бүрэлдэхүүн"
-        page="05"
+        page="08"
         total={TOTAL}
         footer={{ tag: "§01 вэб сайт", topic: "бүрэлдэхүүн" }}
       >
@@ -172,10 +259,10 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 06 · ХҮСЭЛТ БА ХАРИУ */}
+      {/* 09 · ХҮСЭЛТ БА ХАРИУ */}
       <Slide
         label="Хүсэлт ба хариу"
-        page="06"
+        page="09"
         total={TOTAL}
         footer={{ tag: "§01 вэб сайт", topic: "хүсэлт / хариу" }}
       >
@@ -199,10 +286,10 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 07 · ВЭБИЙН ТҮҮХ */}
+      {/* 10 · ВЭБИЙН ТҮҮХ */}
       <Slide
         label="Вэбийн түүх"
-        page="07"
+        page="10"
         total={TOTAL}
         footer={{ tag: "§01 вэб сайт", topic: "түүх" }}
       >
@@ -244,20 +331,20 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 08 · ГАРАЛ ҮҮСЭЛ */}
+      {/* 11 · ГАРАЛ ҮҮСЭЛ */}
       <StatSlide
         label="Гарал үүсэл"
-        page="08"
+        page="11"
         total={TOTAL}
         num="1989"
         statLabel="онд Тим Бернерс-Ли ЦЕРН-д World Wide Web-ийг зохион бүтээжээ."
         sub="HTML, URL, HTTP — өнөөгийн вэбийн суурь технологиуд тэндээс эхэлсэн."
       />
 
-      {/* 09 · ХЭСЭГ 02 — ФРОНТЕНД БА БЭКЕНД */}
+      {/* 12 · ХЭСЭГ 02 — ФРОНТЕНД БА БЭКЕНД */}
       <SectionDivider
         label="§ Фронтенд ба Бэкенд"
-        page="09"
+        page="12"
         total={TOTAL}
         ghost="02"
         section="ХЭСЭГ 02"
@@ -271,10 +358,10 @@ export default function Stage01() {
         lead="Нэг вэб сайт хоёр талтай: хэрэглэгчийн харагдах тал ба нуугдсан арын тал."
       />
 
-      {/* 10 · СИСТЕМ ХЭРХЭН АЖИЛЛАДАГ ВЭ */}
+      {/* 13 · СИСТЕМ ХЭРХЭН АЖИЛЛАДАГ ВЭ */}
       <Slide
         label="Архитектур"
-        page="10"
+        page="13"
         total={TOTAL}
         footer={{ tag: "§02 фронтенд ба бэкенд", topic: "архитектур" }}
       >
@@ -295,10 +382,10 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 11 · ФРОНТЕНД БА БЭКЕНД ХАРЬЦУУЛАЛТ */}
+      {/* 14 · ФРОНТЕНД БА БЭКЕНД ХАРЬЦУУЛАЛТ */}
       <Slide
         label="Харьцуулалт"
-        page="11"
+        page="14"
         total={TOTAL}
         footer={{ tag: "§02 фронтенд ба бэкенд", topic: "харьцуулалт" }}
       >
@@ -322,10 +409,10 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 12 · ХЭСЭГ 03 — ТЕРМИНАЛ */}
+      {/* 15 · ХЭСЭГ 03 — ТЕРМИНАЛ */}
       <SectionDivider
         label="§ Терминал"
-        page="12"
+        page="15"
         total={TOTAL}
         ghost="03"
         section="ХЭСЭГ 03"
@@ -333,10 +420,10 @@ export default function Stage01() {
         lead="Хулганаар бус, бичсэн командаар компьютертэйгээ ярилцах нь."
       />
 
-      {/* 13 · ГОЛ ОЙЛГОЛТ: ТЕРМИНАЛ */}
+      {/* 16 · ГОЛ ОЙЛГОЛТ: ТЕРМИНАЛ */}
       <KeyTerm
         label="Гол ойлголт: Терминал"
-        page="13"
+        page="16"
         total={TOTAL}
         term="Терминал"
         def={
@@ -349,10 +436,10 @@ export default function Stage01() {
         note="хөгжүүлэгчийн өдөр тутмын зэвсэг"
       />
 
-      {/* 14 · ҮНДСЭН КОМАНДУУД */}
+      {/* 17 · ҮНДСЭН КОМАНДУУД */}
       <Slide
         label="Үндсэн командууд"
-        page="14"
+        page="17"
         total={TOTAL}
         footer={{ tag: "§03 терминал", topic: "команд мөр" }}
       >
@@ -388,10 +475,10 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 15 · КОМАНДЫН ТОЛЬ */}
+      {/* 18 · КОМАНДЫН ТОЛЬ */}
       <Slide
         label="Командын толь"
-        page="15"
+        page="18"
         total={TOTAL}
         footer={{ tag: "§03 терминал", topic: "толь бичиг" }}
       >
@@ -422,10 +509,10 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 16 · ЖИЖИГ ТӨСЛИЙН УРСГАЛ */}
+      {/* 19 · ЖИЖИГ ТӨСЛИЙН УРСГАЛ */}
       <Slide
         label="Төслийн урсгал"
-        page="16"
+        page="19"
         total={TOTAL}
         footer={{ tag: "§03 терминал", topic: "урсгал" }}
       >
@@ -464,10 +551,10 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 17 · ХЭСЭГ 04 */}
+      {/* 20 · ХЭСЭГ 04 */}
       <SectionDivider
         label="§ HTML, CSS, JavaScript"
-        page="17"
+        page="20"
         total={TOTAL}
         ghost="04"
         section="ХЭСЭГ 04"
@@ -481,20 +568,20 @@ export default function Stage01() {
         lead="Фронтендийг бүрдүүлэгч гурван хэл — бүтэц, загвар, үйлдэл."
       />
 
-      {/* 18 · ЯАГААД ГУРВАН ХЭЛ ВЭ */}
+      {/* 21 · ЯАГААД ГУРВАН ХЭЛ ВЭ */}
       <StatSlide
         label="Яагаад чухал вэ"
-        page="18"
+        page="21"
         total={TOTAL}
         num="3"
         statLabel="хэл фронтендийн бараг бүх вэб сайтыг ажиллуулдаг — өнөөдөр та эхнийхийг нь эхэлж байна."
         sub="HTML бүтэц · CSS загвар · JavaScript үйлдэл өгдөг."
       />
 
-      {/* 19 · ГОЛ ОЙЛГОЛТ: HTML */}
+      {/* 22 · ГОЛ ОЙЛГОЛТ: HTML */}
       <KeyTerm
         label="Гол ойлголт: HTML"
-        page="19"
+        page="22"
         total={TOTAL}
         term="HTML"
         def={
@@ -507,10 +594,10 @@ export default function Stage01() {
         note="программчлалын бус — тэмдэглэгээний хэл"
       />
 
-      {/* 20 · ГОЛ ОЙЛГОЛТ: CSS */}
+      {/* 23 · ГОЛ ОЙЛГОЛТ: CSS */}
       <KeyTerm
         label="Гол ойлголт: CSS"
-        page="20"
+        page="23"
         total={TOTAL}
         term="CSS"
         def={
@@ -523,10 +610,10 @@ export default function Stage01() {
         note="бүтэц HTML-д · харагдац CSS-д"
       />
 
-      {/* 21 · ГОЛ ОЙЛГОЛТ: JAVASCRIPT */}
+      {/* 24 · ГОЛ ОЙЛГОЛТ: JAVASCRIPT */}
       <KeyTerm
         label="Гол ойлголт: JavaScript"
-        page="21"
+        page="24"
         total={TOTAL}
         term="JavaScript"
         def={
@@ -539,10 +626,10 @@ export default function Stage01() {
         note="Шат 02-т дэлгэрэнгүй үзнэ"
       />
 
-      {/* 22 · ГУРВАН ХЭЛ, ГУРВАН ҮҮРЭГ */}
+      {/* 25 · ГУРВАН ХЭЛ, ГУРВАН ҮҮРЭГ */}
       <Slide
         label="Гурван хэл"
-        page="22"
+        page="25"
         total={TOTAL}
         footer={{ tag: "§04 html · css · js", topic: "үүрэг" }}
       >
@@ -568,10 +655,10 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 23 · ХЭСЭГ 05 */}
+      {/* 26 · ХЭСЭГ 05 */}
       <SectionDivider
         label="§ Үндсэн HTML таг"
-        page="23"
+        page="26"
         total={TOTAL}
         ghost="05"
         section="ХЭСЭГ 05"
@@ -585,10 +672,10 @@ export default function Stage01() {
         lead="Контентоо утга бүхий тагуудаар ороож, хуудсаа бүтэцлэе."
       />
 
-      {/* 24 · АНХНЫ HTML ХУУДАС */}
+      {/* 27 · АНХНЫ HTML ХУУДАС */}
       <Slide
         label="Анхны HTML хуудас"
-        page="24"
+        page="27"
         total={TOTAL}
         footer={{ tag: "§05 html таг", topic: "суурь · мөр 04" }}
       >
@@ -670,10 +757,10 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 25 · ТАГИЙН БҮТЭЦ */}
+      {/* 28 · ТАГИЙН БҮТЭЦ */}
       <Slide
         label="Тагийн бүтэц"
-        page="25"
+        page="28"
         total={TOTAL}
         footer={{ tag: "§05 html таг", topic: "элемент" }}
       >
@@ -738,10 +825,10 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 26 · БАЙНГА ХЭРЭГЛЭХ ТАГУУД */}
+      {/* 29 · БАЙНГА ХЭРЭГЛЭХ ТАГУУД */}
       <Slide
         label="Үндсэн тагууд"
-        page="26"
+        page="29"
         total={TOTAL}
         footer={{ tag: "§05 html таг", topic: "толь бичиг" }}
       >
@@ -785,10 +872,10 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 27 · ТАГУУДЫГ НЭГТГЭХЭД */}
+      {/* 30 · ТАГУУДЫГ НЭГТГЭХЭД */}
       <Slide
         label="Жишээ"
-        page="27"
+        page="30"
         total={TOTAL}
         footer={{ tag: "§05 html таг", topic: "жишээ" }}
       >
@@ -854,10 +941,10 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 28 · ФОРМЫН БҮТЭЦ (ЖИШЭЭ КОД) */}
+      {/* 31 · ФОРМЫН БҮТЭЦ (ЖИШЭЭ КОД) */}
       <Slide
         label="Формын бүтэц"
-        page="28"
+        page="31"
         total={TOTAL}
         footer={{ tag: "§05 html таг", topic: "форм" }}
       >
@@ -926,10 +1013,10 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 29 · ФОРМЫН ТАГУУДЫН ТАЙЛБАР */}
+      {/* 32 · ФОРМЫН ТАГУУДЫН ТАЙЛБАР */}
       <Slide
         label="Формын тагууд"
-        page="29"
+        page="32"
         total={TOTAL}
         footer={{ tag: "§05 html таг", topic: "формын тагууд" }}
       >
@@ -987,10 +1074,10 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 30 · ДАСГАЛ: БҮРТГЭЛИЙН ФОРМ */}
+      {/* 33 · ДАСГАЛ: БҮРТГЭЛИЙН ФОРМ */}
       <Exercise
         label="Дасгал: бүртгэлийн форм"
-        page="30"
+        page="33"
         total={TOTAL}
         title="Бүртгэлийн форм хийх"
         tasks={[
@@ -1026,10 +1113,10 @@ export default function Stage01() {
         }
       />
 
-      {/* 31 · ХУРААНГУЙ */}
+      {/* 34 · ХУРААНГУЙ */}
       <Recap
         label="Хураангуй"
-        page="31"
+        page="34"
         total={TOTAL}
         eyebrow="Хичээл 01 · хураангуй"
         title="Хураангуй"
@@ -1058,8 +1145,8 @@ export default function Stage01() {
         ]}
       />
 
-      {/* 32 · ДАРАА НЬ */}
-      <Slide label="Дараа нь" page="32" total={TOTAL}>
+      {/* 35 · ДАРАА НЬ */}
+      <Slide label="Дараа нь" page="35" total={TOTAL}>
         <Frame center>
           <Eyebrow variant="amber" className="anim">
             Удахгүй · Шат 02
@@ -1093,7 +1180,7 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 31 · АСУУЛТ */}
+      {/* 36 · АСУУЛТ */}
       <TitleSlide
         label="Асуулт"
         prompt={<>хичээл-01 · дууслаа</>}

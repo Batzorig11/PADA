@@ -10,7 +10,7 @@ export function TitleSlide({
   title,
   subtitle,
   stages,
-  label = "Title",
+  label = "Гарчиг",
   grid = true,
 }: {
   prompt: ReactNode;
@@ -115,7 +115,7 @@ export function ConceptList({
 export function KeyTerm({
   page,
   total,
-  chip = "Key term",
+  chip = "Гол ойлголт",
   term,
   def,
   note,
@@ -220,8 +220,8 @@ export function CompareTable({
 export function DosDonts({
   dos,
   donts,
-  doHead = "Do",
-  dontHead = "Don't",
+  doHead = "Зөв",
+  dontHead = "Буруу",
   className = "",
   style,
 }: {
@@ -267,12 +267,12 @@ export function DosDonts({
 export function Exercise({
   page,
   total,
-  tag = "Your turn",
+  tag = "Дасгал",
   title,
   tasks,
   hints,
   time,
-  hintsTitle = "Hints",
+  hintsTitle = "Зөвлөмж",
   aside,
   label,
 }: {
@@ -347,7 +347,7 @@ export function Callout({
 
 /* "remember this" boxed variant — drop inside a Frame. */
 export function Remember({
-  tag = "Remember",
+  tag = "Санамж",
   children,
   style,
 }: {
@@ -372,10 +372,10 @@ export function Recap({
   page,
   total,
   eyebrow,
-  title = "Recap",
+  title = "Хураангуй",
   cards,
   footer,
-  label = "Recap",
+  label = "Хураангуй",
 }: {
   page: ReactNode;
   total?: ReactNode;
