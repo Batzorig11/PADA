@@ -1,6 +1,37 @@
 import Link from "next/link";
 import styles from "./hub.module.css";
 
+type Lesson = {
+  num: string;
+  title: string;
+  desc: string;
+  foot: string;
+  href?: string;
+};
+
+const lessons: Lesson[] = [
+  {
+    num: "01",
+    title: "Вэб хөгжүүлэлтийн үндэс",
+    desc: "Вэб сайт юу болох, түүний гарал үүсэл ба түүх, терминал, фронтенд ба бэкенд, HTML / CSS / JavaScript болон үндсэн HTML таг.",
+    foot: "Хичээл нээх · 35 слайд",
+    href: "/stage-01",
+  },
+  {
+    num: "02",
+    title: "HTML гүнзгийрүүлэн",
+    desc: "Суурь бүтэц (boilerplate), атрибут, байнга хэрэглэх тагууд болон утга бүхий (семантик) HTML.",
+    foot: "Хичээл нээх · 33 слайд",
+    href: "/lesson-02",
+  },
+  {
+    num: "03",
+    title: "CSS-ээр загварчлах",
+    desc: "Сонгогч, өнгө, зай, фонт болон байршил — HTML бүтцээ амьд харагдуулах нь.",
+    foot: "Удахгүй",
+  },
+];
+
 export default function HubPage() {
   return (
     <div className={styles.hub}>
@@ -20,48 +51,38 @@ export default function HubPage() {
           <span className={styles.cursor} />
         </h1>
         <p className={styles.intro}>
-          Гурван шаттай фронтенд хөгжүүлэлтийн сургалт — бүрэн эхнээс нь. Шатыг
-          бүтэн дэлгэцээр нээж, слайд хооронд ← / → товчоор шилжээрэй.
+          Фронтенд хөгжүүлэлтийн сургалтын бүх хичээл. Хичээлээ бүтэн дэлгэцээр
+          нээж, слайд хооронд ← / → товчоор шилжээрэй.
         </p>
 
         <div className={styles.stages}>
-          <Link className={`${styles.stage} ${styles.live}`} href="/stage-01">
-            <span className={styles.badge}>Бэлэн</span>
-            <div className={styles.num}>01</div>
-            <div className={styles.stTitle}>Вэб хөгжүүлэлтийн үндэс</div>
-            <div className={styles.stDesc}>
-              Вэб сайт юу болох, түүний гарал үүсэл ба түүх, терминал, фронтенд ба
-              бэкенд, HTML / CSS / JavaScript болон үндсэн HTML таг.
-            </div>
-            <div className={styles.stFoot}>Хичээл нээх · 36 слайд</div>
-          </Link>
-
-          <div className={`${styles.stage} ${styles.soon}`}>
-            <span className={styles.badge}>Удахгүй</span>
-            <div className={styles.num}>02</div>
-            <div className={styles.stTitle}>JavaScript</div>
-            <div className={styles.stDesc}>
-              Хувьсагч, функц, DOM ба үйл явдал — хуудсыг хариу үйлдэлтэй, амьд
-              болгох нь.
-            </div>
-            <div className={styles.stFoot}>Загвараас үүсгэх</div>
-          </div>
-
-          <div className={`${styles.stage} ${styles.soon}`}>
-            <span className={styles.badge}>Удахгүй</span>
-            <div className={styles.num}>03</div>
-            <div className={styles.stTitle}>React &amp; Next.js</div>
-            <div className={styles.stDesc}>
-              Компонент, төлөв, чиглүүлэлт — орчин үеийн фреймворкоор бодит апп
-              бүтээх нь.
-            </div>
-            <div className={styles.stFoot}>Загвараас үүсгэх</div>
-          </div>
+          {lessons.map((lesson) => {
+            const live = Boolean(lesson.href);
+            const className = `${styles.stage} ${live ? styles.live : styles.soon}`;
+            const content = (
+              <>
+                <span className={styles.badge}>{live ? "Бэлэн" : "Удахгүй"}</span>
+                <div className={styles.num}>Хичээл {lesson.num}</div>
+                <div className={styles.stTitle}>{lesson.title}</div>
+                <div className={styles.stDesc}>{lesson.desc}</div>
+                <div className={styles.stFoot}>{lesson.foot}</div>
+              </>
+            );
+            return live ? (
+              <Link key={lesson.num} className={className} href={lesson.href!}>
+                {content}
+              </Link>
+            ) : (
+              <div key={lesson.num} className={className}>
+                {content}
+              </div>
+            );
+          })}
         </div>
 
         <div className={styles.tools}>
           <Link className={styles.tool} href="/class-intro">
-            <span className={styles.k}>01</span> Ангийн танилцуулга — 3 слайд
+            <span className={styles.k}>›</span> Ангийн танилцуулга — 3 слайд
           </Link>
           <Link className={styles.tool} href="/template">
             <span className={styles.k}>+</span> Шинэ хичээл — загвар нээх

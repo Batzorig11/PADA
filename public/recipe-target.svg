@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="620" viewBox="0 0 460 620" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="460" height="620" fill="#ffffff"/>
+
+  <!-- browser chrome -->
+  <rect x="0" y="0" width="460" height="40" fill="#f3f3f3"/>
+  <line x1="0" y1="40" x2="460" y2="40" stroke="#e3e3e3" stroke-width="1"/>
+  <circle cx="22" cy="20" r="5" fill="#ff5f56"/>
+  <circle cx="40" cy="20" r="5" fill="#ffbd2e"/>
+  <circle cx="58" cy="20" r="5" fill="#27c93f"/>
+  <rect x="84" y="11" width="300" height="18" rx="9" fill="#ffffff" stroke="#ddd"/>
+  <text x="96" y="24" font-size="12" fill="#999">recipe.html</text>
+
+  <!-- header / h1 -->
+  <text x="28" y="92" font-size="30" font-weight="700" fill="#111">Өндөгтэй будаа</text>
+  <line x1="28" y1="110" x2="432" y2="110" stroke="#eee" stroke-width="1"/>
+
+  <!-- ingredients (ul) -->
+  <text x="28" y="148" font-size="20" font-weight="700" fill="#1a7f37">Орц</text>
+  <circle cx="34" cy="174" r="3.5" fill="#1a7f37"/>
+  <text x="48" y="180" font-size="17" fill="#333">Будаа — 1 аяга</text>
+  <circle cx="34" cy="200" r="3.5" fill="#1a7f37"/>
+  <text x="48" y="206" font-size="17" fill="#333">Өндөг — 2 ширхэг</text>
+  <circle cx="34" cy="226" r="3.5" fill="#1a7f37"/>
+  <text x="48" y="232" font-size="17" fill="#333">Тос — 1 халбага</text>
+  <circle cx="34" cy="252" r="3.5" fill="#1a7f37"/>
+  <text x="48" y="258" font-size="17" fill="#333">Давс — амтанд тааруулж</text>
+
+  <!-- steps (ol) -->
+  <text x="28" y="300" font-size="20" font-weight="700" fill="#1a7f37">Хийх алхам</text>
+  <text x="30" y="336" font-size="17" fill="#333">1.  Будаагаа сайн угаана</text>
+  <text x="30" y="362" font-size="17" fill="#333">2.  Усанд 15 минут буцалгана</text>
+  <text x="30" y="388" font-size="17" fill="#333">3.  Өндгөө хийж хутгана</text>
+  <text x="30" y="414" font-size="17" fill="#333">4.  Давс, тос нэмж амтална</text>
+
+  <!-- nutrition (table) -->
+  <text x="28" y="456" font-size="20" font-weight="700" fill="#1a7f37">Шим тэжээл</text>
+  <rect x="28" y="472" width="202" height="34" fill="#f5f5f5" stroke="#ccc"/>
+  <rect x="230" y="472" width="202" height="34" fill="#f5f5f5" stroke="#ccc"/>
+  <rect x="28" y="506" width="202" height="34" fill="#ffffff" stroke="#ccc"/>
+  <rect x="230" y="506" width="202" height="34" fill="#ffffff" stroke="#ccc"/>
+  <text x="44" y="494" font-size="15" font-weight="700" fill="#111">Илчлэг</text>
+  <text x="246" y="494" font-size="15" font-weight="700" fill="#111">Уураг</text>
+  <text x="44" y="528" font-size="15" fill="#333">320 ккал</text>
+  <text x="246" y="528" font-size="15" fill="#333">12 г</text>
+
+  <!-- footer -->
+  <line x1="28" y1="572" x2="432" y2="572" stroke="#eee" stroke-width="1"/>
+  <text x="28" y="598" font-size="14" fill="#888">© 2026 Бат  ·  </text>
+  <text x="118" y="598" font-size="14" fill="#1a7f37" text-decoration="underline">Холбоо барих</text>
+</svg>

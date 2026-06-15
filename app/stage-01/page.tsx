@@ -31,7 +31,7 @@ export const metadata = {
   title: "erxes · Хичээл 01 — Вэб хөгжүүлэлтийн үндэс",
 };
 
-const TOTAL = "36";
+const TOTAL = "35";
 
 export default function Stage01() {
   return (
@@ -1145,42 +1145,7 @@ export default function Stage01() {
         ]}
       />
 
-      {/* 35 · ДАРАА НЬ */}
-      <Slide label="Дараа нь" page="35" total={TOTAL}>
-        <Frame center>
-          <Eyebrow variant="amber" className="anim">
-            Удахгүй · Шат 02
-          </Eyebrow>
-          <h2 className="slide-title anim anim-2" style={{ fontSize: 92 }}>
-            JavaScript-ээр
-            <br />
-            амьд болгоё
-          </h2>
-          <p className="lead anim anim-3">
-            Та хуудсыг бүтэцлэж, загварчилж чадна. Дараа нь{" "}
-            <span className="hi-amber">үйлдэл</span> нэмж — товшилтод хариулах,
-            контент өөрчлөх, хуудсыг амьд болгоно.
-          </p>
-          <div
-            className="stages anim anim-4"
-            style={{
-              display: "flex",
-              gap: 22,
-              fontSize: 28,
-              color: "var(--muted)",
-              marginTop: 60,
-            }}
-          >
-            <span style={{ color: "var(--accent)" }}>✓ 01 Үндэс</span>
-            <span style={{ opacity: 0.4 }}>→</span>
-            <span style={{ color: "var(--accent2)" }}>02 JavaScript</span>
-            <span style={{ opacity: 0.4 }}>→</span>
-            <span>03 React &amp; Next.js</span>
-          </div>
-        </Frame>
-      </Slide>
-
-      {/* 36 · АСУУЛТ */}
+      {/* 35 · АСУУЛТ */}
       <TitleSlide
         label="Асуулт"
         prompt={<>хичээл-01 · дууслаа</>}
