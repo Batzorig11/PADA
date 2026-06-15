@@ -388,12 +388,12 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 12 · КОМАНДЫН ТОЛЬ */}
+      {/* 15 · КОМАНДЫН ТОЛЬ */}
       <Slide
         label="Командын толь"
-        page="12"
+        page="15"
         total={TOTAL}
-        footer={{ tag: "§02 терминал", topic: "толь бичиг" }}
+        footer={{ tag: "§03 терминал", topic: "толь бичиг" }}
       >
         <Frame>
           <Eyebrow className="anim">Багц толь бичиг</Eyebrow>
@@ -422,12 +422,12 @@ export default function Stage01() {
         </Frame>
       </Slide>
 
-      {/* 13 · ЖИЖИГ ТӨСЛИЙН УРСГАЛ */}
+      {/* 16 · ЖИЖИГ ТӨСЛИЙН УРСГАЛ */}
       <Slide
         label="Төслийн урсгал"
-        page="13"
+        page="16"
         total={TOTAL}
-        footer={{ tag: "§02 терминал", topic: "урсгал" }}
+        footer={{ tag: "§03 терминал", topic: "урсгал" }}
       >
         <Frame>
           <Eyebrow className="anim">Бодит жишээ</Eyebrow>
@@ -461,74 +461,6 @@ export default function Stage01() {
             Хэдхэн команд нэгдээд нэг ажлын урсгал болж байна — энэ бол өдөр бүр
             давтагдах мөчлөг.
           </CodeCaption>
-        </Frame>
-      </Slide>
-
-      {/* 14 · ХЭСЭГ 03 */}
-      <SectionDivider
-        label="§ Фронтенд ба Бэкенд"
-        page="14"
-        total={TOTAL}
-        ghost="03"
-        section="ХЭСЭГ 03"
-        title={
-          <>
-            Фронтенд ба
-            <br />
-            Бэкенд
-          </>
-        }
-        lead="Нэг вэб сайт хоёр талтай: хэрэглэгчийн харагдах тал ба нуугдсан арын тал."
-      />
-
-      {/* 15 · СИСТЕМ ХЭРХЭН АЖИЛЛАДАГ ВЭ */}
-      <Slide
-        label="Архитектур"
-        page="15"
-        total={TOTAL}
-        footer={{ tag: "§03 фронтенд ба бэкенд", topic: "архитектур" }}
-      >
-        <Frame>
-          <Eyebrow className="anim">Хоёр тал</Eyebrow>
-          <h2 className="slide-title anim anim-2">Систем хэрхэн ажилладаг вэ</h2>
-          <Diagram className="anim anim-3">
-            <Node variant="accent" title="Фронтенд" sub="хэрэглэгч харна · хөтөч" />
-            <Arrow label="хүсэлт" />
-            <Node title="Бэкенд" sub="сервер · логик" />
-            <Arrow label="асуулга" />
-            <Node variant="amber" title="Өгөгдлийн сан" sub="мэдээлэл хадгална" />
-          </Diagram>
-          <CodeCaption style={{ marginTop: 54 }}>
-            <b>Фронтенд</b> бол таны нүдэнд харагдах хэсэг, <b>бэкенд</b> бол
-            өгөгдөл, логикийг зохицуулдаг далд хэсэг.
-          </CodeCaption>
-        </Frame>
-      </Slide>
-
-      {/* 16 · ФРОНТЕНД БА БЭКЕНД ХАРЬЦУУЛАЛТ */}
-      <Slide
-        label="Харьцуулалт"
-        page="16"
-        total={TOTAL}
-        footer={{ tag: "§03 фронтенд ба бэкенд", topic: "харьцуулалт" }}
-      >
-        <Frame>
-          <Eyebrow className="anim">Ялгааг нь</Eyebrow>
-          <h2 className="slide-title anim anim-2">Фронтенд ба Бэкенд</h2>
-          <CompareTable
-            className="anim anim-3"
-            columns={[
-              { head: "Шинж", width: "24%" },
-              { head: "Фронтенд", width: "38%" },
-              { head: "Бэкенд" },
-            ]}
-            rows={[
-              ["Үүрэг", "Харагдах байдал, харилцан үйлдэл", "Өгөгдөл, логик, аюулгүй байдал"],
-              ["Хаана ажилладаг", "Хэрэглэгчийн хөтөч дээр", "Сервер дээр"],
-              ["Технологи", "HTML, CSS, JavaScript", "Сервер хэл, өгөгдлийн сан"],
-              ["Жишээ", "Товч, форм, хөдөлгөөн", "Нэвтрэлт, төлбөр, хадгалалт"],
-            ]}
-          />
         </Frame>
       </Slide>
 
@@ -1171,7 +1103,7 @@ export default function Stage01() {
             <Cursor />
           </>
         }
-        subtitle="Танилцуулга хуудсаа өнөө орой хийгээрэй. Дараагийн хичээлд түүнийгээ интерактив болгоно."
+        subtitle="Цаг гаргаж оролцсонд баярлалаа! Дараагийн хичээл дээр уулзацгаая."
         stages={
           <>
             <span className="on">erxes / frontend</span>
