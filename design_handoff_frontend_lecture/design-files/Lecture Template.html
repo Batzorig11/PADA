@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>erxes · Lecture Template — Component Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Noto+Sans+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="theme.css" />
+<style>
+  html, body { margin: 0; background: #050705; }
+  deck-stage:not(:defined) { visibility: hidden; }
+</style>
+</head>
+<body>
+<!--
+  ════════════════════════════════════════════════════════════════════
+  erxes · LECTURE TEMPLATE — how to use
+  ────────────────────────────────────────────────────────────────────
+  1. Duplicate this file for a new lecture (e.g. "Stage 02 — JavaScript.html").
+  2. Keep theme.css next to it — it holds all the styling.
+  3. Each <section class="slide"> below is ONE reusable component.
+     Copy the ones you need, in any order, and replace the placeholder
+     text. The comment above each slide names the component + its slots.
+  4. Update the brandbar page numbers (<b>NN</b> / TT) or delete them.
+  5. Mongolian Cyrillic works out of the box (JetBrains Mono + Noto fallback).
+  6. NEXT.JS: theme.css → globals.css; load fonts via next/font/google;
+     each .slide maps cleanly to a React component.
+  ════════════════════════════════════════════════════════════════════
+-->
+<deck-stage width="1920" height="1080">
+
+  <!-- [TITLE] slots: prompt · h1 (use <br> to break) · subtitle · stages -->
+  <section class="slide s-title grid" data-label="Title">
+    <div class="prompt">stage-NN · topic</div>
+    <h1>Lecture<br/>Title Here<span class="cursor"></span></h1>
+    <p class="subtitle">One-line description of what this session covers.</p>
+    <div class="stages"><span class="on">01 · Stage</span><span class="sep">→</span><span>02 · Stage</span><span class="sep">→</span><span>03 · Stage</span></div>
+  </section>
+
+  <!-- [SECTION DIVIDER] slots: ghost (big number) · ghost-sm · h1 · p -->
+  <section class="slide s-divider grid" data-label="Section divider">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>NN</b> / TT</div></div>
+    <div class="ghost">01</div>
+    <div class="body">
+      <div class="ghost-sm">SECTION 01</div>
+      <h1>Section<br/>Title</h1>
+      <p>A short framing sentence for this section.</p>
+    </div>
+  </section>
+
+  <!-- [CONCEPT LIST] repeat .item; add class "num" on .concept-list to hide the › -->
+  <section class="slide" data-label="Concept list">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>NN</b> / TT</div></div>
+    <div class="frame">
+      <div class="eyebrow">Eyebrow / kicker</div>
+      <h2 class="slide-title">Slide title</h2>
+      <div class="concept-list">
+        <div class="item"><div class="idx">01</div><div><div class="it-title">Point title</div><div class="it-desc">Supporting detail for this point.</div></div></div>
+        <div class="item"><div class="idx">02</div><div><div class="it-title">Point title</div><div class="it-desc">Supporting detail for this point.</div></div></div>
+        <div class="item"><div class="idx">03</div><div><div class="it-title">Point title</div><div class="it-desc">Supporting detail for this point.</div></div></div>
+      </div>
+    </div>
+    <div class="footer"><span class="tag">§NN section name</span><span>topic</span></div>
+  </section>
+
+  <!-- [TWO-COLUMN BULLETS] alternative to concept-list for short points -->
+  <section class="slide" data-label="Bullets">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>NN</b> / TT</div></div>
+    <div class="frame">
+      <div class="eyebrow">Eyebrow / kicker</div>
+      <h2 class="slide-title">Slide title</h2>
+      <ul class="bullets">
+        <li><b>Term</b> — short explanation that can wrap to two lines.</li>
+        <li><b>Term</b> — short explanation.</li>
+        <li><b>Term</b> — short explanation.</li>
+        <li><b>Term</b> — short explanation.</li>
+        <li><b>Term</b> — short explanation.</li>
+        <li><b>Term</b> — short explanation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- [KEY TERM] slots: label-chip · h1 (the term) · def · note (bottom-right) -->
+  <section class="slide s-keyterm grid" data-label="Key term">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>NN</b> / TT</div></div>
+    <div class="label-chip">Key term</div>
+    <h1>TERM</h1>
+    <p class="def"><b>Definition lead.</b> The rest of the definition in plain language for beginners.</p>
+    <div class="note">optional aside or mnemonic</div>
+  </section>
+
+  <!-- [BIG NUMBER / STAT] slots: bignum · stat-label · stat-sub -->
+  <section class="slide s-stat grid" data-label="Big number">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>NN</b> / TT</div></div>
+    <div class="bignum">00</div>
+    <div class="stat-label">What this number means, in one strong sentence.</div>
+    <div class="stat-sub">Optional supporting detail.</div>
+  </section>
+
+  <!-- [CODE + LINE HIGHLIGHT]
+       - tokens: <span class="tk-tag|tk-attr|tk-str|tk-kw|tk-fn|tk-num|tk-com|tk-punct|tk-sel|tk-prop">
+       - highlight a line: add class "hl" to the .line
+       - de-emphasise: class "dim"  ·  diff: class "add" / "del"
+       - <pre> must stay on ONE source line per .line (whitespace is literal)
+       - drop "numbered" to hide the gutter; add "sm" to shrink the font -->
+  <section class="slide" data-label="Code">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>NN</b> / TT</div></div>
+    <div class="frame">
+      <div class="eyebrow">Eyebrow / kicker</div>
+      <h2 class="slide-title sm">Code example</h2>
+      <div class="codewin numbered" style="margin-top:44px;">
+        <div class="titlebar"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span><span class="fname"><b>file.html</b></span><span class="lang">html</span></div>
+<pre><span class="line"><span class="tk-punct">&lt;</span><span class="tk-tag">div</span><span class="tk-punct">&gt;</span></span><span class="line hl">  <span class="tk-punct">&lt;</span><span class="tk-tag">p</span><span class="tk-punct">&gt;</span>This line is highlighted<span class="tk-punct">&lt;/</span><span class="tk-tag">p</span><span class="tk-punct">&gt;</span></span><span class="line"><span class="tk-punct">&lt;/</span><span class="tk-tag">div</span><span class="tk-punct">&gt;</span></span></pre>
+      </div>
+      <p class="code-caption">Explain what the highlighted line does.</p>
+    </div>
+    <div class="footer"><span class="tag">§NN section name</span><span>topic</span></div>
+  </section>
+
+  <!-- [CODE + LIVE RESULT] left = code, right = rendered preview -->
+  <section class="slide" data-label="Code + result">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>NN</b> / TT</div></div>
+    <div class="frame">
+      <div class="eyebrow">Eyebrow / kicker</div>
+      <h2 class="slide-title sm">Code with result</h2>
+      <div class="code-split" style="margin-top:44px;">
+        <div class="codewin sm">
+          <div class="titlebar"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span><span class="fname"><b>style.css</b></span><span class="lang">css</span></div>
+<pre><span class="line"><span class="tk-sel">.box</span> <span class="tk-punct">{</span> <span class="tk-prop">color</span><span class="tk-punct">:</span> <span class="tk-num">tomato</span><span class="tk-punct">;</span> <span class="tk-punct">}</span></span></pre>
+        </div>
+        <div class="result-pane">
+          <div class="rp-bar">rendered result</div>
+          <div class="rp-body">Put a real rendered preview here.</div>
+        </div>
+      </div>
+      <p class="code-caption">Tie the code to what students see on the right.</p>
+    </div>
+  </section>
+
+  <!-- [BEFORE / AFTER] two code windows; .bad (red ✕) and .good (green ✓) -->
+  <section class="slide" data-label="Before / after">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>NN</b> / TT</div></div>
+    <div class="frame">
+      <div class="eyebrow">Eyebrow / kicker</div>
+      <h2 class="slide-title sm">Before &amp; after</h2>
+      <div class="compare">
+        <div class="bad">
+          <div class="col-head"><span class="badge"></span> Before · the problem</div>
+          <div class="codewin sm"><div class="titlebar"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span><span class="fname"><b>file</b></span></div>
+<pre><span class="line del">  the worse way</span></pre></div>
+        </div>
+        <div class="good">
+          <div class="col-head"><span class="badge"></span> After · the fix</div>
+          <div class="codewin sm"><div class="titlebar"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span><span class="fname"><b>file</b></span></div>
+<pre><span class="line add">  the better way</span></pre></div>
+        </div>
+      </div>
+      <p class="code-caption">Say why the right side is better.</p>
+    </div>
+  </section>
+
+  <!-- [TERMINAL] lines: .comment · .cmd (auto "$"; .flag / .arg inside) · .out (.ok = green) · .cursor-line -->
+  <section class="slide" data-label="Terminal">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>NN</b> / TT</div></div>
+    <div class="frame">
+      <div class="eyebrow">Eyebrow / kicker</div>
+      <h2 class="slide-title sm">Command line</h2>
+      <div class="terminal" style="margin-top:44px;">
+        <div class="term-bar"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span><span class="title">zsh — ~/project</span></div>
+        <div class="term-body">
+          <span class="comment"># a comment</span>
+          <span class="cmd"><span class="arg">command</span> argument <span class="flag">--flag</span></span>
+          <span class="out ok">success output</span>
+          <span class="cmd cursor-line"></span>
+        </div>
+      </div>
+      <p class="code-caption">Explain what the command does.</p>
+    </div>
+  </section>
+
+  <!-- [DIAGRAM · horizontal] .node (+ .accent / .amber) joined by .arrow (.lbl optional) -->
+  <section class="slide" data-label="Diagram">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>NN</b> / TT</div></div>
+    <div class="frame">
+      <div class="eyebrow">Eyebrow / kicker</div>
+      <h2 class="slide-title">Flow diagram</h2>
+      <div class="diagram">
+        <div class="node accent"><div class="n-title">Step A</div><div class="n-sub">detail</div></div>
+        <div class="arrow"><span class="lbl">label</span></div>
+        <div class="node"><div class="n-title">Step B</div><div class="n-sub">detail</div></div>
+        <div class="arrow"><span class="lbl">label</span></div>
+        <div class="node accent"><div class="n-title">Step C</div><div class="n-sub">detail</div></div>
+      </div>
+      <p class="code-caption" style="margin-top:54px;">Describe the flow in one sentence.</p>
+    </div>
+  </section>
+
+  <!-- [COMPARISON TABLE] use <code> / .inline-code for inline tokens -->
+  <section class="slide" data-label="Table">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>NN</b> / TT</div></div>
+    <div class="frame">
+      <div class="eyebrow">Eyebrow / kicker</div>
+      <h2 class="slide-title">Comparison</h2>
+      <table class="ctable">
+        <thead><tr><th style="width:26%">Column A</th><th style="width:24%">Column B</th><th>Column C</th></tr></thead>
+        <tbody>
+          <tr><td><code>item</code></td><td>value</td><td>description</td></tr>
+          <tr><td><code>item</code></td><td>value</td><td>description</td></tr>
+          <tr><td><code>item</code></td><td>value</td><td>description</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- [DO'S & DON'TS] .dd-col.do (green +) and .dd-col.dont (red −) -->
+  <section class="slide" data-label="Do's & don'ts">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>NN</b> / TT</div></div>
+    <div class="frame">
+      <div class="eyebrow">Eyebrow / kicker</div>
+      <h2 class="slide-title">Do's &amp; don'ts</h2>
+      <div class="dos-donts">
+        <div class="dd-col do"><div class="dd-head"><span class="badge"></span> Do</div><ul>
+          <li>Good practice one.</li><li>Good practice two.</li><li>Good practice three.</li>
+        </ul></div>
+        <div class="dd-col dont"><div class="dd-head"><span class="badge"></span> Don't</div><ul>
+          <li>Bad habit one.</li><li>Bad habit two.</li><li>Bad habit three.</li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- [EXERCISE] .task-list auto-numbers; .exercise-aside for hints -->
+  <section class="slide s-exercise grid" data-label="Exercise">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>NN</b> / TT</div></div>
+    <div class="exercise-tag">Your turn</div>
+    <h2>Exercise title</h2>
+    <div class="exercise-grid">
+      <div class="task-list">
+        <div class="task"><div>First task to complete.</div></div>
+        <div class="task"><div>Second task.</div></div>
+        <div class="task"><div>Third task.</div></div>
+      </div>
+      <div class="exercise-aside">
+        <div class="ea-title">Hints</div>
+        <ul><li>Hint one.</li><li>Hint two.</li></ul>
+        <div class="time">⏱ NN minutes</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- [QUOTE / CALLOUT] wrap key words in <span class="hi"> -->
+  <section class="slide s-callout grid" data-label="Quote">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>NN</b> / TT</div></div>
+    <div class="mark">"</div>
+    <blockquote>A memorable line with a <span class="hi">key idea</span> students should keep.</blockquote>
+    <div class="attr">attribution or context</div>
+  </section>
+
+  <!-- [REMEMBER · boxed] alternative callout you can drop inside a .frame -->
+  <section class="slide" data-label="Remember">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>NN</b> / TT</div></div>
+    <div class="frame center">
+      <div class="eyebrow">Eyebrow / kicker</div>
+      <h2 class="slide-title">Remember this</h2>
+      <div class="remember">
+        <div class="r-tag">Remember</div>
+        <p>The one thing to take away, with a <b>key phrase</b> emphasised.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- [RECAP] 2×2 grid of .recap-card -->
+  <section class="slide" data-label="Recap">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>NN</b> / TT</div></div>
+    <div class="frame">
+      <div class="eyebrow">What you learned</div>
+      <h2 class="slide-title">Recap</h2>
+      <div class="recap-grid">
+        <div class="recap-card"><span class="rc-check">✓</span><div class="rc-num">01</div><div class="rc-title">Point</div><div class="rc-desc">One-line summary.</div></div>
+        <div class="recap-card"><span class="rc-check">✓</span><div class="rc-num">02</div><div class="rc-title">Point</div><div class="rc-desc">One-line summary.</div></div>
+        <div class="recap-card"><span class="rc-check">✓</span><div class="rc-num">03</div><div class="rc-title">Point</div><div class="rc-desc">One-line summary.</div></div>
+        <div class="recap-card"><span class="rc-check">✓</span><div class="rc-num">04</div><div class="rc-title">Point</div><div class="rc-desc">One-line summary.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- [CLOSE] reuse the title component -->
+  <section class="slide s-title grid" data-label="Close">
+    <div class="prompt">stage-NN · complete</div>
+    <h1>Questions?<span class="cursor"></span></h1>
+    <p class="subtitle">A closing instruction or homework prompt.</p>
+    <div class="stages"><span class="on">erxes / frontend</span><span class="sep">·</span><span>stage NN</span></div>
+  </section>
+
+</deck-stage>
+<script type="application/json" id="speaker-notes">{}</script>
+<script src="deck-stage.js"></script>
+</body>
+</html>

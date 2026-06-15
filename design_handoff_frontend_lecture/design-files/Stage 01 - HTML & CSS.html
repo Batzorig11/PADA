@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>erxes · Stage 01 — HTML &amp; CSS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Noto+Sans+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="theme.css" />
+<style>
+  html, body { margin: 0; background: #050705; }
+  deck-stage:not(:defined) { visibility: hidden; }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+  <!-- ============================================================ 01 · TITLE -->
+  <section class="slide s-title grid" data-label="Title">
+    <div class="prompt anim">stage-01 · html &amp; css</div>
+    <h1 class="anim anim-2">Building<br/>for the Web<span class="cursor"></span></h1>
+    <p class="subtitle anim anim-3">The structure and style behind every page you have ever visited — starting from absolute zero.</p>
+    <div class="stages anim anim-4">
+      <span class="on">01 · HTML &amp; CSS</span><span class="sep">→</span>
+      <span>02 · JavaScript</span><span class="sep">→</span>
+      <span>03 · React &amp; Next.js</span>
+    </div>
+  </section>
+
+  <!-- ============================================================ 02 · ROADMAP -->
+  <section class="slide" data-label="Roadmap">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>02</b> / 30</div></div>
+    <div class="frame">
+      <div class="eyebrow anim">Today · 2–3 hours</div>
+      <h2 class="slide-title anim anim-2">Where we are headed</h2>
+      <div class="concept-list anim anim-3">
+        <div class="item"><div class="idx">01</div><div><div class="it-title">How the web works</div><div class="it-desc">Clients, servers, and what the browser does with your files.</div></div></div>
+        <div class="item"><div class="idx">02</div><div><div class="it-title">HTML — structure</div><div class="it-desc">Tags, elements, and the document tree that holds your content.</div></div></div>
+        <div class="item"><div class="idx">03</div><div><div class="it-title">CSS — style</div><div class="it-desc">Selectors, the box model, color, and layout with flexbox.</div></div></div>
+        <div class="item"><div class="idx">04</div><div><div class="it-title">Your tooling</div><div class="it-desc">The terminal and a live dev server you'll use every day.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ 03 · STAT / WHY -->
+  <section class="slide s-stat grid" data-label="Why it matters">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>03</b> / 30</div></div>
+    <div class="bignum anim">3</div>
+    <div class="stat-label anim anim-2">languages run every website on Earth — and you start the first one today.</div>
+    <div class="stat-sub anim anim-3">HTML gives structure · CSS gives style · JavaScript gives behaviour.</div>
+  </section>
+
+  <!-- ============================================================ 04 · SECTION 01 -->
+  <section class="slide s-divider grid" data-label="§ How the web works">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>04</b> / 30</div></div>
+    <div class="ghost">01</div>
+    <div class="body">
+      <div class="ghost-sm anim">SECTION 01</div>
+      <h1 class="anim anim-2">How the<br/>Web Works</h1>
+      <p class="anim anim-3">Before we write a tag, let's see what happens when you open a page.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ 05 · CLIENT/SERVER DIAGRAM -->
+  <section class="slide" data-label="Client & server">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>05</b> / 30</div></div>
+    <div class="frame">
+      <div class="eyebrow anim">The request</div>
+      <h2 class="slide-title anim anim-2">Client and server</h2>
+      <div class="diagram anim anim-3">
+        <div class="node accent"><div class="n-title">Browser</div><div class="n-sub">the client · your machine</div></div>
+        <div class="arrow"><span class="lbl">GET /index.html</span></div>
+        <div class="node"><div class="n-title">Server</div><div class="n-sub">stores the files</div></div>
+      </div>
+      <div class="diagram anim anim-4" style="margin-top:40px;">
+        <div class="node"><div class="n-title">Server</div><div class="n-sub">sends them back</div></div>
+        <div class="arrow"><span class="lbl">200 OK · files</span></div>
+        <div class="node accent"><div class="n-title">Browser</div><div class="n-sub">renders the page</div></div>
+      </div>
+      <p class="code-caption anim anim-4" style="margin-top:54px;">You type a URL, the browser <b>asks</b> a server for files, and the server <b>answers</b>. That round-trip is the whole web in one sentence.</p>
+    </div>
+    <div class="footer"><span class="tag">§01 how the web works</span><span>request / response</span></div>
+  </section>
+
+  <!-- ============================================================ 06 · WHAT THE BROWSER DOES -->
+  <section class="slide" data-label="What the browser does">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>06</b> / 30</div></div>
+    <div class="frame">
+      <div class="eyebrow anim">Inside the browser</div>
+      <h2 class="slide-title anim anim-2">From files to pixels</h2>
+      <div class="concept-list num anim anim-3" style="margin-top:48px;">
+        <div class="item"><div class="idx">01</div><div><div class="it-title">Parse</div><div class="it-desc">Read the HTML and build a tree of elements called the <span class="inline-code">DOM</span>.</div></div></div>
+        <div class="item"><div class="idx">02</div><div><div class="it-title">Style</div><div class="it-desc">Match every CSS rule to elements and compute each one's box.</div></div></div>
+        <div class="item"><div class="idx">03</div><div><div class="it-title">Layout &amp; Paint</div><div class="it-desc">Work out where each box goes, then draw the pixels to your screen.</div></div></div>
+      </div>
+    </div>
+    <div class="footer"><span class="tag">§01 how the web works</span><span>render pipeline</span></div>
+  </section>
+
+  <!-- ============================================================ 07 · THREE LANGUAGES TABLE -->
+  <section class="slide" data-label="Three languages">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>07</b> / 30</div></div>
+    <div class="frame">
+      <div class="eyebrow anim">Division of labour</div>
+      <h2 class="slide-title anim anim-2">Three languages, three jobs</h2>
+      <table class="ctable anim anim-3">
+        <thead><tr><th style="width:20%">Language</th><th style="width:26%">Job</th><th>Analogy — building a house</th></tr></thead>
+        <tbody>
+          <tr><td>HTML</td><td>Structure &amp; content</td><td>The frame, walls, and rooms — what is there.</td></tr>
+          <tr><td>CSS</td><td>Presentation</td><td>Paint, furniture, layout — how it looks.</td></tr>
+          <tr><td>JavaScript</td><td>Behaviour</td><td>Lights, doors, plumbing — what it does.</td></tr>
+        </tbody>
+      </table>
+      <p class="code-caption anim anim-4">Today is <b>HTML and CSS</b> — the structure and the style. JavaScript is Stage 02.</p>
+    </div>
+    <div class="footer"><span class="tag">§01 how the web works</span><span>html · css · js</span></div>
+  </section>
+
+  <!-- ============================================================ 08 · SECTION 02 -->
+  <section class="slide s-divider grid" data-label="§ HTML: Structure">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>08</b> / 30</div></div>
+    <div class="ghost">02</div>
+    <div class="body">
+      <div class="ghost-sm anim">SECTION 02</div>
+      <h1 class="anim anim-2">HTML —<br/>Structure</h1>
+      <p class="anim anim-3">The skeleton of every page: content wrapped in meaningful tags.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ 09 · KEY TERM HTML -->
+  <section class="slide s-keyterm grid" data-label="Key term: HTML">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>09</b> / 30</div></div>
+    <div class="label-chip anim">Key term</div>
+    <h1 class="anim anim-2">HTML</h1>
+    <p class="def anim anim-3"><b>HyperText Markup Language.</b> You wrap your content in <span class="inline-code">tags</span> to give it meaning — this is a heading, that is a paragraph, this is a button.</p>
+    <div class="note anim anim-4">not a programming language — a markup language</div>
+  </section>
+
+  <!-- ============================================================ 10 · ANATOMY OF A TAG -->
+  <section class="slide" data-label="Anatomy of an element">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>10</b> / 30</div></div>
+    <div class="frame">
+      <div class="eyebrow anim">Read it slowly</div>
+      <h2 class="slide-title anim anim-2">Anatomy of an element</h2>
+      <div class="codewin numbered anim anim-3" style="margin-top:50px;">
+        <div class="titlebar"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span><span class="fname"><b>profile.html</b></span><span class="lang">html</span></div>
+<pre><span class="line"><span class="tk-punct">&lt;</span><span class="tk-tag">a</span> <span class="tk-attr">href</span><span class="tk-punct">=</span><span class="tk-str">"/signup"</span><span class="tk-punct">&gt;</span>Create account<span class="tk-punct">&lt;/</span><span class="tk-tag">a</span><span class="tk-punct">&gt;</span></span></pre>
+      </div>
+      <div class="diagram anim anim-4" style="margin-top:44px; justify-content:flex-start; gap:70px;">
+        <div><div style="font-size:30px;color:var(--s-tag);font-weight:700;">&lt;a&gt;</div><div style="font-size:24px;color:var(--muted);margin-top:8px;">opening tag</div></div>
+        <div><div style="font-size:30px;color:var(--s-attr);font-weight:700;">href="/signup"</div><div style="font-size:24px;color:var(--muted);margin-top:8px;">attribute</div></div>
+        <div><div style="font-size:30px;color:var(--fg);font-weight:700;">Create account</div><div style="font-size:24px;color:var(--muted);margin-top:8px;">content</div></div>
+        <div><div style="font-size:30px;color:var(--s-tag);font-weight:700;">&lt;/a&gt;</div><div style="font-size:24px;color:var(--muted);margin-top:8px;">closing tag</div></div>
+      </div>
+    </div>
+    <div class="footer"><span class="tag">§02 html: structure</span><span>elements</span></div>
+  </section>
+
+  <!-- ============================================================ 11 · FIRST PAGE (CODE + HIGHLIGHT) -->
+  <section class="slide" data-label="Your first page">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>11</b> / 30</div></div>
+    <div class="frame">
+      <div class="eyebrow anim">The boilerplate</div>
+      <h2 class="slide-title sm anim anim-2">Your first page</h2>
+      <div class="codewin numbered sm anim anim-3" style="margin-top:40px;">
+        <div class="titlebar"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span><span class="fname"><b>index.html</b></span><span class="lang">html</span></div>
+<pre><span class="line"><span class="tk-punct">&lt;!</span><span class="tk-kw">DOCTYPE</span> <span class="tk-attr">html</span><span class="tk-punct">&gt;</span></span><span class="line"><span class="tk-punct">&lt;</span><span class="tk-tag">html</span> <span class="tk-attr">lang</span><span class="tk-punct">=</span><span class="tk-str">"mn"</span><span class="tk-punct">&gt;</span></span><span class="line"><span class="tk-punct">&lt;</span><span class="tk-tag">head</span><span class="tk-punct">&gt;</span></span><span class="line hl">  <span class="tk-punct">&lt;</span><span class="tk-tag">meta</span> <span class="tk-attr">charset</span><span class="tk-punct">=</span><span class="tk-str">"UTF-8"</span> <span class="tk-punct">/&gt;</span></span><span class="line">  <span class="tk-punct">&lt;</span><span class="tk-tag">title</span><span class="tk-punct">&gt;</span>erxes<span class="tk-punct">&lt;/</span><span class="tk-tag">title</span><span class="tk-punct">&gt;</span></span><span class="line"><span class="tk-punct">&lt;/</span><span class="tk-tag">head</span><span class="tk-punct">&gt;</span></span><span class="line"><span class="tk-punct">&lt;</span><span class="tk-tag">body</span><span class="tk-punct">&gt;</span></span><span class="line">  <span class="tk-punct">&lt;</span><span class="tk-tag">h1</span><span class="tk-punct">&gt;</span>Сайн байна уу!<span class="tk-punct">&lt;/</span><span class="tk-tag">h1</span><span class="tk-punct">&gt;</span></span><span class="line"><span class="tk-punct">&lt;/</span><span class="tk-tag">body</span><span class="tk-punct">&gt;</span></span><span class="line"><span class="tk-punct">&lt;/</span><span class="tk-tag">html</span><span class="tk-punct">&gt;</span></span></pre>
+      </div>
+      <p class="code-caption anim anim-4">The highlighted <b>charset</b> line tells the browser to read Unicode — that is what makes <b>Сайн байна уу!</b> display correctly.</p>
+    </div>
+    <div class="footer"><span class="tag">§02 html: structure</span><span>boilerplate · line 04</span></div>
+  </section>
+
+  <!-- ============================================================ 12 · COMMON ELEMENTS TABLE -->
+  <section class="slide" data-label="Common elements">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>12</b> / 30</div></div>
+    <div class="frame">
+      <div class="eyebrow anim">A starter vocabulary</div>
+      <h2 class="slide-title anim anim-2">Elements you will use daily</h2>
+      <table class="ctable anim anim-3">
+        <thead><tr><th style="width:24%">Tag</th><th style="width:30%">Meaning</th><th>Use it for</th></tr></thead>
+        <tbody>
+          <tr><td><code>&lt;h1&gt;–&lt;h6&gt;</code></td><td>Headings</td><td>Titles and section headers, most to least important.</td></tr>
+          <tr><td><code>&lt;p&gt;</code></td><td>Paragraph</td><td>A block of running text.</td></tr>
+          <tr><td><code>&lt;a&gt;</code></td><td>Anchor / link</td><td>Navigating to another page or URL.</td></tr>
+          <tr><td><code>&lt;img&gt;</code></td><td>Image</td><td>Showing a picture — needs <code>src</code> and <code>alt</code>.</td></tr>
+          <tr><td><code>&lt;ul&gt; &lt;li&gt;</code></td><td>List</td><td>A bullet list of related items.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="footer"><span class="tag">§02 html: structure</span><span>vocabulary</span></div>
+  </section>
+
+  <!-- ============================================================ 13 · DOM TREE DIAGRAM -->
+  <section class="slide" data-label="The DOM tree">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>13</b> / 30</div></div>
+    <div class="frame">
+      <div class="eyebrow anim">Nesting makes a tree</div>
+      <h2 class="slide-title anim anim-2">The document tree</h2>
+      <div class="diagram vert anim anim-3" style="margin-top:50px; gap:0;">
+        <div class="node accent"><div class="n-title">&lt;body&gt;</div></div>
+        <div class="arrow down"></div>
+        <div style="display:flex; gap:80px;">
+          <div style="display:flex; flex-direction:column; align-items:center;">
+            <div class="node"><div class="n-title">&lt;header&gt;</div></div>
+            <div class="arrow down"></div>
+            <div class="node amber"><div class="n-title">&lt;h1&gt;</div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center;">
+            <div class="node"><div class="n-title">&lt;main&gt;</div></div>
+            <div class="arrow down"></div>
+            <div style="display:flex; gap:30px;">
+              <div class="node amber"><div class="n-title">&lt;p&gt;</div></div>
+              <div class="node amber"><div class="n-title">&lt;a&gt;</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="code-caption anim anim-4" style="margin-top:50px;">Every element lives inside a <b>parent</b> and can hold <b>children</b>. The browser builds exactly this tree in memory — the DOM.</p>
+    </div>
+    <div class="footer"><span class="tag">§02 html: structure</span><span>the DOM</span></div>
+  </section>
+
+  <!-- ============================================================ 14 · SEMANTIC BEFORE/AFTER -->
+  <section class="slide" data-label="Semantic HTML">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>14</b> / 30</div></div>
+    <div class="frame">
+      <div class="eyebrow anim">Same pixels, better meaning</div>
+      <h2 class="slide-title sm anim anim-2">Write semantic HTML</h2>
+      <div class="compare anim anim-3">
+        <div class="bad">
+          <div class="col-head"><span class="badge"></span> Before · div soup</div>
+          <div class="codewin sm">
+            <div class="titlebar"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span><span class="fname"><b>page.html</b></span></div>
+<pre><span class="line del"><span class="tk-punct">&lt;</span><span class="tk-tag">div</span> <span class="tk-attr">class</span><span class="tk-punct">=</span><span class="tk-str">"top"</span><span class="tk-punct">&gt;</span></span><span class="line del">  <span class="tk-punct">&lt;</span><span class="tk-tag">div</span> <span class="tk-attr">class</span><span class="tk-punct">=</span><span class="tk-str">"title"</span><span class="tk-punct">&gt;</span>erxes<span class="tk-punct">&lt;/</span><span class="tk-tag">div</span><span class="tk-punct">&gt;</span></span><span class="line del"><span class="tk-punct">&lt;/</span><span class="tk-tag">div</span><span class="tk-punct">&gt;</span></span><span class="line"><span class="tk-com">// what is any of this?</span></span></pre>
+          </div>
+        </div>
+        <div class="good">
+          <div class="col-head"><span class="badge"></span> After · semantic tags</div>
+          <div class="codewin sm">
+            <div class="titlebar"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span><span class="fname"><b>page.html</b></span></div>
+<pre><span class="line add"><span class="tk-punct">&lt;</span><span class="tk-tag">header</span><span class="tk-punct">&gt;</span></span><span class="line add">  <span class="tk-punct">&lt;</span><span class="tk-tag">h1</span><span class="tk-punct">&gt;</span>erxes<span class="tk-punct">&lt;/</span><span class="tk-tag">h1</span><span class="tk-punct">&gt;</span></span><span class="line add"><span class="tk-punct">&lt;/</span><span class="tk-tag">header</span><span class="tk-punct">&gt;</span></span><span class="line"><span class="tk-com">// clear to humans + screen readers</span></span></pre>
+          </div>
+        </div>
+      </div>
+      <p class="code-caption anim anim-4"><b>Semantic</b> tags describe what content <b>is</b> — better for accessibility, SEO, and the next developer (often future you).</p>
+    </div>
+    <div class="footer"><span class="tag">§02 html: structure</span><span>semantics</span></div>
+  </section>
+
+  <!-- ============================================================ 15 · DO'S & DON'TS HTML -->
+  <section class="slide" data-label="HTML do's & don'ts">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>15</b> / 30</div></div>
+    <div class="frame">
+      <div class="eyebrow anim">Habits to build now</div>
+      <h2 class="slide-title anim anim-2">HTML do's &amp; don'ts</h2>
+      <div class="dos-donts anim anim-3">
+        <div class="dd-col do">
+          <div class="dd-head"><span class="badge"></span> Do</div>
+          <ul>
+            <li>Use one <code>&lt;h1&gt;</code> per page for the main title.</li>
+            <li>Always give <code>&lt;img&gt;</code> a descriptive <code>alt</code>.</li>
+            <li>Close every tag and nest them properly.</li>
+            <li>Pick the tag that matches the <i>meaning</i>.</li>
+          </ul>
+        </div>
+        <div class="dd-col dont">
+          <div class="dd-head"><span class="badge"></span> Don't</div>
+          <ul>
+            <li>Wrap everything in <code>&lt;div&gt;</code> out of habit.</li>
+            <li>Use headings just to make text big.</li>
+            <li>Skip <code>alt</code> text on images.</li>
+            <li>Put block elements inside a <code>&lt;p&gt;</code>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span class="tag">§02 html: structure</span><span>best practice</span></div>
+  </section>
+
+  <!-- ============================================================ 16 · EXERCISE: PROFILE CARD -->
+  <section class="slide s-exercise grid" data-label="Exercise: profile card">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>16</b> / 30</div></div>
+    <div class="exercise-tag anim">Your turn</div>
+    <h2 class="anim anim-2">Mark up a profile card</h2>
+    <div class="exercise-grid anim anim-3">
+      <div class="task-list">
+        <div class="task"><div>Create a new <b>profile.html</b> with the full boilerplate.</div></div>
+        <div class="task"><div>Add a heading with a person's <b>name</b>.</div></div>
+        <div class="task"><div>Add a paragraph describing their <b>role</b>.</div></div>
+        <div class="task"><div>Add an <b>image</b> with proper <code>alt</code> text.</div></div>
+        <div class="task"><div>Add a <b>link</b> to their profile page.</div></div>
+      </div>
+      <div class="exercise-aside">
+        <div class="ea-title">Hints</div>
+        <ul>
+          <li>Reach for <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;a&gt;</code>.</li>
+          <li>Wrap it all in a semantic <code>&lt;article&gt;</code>.</li>
+          <li>No styling yet — structure only.</li>
+        </ul>
+        <div class="time">⏱ 10 minutes · work in pairs</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ 17 · SECTION 03 -->
+  <section class="slide s-divider grid" data-label="§ CSS: Style">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>17</b> / 30</div></div>
+    <div class="ghost">03</div>
+    <div class="body">
+      <div class="ghost-sm anim">SECTION 03</div>
+      <h1 class="anim anim-2">CSS —<br/>Style</h1>
+      <p class="anim anim-3">Now we take that bare structure and make it look like something.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ 18 · KEY TERM CSS -->
+  <section class="slide s-keyterm grid" data-label="Key term: CSS">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>18</b> / 30</div></div>
+    <div class="label-chip anim">Key term</div>
+    <h1 class="anim anim-2">CSS</h1>
+    <p class="def anim anim-3"><b>Cascading Style Sheets.</b> You write <span class="inline-code">rules</span> that select elements and declare how they should look — color, size, spacing, and position.</p>
+    <div class="note anim anim-4">structure stays in HTML · looks live in CSS</div>
+  </section>
+
+  <!-- ============================================================ 19 · SELECTORS (CODE + HIGHLIGHT) -->
+  <section class="slide" data-label="Selectors">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>19</b> / 30</div></div>
+    <div class="frame">
+      <div class="eyebrow anim">The shape of a rule</div>
+      <h2 class="slide-title sm anim anim-2">Selectors &amp; declarations</h2>
+      <div class="codewin numbered anim anim-3" style="margin-top:44px;">
+        <div class="titlebar"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span><span class="fname"><b>style.css</b></span><span class="lang">css</span></div>
+<pre><span class="line hl"><span class="tk-sel">.card</span> <span class="tk-punct">{</span></span><span class="line">  <span class="tk-prop">background</span><span class="tk-punct">:</span> <span class="tk-num">#0e120e</span><span class="tk-punct">;</span></span><span class="line">  <span class="tk-prop">padding</span><span class="tk-punct">:</span> <span class="tk-num">24px</span><span class="tk-punct">;</span></span><span class="line">  <span class="tk-prop">border-radius</span><span class="tk-punct">:</span> <span class="tk-num">8px</span><span class="tk-punct">;</span></span><span class="line"><span class="tk-punct">}</span></span></pre>
+      </div>
+      <div class="diagram anim anim-4" style="margin-top:40px; justify-content:flex-start; gap:90px;">
+        <div><div style="font-size:30px;color:var(--s-sel);font-weight:700;">.card</div><div style="font-size:24px;color:var(--muted);margin-top:8px;">selector — what to style</div></div>
+        <div><div style="font-size:30px;color:var(--s-prop);font-weight:700;">padding:</div><div style="font-size:24px;color:var(--muted);margin-top:8px;">property</div></div>
+        <div><div style="font-size:30px;color:var(--s-num);font-weight:700;">24px;</div><div style="font-size:24px;color:var(--muted);margin-top:8px;">value</div></div>
+      </div>
+    </div>
+    <div class="footer"><span class="tag">§03 css: style</span><span>selector · property · value</span></div>
+  </section>
+
+  <!-- ============================================================ 20 · BOX MODEL (KEY TERM + DIAGRAM) -->
+  <section class="slide" data-label="The box model">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>20</b> / 30</div></div>
+    <div class="frame" style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;">
+      <div>
+        <div class="label-chip anim" style="margin-bottom:30px;">Key concept</div>
+        <h2 class="slide-title anim anim-2" style="font-size:88px;">The box model</h2>
+        <p class="lead anim anim-3">Every element is a <span class="hi">box</span> built from four layers, nested from the inside out. Master this and CSS layout stops being mysterious.</p>
+      </div>
+      <div class="anim anim-3" style="background:color-mix(in srgb, var(--danger) 14%, transparent); border:1px dashed var(--danger); padding:46px; border-radius:6px; position:relative;">
+        <span style="position:absolute;top:10px;left:16px;font-size:20px;color:var(--danger);">margin</span>
+        <div style="background:color-mix(in srgb, var(--accent2) 16%, transparent); border:1px dashed var(--accent2); padding:46px; border-radius:4px; position:relative;">
+          <span style="position:absolute;top:10px;left:16px;font-size:20px;color:var(--accent2);">border</span>
+          <div style="background:color-mix(in srgb, var(--accent) 16%, transparent); border:1px dashed var(--accent); padding:46px; border-radius:4px; position:relative;">
+            <span style="position:absolute;top:10px;left:16px;font-size:20px;color:var(--accent);">padding</span>
+            <div style="background:var(--panel2); border:1px solid var(--border-lit); padding:40px; text-align:center; border-radius:3px;">
+              <span style="font-size:30px;color:var(--fg);font-weight:700;">content</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span class="tag">§03 css: style</span><span>content · padding · border · margin</span></div>
+  </section>
+
+  <!-- ============================================================ 21 · COLORS & UNITS TABLE -->
+  <section class="slide" data-label="Colors & units">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>21</b> / 30</div></div>
+    <div class="frame">
+      <div class="eyebrow anim">Speaking CSS values</div>
+      <h2 class="slide-title anim anim-2">Colors &amp; units</h2>
+      <table class="ctable anim anim-3">
+        <thead><tr><th style="width:26%">Value</th><th style="width:24%">Kind</th><th>What it means</th></tr></thead>
+        <tbody>
+          <tr><td><code>#39d353</code></td><td>Hex color</td><td>Red-green-blue written in base-16.</td></tr>
+          <tr><td><code>16px</code></td><td>Absolute length</td><td>Exactly 16 device pixels.</td></tr>
+          <tr><td><code>1.5rem</code></td><td>Relative length</td><td>1.5× the root font size — scales nicely.</td></tr>
+          <tr><td><code>100%</code></td><td>Percentage</td><td>Relative to the parent's size.</td></tr>
+          <tr><td><code>1fr</code></td><td>Grid fraction</td><td>One share of leftover space in a grid.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="footer"><span class="tag">§03 css: style</span><span>values &amp; units</span></div>
+  </section>
+
+  <!-- ============================================================ 22 · FLEXBOX (CODE + RESULT) -->
+  <section class="slide" data-label="Flexbox basics">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>22</b> / 30</div></div>
+    <div class="frame">
+      <div class="eyebrow anim">Layout, the modern way</div>
+      <h2 class="slide-title sm anim anim-2">Flexbox in three lines</h2>
+      <div class="code-split anim anim-3" style="margin-top:44px;">
+        <div class="codewin sm">
+          <div class="titlebar"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span><span class="fname"><b>style.css</b></span><span class="lang">css</span></div>
+<pre><span class="line"><span class="tk-sel">.row</span> <span class="tk-punct">{</span></span><span class="line hl">  <span class="tk-prop">display</span><span class="tk-punct">:</span> <span class="tk-kw">flex</span><span class="tk-punct">;</span></span><span class="line hl">  <span class="tk-prop">gap</span><span class="tk-punct">:</span> <span class="tk-num">16px</span><span class="tk-punct">;</span></span><span class="line hl">  <span class="tk-prop">justify-content</span><span class="tk-punct">:</span> <span class="tk-kw">center</span><span class="tk-punct">;</span></span><span class="line"><span class="tk-punct">}</span></span></pre>
+        </div>
+        <div class="result-pane">
+          <div class="rp-bar">rendered result</div>
+          <div class="rp-body" style="display:flex; gap:16px; justify-content:center; align-items:center; background:#0e120e;">
+            <div style="background:#39d353;color:#080a08;font-weight:700;padding:24px 30px;border-radius:6px;font-family:var(--font-mono);font-size:26px;">A</div>
+            <div style="background:#39d353;color:#080a08;font-weight:700;padding:24px 30px;border-radius:6px;font-family:var(--font-mono);font-size:26px;">B</div>
+            <div style="background:#39d353;color:#080a08;font-weight:700;padding:24px 30px;border-radius:6px;font-family:var(--font-mono);font-size:26px;">C</div>
+          </div>
+        </div>
+      </div>
+      <p class="code-caption anim anim-4"><b>display: flex</b> turns any element into a flexible row — <b>gap</b> spaces the children, <b>justify-content</b> aligns them.</p>
+    </div>
+    <div class="footer"><span class="tag">§03 css: style</span><span>flexbox</span></div>
+  </section>
+
+  <!-- ============================================================ 23 · REMEMBER CALLOUT -->
+  <section class="slide s-callout grid" data-label="Remember this">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>23</b> / 30</div></div>
+    <div class="mark anim">"</div>
+    <blockquote class="anim anim-2">HTML is the <span class="hi">noun</span>, CSS is the <span class="hi">adjective</span>. Structure first — always — then style.</blockquote>
+    <div class="attr anim anim-3">remember this when a page looks broken</div>
+  </section>
+
+  <!-- ============================================================ 24 · EXERCISE: STYLE THE CARD -->
+  <section class="slide s-exercise grid" data-label="Exercise: style the card">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>24</b> / 30</div></div>
+    <div class="exercise-tag anim">Your turn</div>
+    <h2 class="anim anim-2">Style your profile card</h2>
+    <div class="exercise-grid anim anim-3">
+      <div class="task-list">
+        <div class="task"><div>Link a <b>style.css</b> file in your <code>&lt;head&gt;</code>.</div></div>
+        <div class="task"><div>Give the card <b>padding</b>, a <b>background</b>, and a <b>border-radius</b>.</div></div>
+        <div class="task"><div>Use <b>flexbox</b> to place the image beside the text.</div></div>
+        <div class="task"><div>Pick a color palette with two or three colors.</div></div>
+      </div>
+      <div class="exercise-aside">
+        <div class="ea-title">Hints</div>
+        <ul>
+          <li><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></li>
+          <li>Start with <code>display: flex; gap: 16px;</code></li>
+          <li>Reuse the box-model layers from slide 20.</li>
+        </ul>
+        <div class="time">⏱ 15 minutes · ask for help</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ 25 · SECTION 04 -->
+  <section class="slide s-divider grid" data-label="§ Your tooling">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>25</b> / 30</div></div>
+    <div class="ghost">04</div>
+    <div class="body">
+      <div class="ghost-sm anim">SECTION 04</div>
+      <h1 class="anim anim-2">Your<br/>Tooling</h1>
+      <p class="anim anim-3">The two tools you will touch every single day as a developer.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ 26 · THE TERMINAL -->
+  <section class="slide" data-label="The terminal">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>26</b> / 30</div></div>
+    <div class="frame">
+      <div class="eyebrow anim">Talking to your computer</div>
+      <h2 class="slide-title sm anim anim-2">The terminal</h2>
+      <div class="terminal anim anim-3" style="margin-top:44px;">
+        <div class="term-bar"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span><span class="title">zsh — ~/projects</span></div>
+        <div class="term-body">
+          <span class="comment"># make a folder for the project</span>
+          <span class="cmd"><span class="arg">mkdir</span> my-first-site</span>
+          <span class="cmd"><span class="arg">cd</span> my-first-site</span>
+          <span class="comment"># create the starter file</span>
+          <span class="cmd"><span class="arg">touch</span> index.html</span>
+          <span class="cmd"><span class="arg">ls</span></span>
+          <span class="out ok">index.html</span>
+          <span class="cmd cursor-line"></span>
+        </div>
+      </div>
+      <p class="code-caption anim anim-4">A few typed commands replace a lot of clicking. <b>mkdir</b> makes folders, <b>cd</b> moves into them, <b>ls</b> lists what's there.</p>
+    </div>
+    <div class="footer"><span class="tag">§04 your tooling</span><span>command line</span></div>
+  </section>
+
+  <!-- ============================================================ 27 · DEV SERVER -->
+  <section class="slide" data-label="Live dev server">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>27</b> / 30</div></div>
+    <div class="frame">
+      <div class="eyebrow anim">See changes instantly</div>
+      <h2 class="slide-title sm anim anim-2">A live preview server</h2>
+      <div class="terminal anim anim-3" style="margin-top:44px;">
+        <div class="term-bar"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span><span class="title">zsh — ~/my-first-site</span></div>
+        <div class="term-body">
+          <span class="comment"># start a local server with live reload</span>
+          <span class="cmd"><span class="arg">npx</span> serve <span class="flag">.</span></span>
+          <span class="out">┌────────────────────────────────────┐</span>
+          <span class="out">│   Serving!                         │</span>
+          <span class="out ok">│   Local:  http://localhost:3000    │</span>
+          <span class="out">└────────────────────────────────────┘</span>
+          <span class="cmd cursor-line"></span>
+        </div>
+      </div>
+      <p class="code-caption anim anim-4">Open <b>localhost:3000</b> in your browser. Save the file, refresh, and your change is there. This is the loop you will live in.</p>
+    </div>
+    <div class="footer"><span class="tag">§04 your tooling</span><span>localhost</span></div>
+  </section>
+
+  <!-- ============================================================ 28 · RECAP -->
+  <section class="slide" data-label="Recap">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>28</b> / 30</div></div>
+    <div class="frame">
+      <div class="eyebrow anim">Stage 01 · what you learned</div>
+      <h2 class="slide-title anim anim-2">Recap</h2>
+      <div class="recap-grid anim anim-3">
+        <div class="recap-card"><span class="rc-check">✓</span><div class="rc-num">01</div><div class="rc-title">The web</div><div class="rc-desc">A client asks a server for files; the browser parses, styles, and paints them.</div></div>
+        <div class="recap-card"><span class="rc-check">✓</span><div class="rc-num">02</div><div class="rc-title">HTML structure</div><div class="rc-desc">Semantic tags nest into a tree — the DOM — that carries your content's meaning.</div></div>
+        <div class="recap-card"><span class="rc-check">✓</span><div class="rc-num">03</div><div class="rc-title">CSS style</div><div class="rc-desc">Selectors and the box model control color, spacing, and flexbox layout.</div></div>
+        <div class="recap-card"><span class="rc-check">✓</span><div class="rc-num">04</div><div class="rc-title">Tooling</div><div class="rc-desc">The terminal and a live dev server are your everyday workflow.</div></div>
+      </div>
+    </div>
+    <div class="footer"><span class="tag">erxes · stage 01 complete</span><span>html &amp; css</span></div>
+  </section>
+
+  <!-- ============================================================ 29 · WHAT'S NEXT -->
+  <section class="slide" data-label="What's next">
+    <div class="brandbar"><div class="b-logo">erxes<span>/</span>frontend</div><div class="pagenum"><b>29</b> / 30</div></div>
+    <div class="frame center">
+      <div class="eyebrow amber anim">Coming up · Stage 02</div>
+      <h2 class="slide-title anim anim-2" style="font-size:96px;">Make it move<br/>with JavaScript</h2>
+      <p class="lead anim anim-3">You can structure and style a page. Next we add <span class="hi-amber">behaviour</span> — responding to clicks, changing content, and bringing pages to life.</p>
+      <div class="stages anim anim-4" style="display:flex; gap:22px; font-size:28px; color:var(--muted); margin-top:60px;">
+        <span style="color:var(--accent)">✓ 01 HTML &amp; CSS</span><span style="opacity:.4">→</span>
+        <span style="color:var(--accent2)">02 JavaScript</span><span style="opacity:.4">→</span>
+        <span>03 React &amp; Next.js</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ 30 · CLOSE -->
+  <section class="slide s-title grid" data-label="Questions">
+    <div class="prompt anim">stage-01 · complete</div>
+    <h1 class="anim anim-2">Questions?<span class="cursor"></span></h1>
+    <p class="subtitle anim anim-3">Build the profile card tonight. Bring it next session — we will make it interactive.</p>
+    <div class="stages anim anim-4"><span class="on">erxes / frontend</span><span class="sep">·</span><span>stage 01 — html &amp; css</span></div>
+  </section>
+
+  <!-- APPEND-MARKER -->
+
+</deck-stage>
+<script type="application/json" id="speaker-notes">{}</script>
+<script src="deck-stage.js"></script>
+</body>
+</html>
