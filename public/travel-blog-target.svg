@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="560" viewBox="0 0 460 560" font-family="'Times New Roman', Times, serif">
+  <rect width="460" height="560" fill="#ffffff"/>
+
+  <!-- h1 (32px bold serif, black) -->
+  <text x="24" y="52" font-size="32" font-weight="700" fill="#000">Миний аяллын блог</text>
+
+  <!-- intro paragraph (16px black, hand-wrapped) -->
+  <text x="24" y="86" font-size="16" fill="#000">Сайн байна уу! Энэ бол миний аялсан</text>
+  <text x="24" y="108" font-size="16" fill="#000">газруудын тэмдэглэл.</text>
+
+  <!-- h2 (24px bold) -->
+  <text x="24" y="152" font-size="24" font-weight="700" fill="#000">Очсон газрууд</text>
+
+  <!-- ul item 1: disc bullet + place, with image below -->
+  <circle cx="46" cy="180" r="3.5" fill="#000"/>
+  <text x="60" y="185" font-size="16" fill="#000">Улаанбаатар — нийслэл хот</text>
+  <rect x="60" y="196" width="200" height="110" fill="#fff" stroke="#cccccc"/>
+  <polygon points="60,306 120,236 165,306" fill="#dddddd"/>
+  <polygon points="140,306 200,250 260,306" fill="#e6e6e6"/>
+  <circle cx="230" cy="222" r="13" fill="#e0e0e0"/>
+
+  <!-- ul item 2 -->
+  <circle cx="46" cy="338" r="3.5" fill="#000"/>
+  <text x="60" y="343" font-size="16" fill="#000">Хөвсгөл нуур — цэнгэг устай</text>
+  <rect x="60" y="354" width="200" height="110" fill="#fff" stroke="#cccccc"/>
+  <polygon points="60,464 130,388 185,464" fill="#dddddd"/>
+  <polygon points="160,464 215,404 260,464" fill="#e6e6e6"/>
+  <circle cx="228" cy="382" r="13" fill="#e0e0e0"/>
+
+  <!-- links: blue, underlined (relative + absolute) -->
+  <text x="24" y="500" font-size="16" fill="#0000EE" text-decoration="underline">Бидний тухай</text>
+  <text x="24" y="528" font-size="16" fill="#0000EE" text-decoration="underline">Аялалын зөвлөгөө »</text>
+</svg>

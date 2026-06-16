@@ -26,9 +26,31 @@ const lessons: Lesson[] = [
   },
   {
     num: "03",
-    title: "CSS-ээр загварчлах",
-    desc: "Сонгогч, өнгө, зай, фонт болон байршил — HTML бүтцээ амьд харагдуулах нь.",
-    foot: "Удахгүй",
+    title: "Текст, жагсаалт, холбоос, зураг",
+    desc: "Текст форматлах тагууд, жагсаалт (ul/ol), холбоос ба зам (path), зураг — контентоор баялаг хуудас бүтээх нь.",
+    foot: "Хичээл нээх · 23 слайд",
+    href: "/lesson-03",
+  },
+  {
+    num: "04",
+    title: "Хүснэгт ба форм",
+    desc: "table / tr / th / td-ээр өгөгдөл харуулж, form, input, label-аар хэрэглэгчээс мэдээлэл цуглуулах нь.",
+    foot: "Хичээл нээх · 20 слайд",
+    href: "/lesson-04",
+  },
+  {
+    num: "05",
+    title: "Семантик HTML ба бүтэц",
+    desc: "header / nav / main / footer гэх утга бүхий тагууд, хүртээмж (accessibility) ба SEO-д үзүүлэх нөлөө.",
+    foot: "Хичээл нээх · 21 слайд",
+    href: "/lesson-05",
+  },
+  {
+    num: "06",
+    title: "CSS-тэй танилцах, сонгогч, өнгө",
+    desc: "CSS холбох 3 арга, element/class/id сонгогч, specificity ба cascade, өнгө (hex/rgb/hsl) ба background.",
+    foot: "Хичээл нээх · 22 слайд",
+    href: "/lesson-06",
   },
 ];
 
@@ -84,8 +106,11 @@ export default function HubPage() {
           <Link className={styles.tool} href="/class-intro">
             <span className={styles.k}>›</span> Ангийн танилцуулга — 3 слайд
           </Link>
+          <Link className={styles.tool} href="/lesson-template">
+            <span className={styles.k}>+</span> 3 цагийн хичээлийн бүтэц — загвар нээх
+          </Link>
           <Link className={styles.tool} href="/template">
-            <span className={styles.k}>+</span> Шинэ хичээл — загвар нээх
+            <span className={styles.k}>+</span> Компонентийн багц — бүх слайд төрөл
           </Link>
         </div>
 

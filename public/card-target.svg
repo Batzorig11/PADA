@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="240" viewBox="0 0 460 240" font-family="'Times New Roman', Times, serif">
+  <defs>
+    <!-- linear-gradient background (hex + hsl colour stops) -->
+    <linearGradient id="cardbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#11a8cd"/>
+    </linearGradient>
+  </defs>
+
+  <!-- white page (body default) -->
+  <rect width="460" height="240" fill="#ffffff"/>
+
+  <!-- .card div: full content width, gradient background, sharp corners,
+       NO padding/border/radius (box model not taught yet) -->
+  <rect x="8" y="24" width="444" height="172" fill="url(#cardbg)"/>
+
+  <!-- heading inside card: coloured (hex) serif text, flush to the edge (no padding) -->
+  <text x="14" y="70" font-size="26" font-weight="700" fill="#ffffff">Картын гарчиг</text>
+
+  <!-- paragraph: coloured serif text, hand-wrapped, flush left -->
+  <text x="14" y="108" font-size="16" fill="#ffffff">Энэ бол өнгөлсөн картын жишээ.</text>
+  <text x="14" y="132" font-size="16" fill="#ffffff">Дэвсгэр нь өнгөний шилжилттэй,</text>
+  <text x="14" y="156" font-size="16" fill="#ffffff">текст нь цайвар өнгөтэй.</text>
+</svg>

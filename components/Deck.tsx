@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   Children,
   useCallback,
@@ -150,6 +151,10 @@ export default function Deck({ children }: { children: ReactNode }) {
         aria-label="Deck controls"
         {...(overlayVisible ? { "data-visible": "" } : {})}
       >
+        <Link href="/" aria-label="Нүүр хуудас" title="Нүүр хуудас (Home)">
+          ⌂
+        </Link>
+        <span className="divider" aria-hidden="true" />
         <button
           type="button"
           aria-label="Previous slide"

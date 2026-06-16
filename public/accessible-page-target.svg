@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="500" viewBox="0 0 460 500" font-family="'Times New Roman', Times, serif">
+  <rect width="460" height="500" fill="#ffffff"/>
+
+  <!-- header > h1 -->
+  <text x="24" y="44" font-size="28" font-weight="700" fill="#000">Миний аяллын блог</text>
+
+  <!-- nav > ul of links (disc bullets, blue underlined) -->
+  <circle cx="46" cy="70" r="3.5" fill="#000"/>
+  <text x="60" y="75" font-size="16" fill="#0000EE" text-decoration="underline">Нүүр</text>
+  <circle cx="46" cy="96" r="3.5" fill="#000"/>
+  <text x="60" y="101" font-size="16" fill="#0000EE" text-decoration="underline">Бидний тухай</text>
+
+  <!-- hr (inset gray rule) -->
+  <line x1="24" y1="118" x2="436" y2="118" stroke="#808080" stroke-width="1"/>
+
+  <!-- main > h2 -->
+  <text x="24" y="152" font-size="24" font-weight="700" fill="#000">Очсон газрууд</text>
+
+  <!-- list item 1 + image -->
+  <circle cx="46" cy="180" r="3.5" fill="#000"/>
+  <text x="60" y="185" font-size="16" fill="#000">Улаанбаатар — нийслэл хот</text>
+  <rect x="60" y="196" width="190" height="96" fill="#fff" stroke="#cccccc"/>
+  <polygon points="60,292 115,232 158,292" fill="#dddddd"/>
+  <polygon points="135,292 190,242 245,292" fill="#e6e6e6"/>
+  <circle cx="220" cy="220" r="12" fill="#e0e0e0"/>
+
+  <!-- list item 2 + image -->
+  <circle cx="46" cy="324" r="3.5" fill="#000"/>
+  <text x="60" y="329" font-size="16" fill="#000">Хөвсгөл нуур — цэнгэг устай</text>
+  <rect x="60" y="340" width="190" height="96" fill="#fff" stroke="#cccccc"/>
+  <polygon points="60,436 122,378 175,436" fill="#dddddd"/>
+  <polygon points="150,436 200,388 245,436" fill="#e6e6e6"/>
+  <circle cx="218" cy="368" r="12" fill="#e0e0e0"/>
+
+  <!-- footer -->
+  <line x1="24" y1="458" x2="436" y2="458" stroke="#808080" stroke-width="1"/>
+  <text x="24" y="484" font-size="15" fill="#000">© 2026 Миний аяллын блог</text>
+</svg>

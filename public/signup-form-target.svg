@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="470" viewBox="0 0 460 470" font-family="'Times New Roman', Times, serif">
+  <rect width="460" height="470" fill="#ffffff"/>
+
+  <!-- h1 (32px bold serif) -->
+  <text x="24" y="44" font-size="28" font-weight="700" fill="#000">Бүртгүүлэх</text>
+
+  <!-- Нэр: label + text input (native: white box, ~1px #767676 border) -->
+  <text x="24" y="78" font-size="16" fill="#000">Нэр</text>
+  <rect x="24" y="86" width="280" height="24" fill="#ffffff" stroke="#767676"/>
+  <text x="32" y="103" font-size="14" fill="#767676">Таны нэр</text>
+
+  <!-- И-мэйл: label + email input -->
+  <text x="24" y="136" font-size="16" fill="#000">И-мэйл</text>
+  <rect x="24" y="144" width="280" height="24" fill="#ffffff" stroke="#767676"/>
+  <text x="32" y="161" font-size="14" fill="#767676">name@example.com</text>
+
+  <!-- Нууц үг: label + password input (masked dots) -->
+  <text x="24" y="194" font-size="16" fill="#000">Нууц үг</text>
+  <rect x="24" y="202" width="280" height="24" fill="#ffffff" stroke="#767676"/>
+  <text x="32" y="220" font-size="15" fill="#000" letter-spacing="2">••••••••</text>
+
+  <!-- Хот: label + select (white box + native down arrow) -->
+  <text x="24" y="252" font-size="16" fill="#000">Хот</text>
+  <rect x="24" y="260" width="200" height="24" fill="#ffffff" stroke="#767676"/>
+  <text x="32" y="277" font-size="14" fill="#000">Улаанбаатар</text>
+  <rect x="200" y="260" width="24" height="24" fill="#e8e8e8" stroke="#767676"/>
+  <path d="M206 268 L212 275 L218 268 Z" fill="#000"/>
+
+  <!-- Сэтгэгдэл: label + textarea (taller box + resize corner) -->
+  <text x="24" y="310" font-size="16" fill="#000">Сэтгэгдэл</text>
+  <rect x="24" y="318" width="280" height="66" fill="#ffffff" stroke="#767676"/>
+  <path d="M298 378 L298 384 L292 384 Z" fill="#999999"/>
+  <line x1="296" y1="380" x2="300" y2="378" stroke="#999999"/>
+
+  <!-- Бүртгүүлэх: submit button (native: #efefef, 2px outset #808080 bevel) -->
+  <rect x="24" y="404" width="120" height="30" fill="#efefef" stroke="#808080" stroke-width="2"/>
+  <text x="84" y="424" font-size="15" fill="#000" text-anchor="middle">Бүртгүүлэх</text>
+</svg>

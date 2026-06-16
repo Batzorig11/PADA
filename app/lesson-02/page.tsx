@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Deck from "@/components/Deck";
 import {
   TitleSlide,
@@ -8,6 +7,7 @@ import {
   CompareTable,
   DosDonts,
   Exercise,
+  ExerciseFiles,
   Recap,
   Diagram,
   Node,
@@ -28,6 +28,99 @@ export const metadata = {
 };
 
 const TOTAL = "33";
+
+/* ===== Дасгалын бэлэн шийдэл (зөвхөн энэ хичээл хүртэл үзсэн HTML) ===== */
+
+const ABOUT_HTML = `<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Миний тухай</title>
+  </head>
+  <body>
+    <header>
+      <h1>Болд Бат</h1>
+    </header>
+
+    <nav>
+      <a href="about.html">Миний тухай</a>
+      <a href="projects.html">Төслүүд</a>
+      <a href="contact.html">Холбоо барих</a>
+    </nav>
+
+    <main>
+      <p>
+        Сайн байна уу! Би вэб хөгжүүлэлт сурч буй оюутан. Энэ хуудсаар
+        өөрийгөө танилцуулж байна.
+      </p>
+
+      <h2>Миний чадварууд</h2>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ul>
+    </main>
+
+    <footer>
+      <p>Холбоо барих: bold@example.com</p>
+    </footer>
+  </body>
+</html>
+`;
+
+const RECIPE_HTML = `<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Өндөгтэй будаа</title>
+  </head>
+  <body>
+    <header>
+      <h1>Өндөгтэй будаа</h1>
+    </header>
+
+    <main>
+      <h2>Орц</h2>
+      <ul>
+        <li>Цагаан будаа — 1 аяга</li>
+        <li>Өндөг — 2 ширхэг</li>
+        <li>Ногоон сонгино</li>
+        <li>Давс, цөцгийн тос</li>
+      </ul>
+
+      <h2>Хийх алхмууд</h2>
+      <ol>
+        <li>Будаагаа угааж чанна.</li>
+        <li>Тогоонд тос хайлуулна.</li>
+        <li>Өндгөө хуурна.</li>
+        <li>Будаатай хольж амтална.</li>
+      </ol>
+
+      <h2>Шим тэжээл</h2>
+      <table border="1">
+        <tr>
+          <th>Шим тэжээл</th>
+          <th>Хэмжээ</th>
+        </tr>
+        <tr>
+          <td>Илчлэг</td>
+          <td>420 ккал</td>
+        </tr>
+        <tr>
+          <td>Уураг</td>
+          <td>15 г</td>
+        </tr>
+      </table>
+    </main>
+
+    <footer>
+      <p>Зохиогч: Сараа</p>
+      <a href="recipes.html">Бусад жор үзэх</a>
+    </footer>
+  </body>
+</html>
+`;
 
 export default function Lesson02() {
   return (
@@ -1067,12 +1160,13 @@ export default function Lesson02() {
             <code>&lt;footer&gt;</code>-т холбоо барих мэдээлэл нэм.
           </>,
         ]}
-        hints={[
-          "Бүх зургийн alt-ыг бичихээ мартуузай.",
-          "div-ийн оронд семантик таг сонго.",
-          "Толгойноос хөл рүү дарааллаар нь бод.",
-        ]}
-        time="⏱ 15-20 минут"
+        aside={
+          <ExerciseFiles
+            className="anim anim-4"
+            caption="⏱ 15-20 минут"
+            files={[{ name: "about.html", lang: "html", code: ABOUT_HTML }]}
+          />
+        }
       />
 
       {/* 27 · ХЭСЭГ 05 — ДАДЛАГА */}
@@ -1325,18 +1419,11 @@ export default function Lesson02() {
           </>,
         ]}
         aside={
-          <div className="exercise-target anim anim-4">
-            <div className="et-cap">Эцсийн үр дүн · ⏱ 20-25 минут</div>
-            <div className="et-img">
-              <Image
-                src="/recipe-target.svg"
-                alt="Жорын хуудасны эцсийн үр дүн — гарчиг, орцын жагсаалт, дугаартай алхмууд, шим тэжээлийн хүснэгт, хөлийн холбоо барих хэсэг"
-                width={460}
-                height={620}
-                unoptimized
-              />
-            </div>
-          </div>
+          <ExerciseFiles
+            className="anim anim-4"
+            caption="⏱ 20-25 минут"
+            files={[{ name: "recipe.html", lang: "html", code: RECIPE_HTML }]}
+          />
         }
       />
 

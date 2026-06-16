@@ -25,6 +25,7 @@ export {
   ConceptList,
   KeyTerm,
   StatSlide,
+  Break,
   CompareTable,
   DosDonts,
   Exercise,
@@ -42,3 +43,6 @@ export {
   type ConceptItem,
   type RecapCard,
 } from "./blocks";
+
+// Exercise solution files (copy-to-clipboard, code hidden)
+export { ExerciseFiles, type SolutionFile } from "./ExerciseFiles";

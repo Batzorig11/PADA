@@ -102,12 +102,14 @@ body {
   user-select: none;
 }
 .deck-overlay[data-visible] { opacity: 1; pointer-events: auto; }
-.deck-overlay button {
+.deck-overlay button,
+.deck-overlay a {
   appearance: none;
   background: transparent;
   border: 0;
   color: rgba(255, 255, 255, 0.72);
   font: inherit;
+  text-decoration: none;
   width: 28px;
   height: 28px;
   border-radius: 999px;
@@ -117,7 +119,11 @@ body {
   justify-content: center;
   transition: background 0.14s ease, color 0.14s ease;
 }
-.deck-overlay button:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+.deck-overlay button:hover,
+.deck-overlay a:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+.deck-overlay .divider {
+  width: 1px; height: 16px; background: rgba(255, 255, 255, 0.2); margin: 0 2px;
+}
 .deck-overlay .count { padding: 0 6px; color: #fff; min-width: 56px; text-align: center; }
 .deck-overlay .count .sep { color: rgba(255, 255, 255, 0.45); margin: 0 3px; }
 .deck-overlay .count .total { color: rgba(255, 255, 255, 0.55); }
@@ -597,7 +603,51 @@ section.slide,
   align-items: center; gap: 12px;
 }
 
-/* exercise target preview — a screenshot of what to build */
+/* exercise solution files — filename + copy button, code hidden */
+.exercise-files {
+  background: var(--panel); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent); border-radius: var(--radius-lg);
+  padding: 36px 38px;
+}
+.exercise-files .ef-title {
+  font-size: 24px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 24px; display: flex; gap: 12px;
+}
+.exercise-files .ef-title::before { content: "▣"; }
+.exercise-files .ef-list { display: flex; flex-direction: column; gap: 16px; }
+.exercise-files .ef-file {
+  display: flex; align-items: center; gap: 18px;
+  background: var(--panel2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px 22px;
+  transition: border-color 0.15s ease;
+}
+.exercise-files .ef-file.is-copied { border-color: var(--accent); }
+.exercise-files .ef-glyph { color: var(--accent); font-size: 24px; flex: none; }
+.exercise-files .ef-name {
+  font-family: var(--font-mono); font-size: 27px; color: var(--fg);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.exercise-files .ef-lang {
+  font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); flex: none;
+}
+.exercise-files .ef-copy {
+  margin-left: auto; flex: none; cursor: pointer;
+  font-family: var(--font-mono); font-size: 21px; color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid var(--accent); border-radius: var(--radius);
+  padding: 10px 20px; transition: background 0.15s ease, color 0.15s ease;
+}
+.exercise-files .ef-copy:hover { background: var(--accent); color: var(--bg); }
+.exercise-files .ef-file.is-copied .ef-copy {
+  background: var(--accent); color: var(--bg);
+}
+.exercise-files .ef-note {
+  margin-top: 24px; font-size: 24px; color: var(--accent); display: flex;
+  align-items: center; gap: 12px;
+}
+
+/* exercise target preview — a screenshot of what to build (legacy) */
 .exercise-target { display: flex; flex-direction: column; gap: 18px;
   align-items: flex-start; }
 .exercise-target .et-cap {
@@ -607,7 +657,7 @@ section.slide,
 .exercise-target .et-cap::before { content: "▣"; }
 .exercise-target .et-img {
   border: 1px solid var(--border-lit); border-radius: var(--radius-lg);
-  background: #fff; padding: 16px; max-width: 460px; width: 100%;
+  background: #fff; padding: 16px; max-width: 580px; width: 100%;
 }
 .exercise-target .et-img img { display: block; width: 100%; height: auto;
   border-radius: 2px; }
@@ -668,6 +718,24 @@ section.slide,
 .s-stat .stat-label { font-size: 48px; color: var(--fg); margin-top: 20px;
   max-width: 1300px; line-height: 1.25; }
 .s-stat .stat-sub { font-size: 30px; color: var(--muted); margin-top: 20px; }
+
+/* =====================================================================
+   6b · BREAK / ЗАВСАРЛАГА
+   ===================================================================== */
+.s-break { padding: 0 var(--px); display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center; }
+.s-break .brk-chip {
+  font-size: 26px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--accent2);
+  border: 1px solid var(--accent2); border-radius: 999px; padding: 12px 28px;
+}
+.s-break .bignum {
+  font-size: 380px; font-weight: 800; line-height: 0.82; color: var(--accent2);
+  letter-spacing: -0.03em; margin-top: 28px;
+}
+.s-break .brk-title { font-size: 52px; color: var(--fg); margin-top: 8px; }
+.s-break .resume { font-size: 30px; color: var(--muted); margin-top: 28px; }
+.s-break .resume b { color: var(--fg); font-weight: 700; }
 
 /* =====================================================================
    ENTRANCE ANIMATION  (safe for print / reduced-motion)

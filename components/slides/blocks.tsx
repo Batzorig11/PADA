@@ -169,6 +169,45 @@ export function StatSlide({
 }
 
 /* =====================================================================
+   6b · BREAK / ЗАВСАРЛАГА — mid-lesson pause
+   ===================================================================== */
+export function Break({
+  page,
+  total,
+  mins = 20,
+  chip = "Завсарлага",
+  title,
+  resumeTopic,
+  label = "Завсарлага",
+}: {
+  page: ReactNode;
+  total?: ReactNode;
+  mins?: ReactNode;
+  chip?: ReactNode;
+  /** Defaults to "<mins> минут амарцгаая". */
+  title?: ReactNode;
+  /** What Part 2 picks up with, shown under the number. */
+  resumeTopic?: ReactNode;
+  label?: string;
+}) {
+  return (
+    <section className="slide s-break grid" data-label={label}>
+      <Brandbar page={page} total={total} />
+      <div className="brk-chip anim">{chip}</div>
+      <div className="bignum anim anim-2">{mins}</div>
+      <div className="brk-title anim anim-3">
+        {title ?? <>{mins} минут амарцгаая</>}
+      </div>
+      {resumeTopic && (
+        <div className="resume anim anim-4">
+          Үргэлжлэл: <b>{resumeTopic}</b>
+        </div>
+      )}
+    </section>
+  );
+}
+
+/* =====================================================================
    9 · COMPARISON TABLE
    ===================================================================== */
 export function CompareTable({
