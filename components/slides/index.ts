@@ -46,3 +46,6 @@ export {
 
 // Exercise solution files (copy-to-clipboard, code hidden)
 export { ExerciseFiles, type SolutionFile } from "./ExerciseFiles";
+
+// Live break countdown (MM:SS)
+export { BreakCountdown } from "./BreakCountdown";

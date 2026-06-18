@@ -1,6 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import { Brandbar, Cursor, Eyebrow, Footer, type FooterProps } from "./chrome";
 import { TrafficDots } from "./CodeWindow";
+import { BreakCountdown } from "./BreakCountdown";
 
 /* =====================================================================
    1 · TITLE SLIDE
@@ -194,7 +195,9 @@ export function Break({
     <section className="slide s-break grid" data-label={label}>
       <Brandbar page={page} total={total} />
       <div className="brk-chip anim">{chip}</div>
-      <div className="bignum anim anim-2">{mins}</div>
+      <div className="bignum anim anim-2">
+        <BreakCountdown minutes={Number(mins) || 20} />
+      </div>
       <div className="brk-title anim anim-3">
         {title ?? <>{mins} минут амарцгаая</>}
       </div>
