@@ -47,7 +47,11 @@ caption is Mongolian.
    prop for leading spaces (whitespace in `<pre>` is literal). Per-line teaching states:
    `state="hl" | "dim" | "add" | "del"`.
 5. **Structure each half** as: section divider → teach (KeyTerm / code / concept /
-   diagram) → a hands-on `Exercise`. Put the bigger build as the final exercise.
+   diagram) → **two** hands-on `Exercise` slides. Every section gets exactly two
+   exercises: a shorter warm-up that drills the concept just taught, then a larger
+   build that combines it with the rest of the section. Put the section's bigger build
+   as its second exercise, and the lesson's biggest build as the final exercise of
+   Part 2.
 6. **Register on the hub:** add (or flip) the lesson's card in the `lessons` array in
    `app/page.tsx`. Giving it an `href: "/lesson-NN"` makes it show as "Бэлэн" (live);
    no href shows "Удахгүй" (soon). Update `desc` and the `foot` slide count.

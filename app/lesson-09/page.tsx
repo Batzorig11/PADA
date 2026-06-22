@@ -128,6 +128,134 @@ const BADGE_CSS = `body {
 }
 `;
 
+const PLAY_HTML = `<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <title>display туршилт</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>display туршилт</h1>
+
+    <p>Доорх гурван шошго:</p>
+    <span class="tag">HTML</span>
+    <span class="tag">CSS</span>
+    <span class="tag block">JS</span>
+
+    <p>Урт текст бүхий жижиг хайрцаг:</p>
+    <div class="box">
+      Энэ хайрцаг богино боловч урт текст агуулж байна. Тиймээс overflow: auto
+      үед гүйлгэх зураас гарч ирнэ. Доош гүйлгэж үлдсэн хэсгийг үзээрэй. Мөр
+      нэмэгдэх тусам хайрцаг өсөхгүй, харин дотроо гүйлгэгдэнэ.
+    </div>
+  </body>
+</html>
+`;
+
+const PLAY_CSS = `body {
+  background: #0d1117;
+  color: #f8fafc;
+  font-family: Arial, sans-serif;
+  padding: 24px;
+}
+
+/* span анхдагчаар inline — дээд/доод padding бусдыг түлхэхгүй.
+   inline-block болгоход зэрэгцсэн хэвээр бүрэн хэмжээ авна */
+.tag {
+  display: inline-block;
+  padding: 10px 18px;
+  margin-right: 6px;
+  background: #21262d;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+/* энэ шошгыг block болгоход бүтэн мөр эзэлж, дараагийн мөрөнд бууна */
+.tag.block {
+  display: block;
+  margin-top: 10px;
+}
+
+.box {
+  height: 120px;
+  width: 280px;
+  margin-top: 12px;
+  padding: 12px;
+  background: #161b22;
+  border: 2px solid #38bdf8;
+  border-radius: 8px;
+  overflow: auto;
+  line-height: 1.7;
+}
+`;
+
+const BIGCARD_HTML = `<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Карт ба дээш товч</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <span class="badge">ШИНЭ</span>
+      <h2>Бүтээгдэхүүн</h2>
+      <p>
+        Картын баруун дээд буланд badge наалдсан. Доорх «Дээш» товч хуудас
+        гүйлгэхэд дэлгэцэд тогтож үлдэнэ.
+      </p>
+    </div>
+
+    <a class="top-btn" href="#">Дээш ↑</a>
+  </body>
+</html>
+`;
+
+const BIGCARD_CSS = `body {
+  background: #0d1117;
+  color: #f8fafc;
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  /* absolute хүүхдийн тулгуур цэг */
+  position: relative;
+  width: 320px;
+  margin: 60px auto;
+  padding: 24px;
+  background: #161b22;
+  border-radius: 12px;
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  z-index: 2;
+  padding: 6px 12px;
+  background: #39d353;
+  color: #0d1117;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* дэлгэцийн доод баруун буланд тогтоно — гүйлгэхэд хөдлөхгүй */
+.top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 10;
+  padding: 12px 18px;
+  background: #38bdf8;
+  color: #0d1117;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+}
+`;
+
 export default function Lesson09() {
   return (
     <Deck>
@@ -437,12 +565,49 @@ export default function Lesson09() {
         </Frame>
       </Slide>
 
-      {/* 09 · ДАСГАЛ 1 */}
+      {/* 09 · ДАСГАЛ 1 (§1 дасал — display туршилт) */}
       <Exercise
         label="Дасгал 1"
         page="09"
         total={TOTAL}
         tag="Дасгал 1 · хэсэг 1"
+        title="display төрлүүдийг туршиж ойлгох"
+        tasks={[
+          <>
+            Гурван <code>&lt;span&gt;</code>-д <code>padding</code> өгөөд, яагаад
+            дээд/доод зай нөлөөлөхгүй байгааг ажигла.
+          </>,
+          <>
+            Тэдгээрийг <code>display: inline-block</code> болгож, зэрэгцсэн
+            хэвээр padding бүрэн авахыг хар.
+          </>,
+          <>
+            Нэг <code>&lt;span&gt;</code>-ийг <code>display: block</code> болгож,
+            бүтэн мөр эзлэхийг ажигла.
+          </>,
+          <>
+            Жижиг хайрцагт урт текст хийж <code>overflow: auto</code> өгч гүйлгэх
+            боломжтой болго.
+          </>,
+        ]}
+        aside={
+          <ExerciseFiles
+            className="anim anim-4"
+            caption="⏱ 15 минут"
+            files={[
+              { name: "index.html", lang: "html", code: PLAY_HTML },
+              { name: "style.css", lang: "css", code: PLAY_CSS },
+            ]}
+          />
+        }
+      />
+
+      {/* 10 · ДАСГАЛ 2 (§1 бүтээх — хэвтээ цэс) */}
+      <Exercise
+        label="Дасгал 2"
+        page="10"
+        total={TOTAL}
+        tag="Дасгал 2 · хэсэг 1"
         title="Хэвтээ цэс угсрах"
         tasks={[
           <>
@@ -480,39 +645,6 @@ export default function Lesson09() {
       {/* ============================================================
           ~1:20–1:40 · ЗАВСАРЛАГА
           ============================================================ */}
-      {/* ДАСГАЛ 2 (§1) */}
-      <Exercise
-        label="Дасгал 2"
-        page="10"
-        total={TOTAL}
-        tag="Дасгал 2 · хэсэг 1"
-        title="display төрлүүдийг туршиж ойлгох"
-        tasks={[
-          <>
-            Гурван <code>&lt;span&gt;</code>-д <code>padding</code> өгөөд, яагаад
-            дээд/доод зай нөлөөлөхгүй байгааг ажигла.
-          </>,
-          <>
-            Тэдгээрийг <code>display: inline-block</code> болгож, зэрэгцсэн
-            хэвээр padding бүрэн авахыг хар.
-          </>,
-          <>
-            Нэг <code>&lt;span&gt;</code>-ийг <code>display: block</code> болгож,
-            бүтэн мөр эзлэхийг ажигла.
-          </>,
-          <>
-            Жижиг хайрцагт урт текст хийж <code>overflow: auto</code> өгч гүйлгэх
-            боломжтой болго.
-          </>,
-        ]}
-        hints={[
-          "inline элемент дээд/доод padding-ийг бусдад түлхэхгүй.",
-          "inline-block = зэрэгцэнэ + хэмжээ авна.",
-          "overflow: auto зөвхөн шаардлагатай үед scrollbar гаргана.",
-        ]}
-        time="⏱ 15 минут"
-      />
-
       <Break
         page="11"
         total={TOTAL}
@@ -789,7 +921,7 @@ export default function Lesson09() {
         </Frame>
       </Slide>
 
-      {/* 17 · ДАСГАЛ 2 */}
+      {/* 18 · ДАСГАЛ 3 (§2 дасал — тэмдэгтэй карт) */}
       <Exercise
         label="Дасгал 3"
         page="18"
@@ -836,8 +968,7 @@ export default function Lesson09() {
           ~2:50–3:00 · ХУРААНГУЙ БА АСУУЛТ
           ============================================================ */}
 
-      {/* 18 · ХУРААНГУЙ */}
-      {/* ДАСГАЛ 4 (§2) */}
+      {/* 19 · ДАСГАЛ 4 (§2 бүтээх — badge + fixed товч + z-index) */}
       <Exercise
         label="Дасгал 4"
         page="19"
@@ -862,12 +993,16 @@ export default function Lesson09() {
             давхцлыг зохицуул.
           </>,
         ]}
-        hints={[
-          "absolute нь хамгийн ойрын relative эх элементээс хэмжинэ.",
-          "fixed нь дэлгэцэд тогтож, гүйлгэхэд хөдлөхгүй.",
-          "z-index өндөр байх тусам дээр харагдана.",
-        ]}
-        time="⏱ 15 минут"
+        aside={
+          <ExerciseFiles
+            className="anim anim-4"
+            caption="⏱ 20 минут"
+            files={[
+              { name: "index.html", lang: "html", code: BIGCARD_HTML },
+              { name: "style.css", lang: "css", code: BIGCARD_CSS },
+            ]}
+          />
+        }
       />
 
       <Recap
@@ -904,7 +1039,7 @@ export default function Lesson09() {
         ]}
       />
 
-      {/* 19 · АСУУЛТ */}
+      {/* 21 · АСУУЛТ */}
       <TitleSlide
         label="Асуулт"
         prompt={<>хичээл-09 · дууслаа</>}

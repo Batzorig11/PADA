@@ -150,6 +150,7 @@
   margin-top: 16px;
   line-height: 1.45;
   flex: 1;
+  overflow-wrap: anywhere;
 }
 .stFoot {
   display: flex;
