@@ -35,7 +35,7 @@ export const metadata = {
  *   ~1:40–2:50  ХЭСЭГ 2 — Сар 1 сэргээх, quiz, эцсийн дадлага
  *   ~2:50–3:00  Хураангуй ба асуулт
  */
-const TOTAL = "18";
+const TOTAL = "20";
 
 /* ===== Дасгалын бэлэн шийдэл (зөвхөн Сар 1-д үзсэн HTML/CSS) ===== */
 
@@ -447,8 +447,40 @@ export default function Lesson16() {
       {/* ============================================================
           ~1:20–1:40 · ЗАВСАРЛАГА
           ============================================================ */}
-      <Break
+      {/* ДАСГАЛ 2 (§1) */}
+      <Exercise
+        label="Дасгал 2"
         page="10"
+        total={TOTAL}
+        tag="Дасгал 2 · хэсэг 1"
+        title="Layout эвдрэлийг засах"
+        tasks={[
+          <>
+            Голлуулалт ажиллахгүй байгаа flex контейнерийг DevTools-оор шалгаж
+            зас (<code>display: flex</code> дутуу эсэх).
+          </>,
+          <>
+            Хайрцгаас хальж гарч буй элементэд <code>box-sizing</code> эсвэл{" "}
+            <code>max-width: 100%</code> тавьж зас.
+          </>,
+          <>
+            Grid баганын тоо буруу байгааг <code>grid-template-columns</code>-оор
+            зас.
+          </>,
+          <>
+            Засвар бүрийн дараа үр дүнг шууд хараад, өөрчлөлтийг тэмдэглэ.
+          </>,
+        ]}
+        hints={[
+          "Эхлээд асуудалтай элементийг Inspect хий.",
+          "Голлуулалтад эх элемент нь flex/grid байх ёстой.",
+          "Нэг л зүйлийг өөрчлөөд үр дүнг хар.",
+        ]}
+        time="⏱ 18 минут"
+      />
+
+      <Break
+        page="11"
         total={TOTAL}
         mins={20}
         resumeTopic="Сар 1 сэргээх, quiz ба эцсийн дадлага"
@@ -461,7 +493,7 @@ export default function Lesson16() {
       {/* 11 · SECTION DIVIDER 2 */}
       <SectionDivider
         label="§ Сар 1 сэргээх"
-        page="11"
+        page="12"
         total={TOTAL}
         ghost="02"
         section="ХЭСЭГ 02"
@@ -478,7 +510,7 @@ export default function Lesson16() {
       {/* 12 · HTML ЗУРАГЛАЛ */}
       <Slide
         label="html зураглал"
-        page="12"
+        page="13"
         total={TOTAL}
         footer={{ tag: "§02 сэргээх", topic: "HTML" }}
       >
@@ -504,7 +536,7 @@ export default function Lesson16() {
       {/* 13 · CSS ЗУРАГЛАЛ */}
       <Slide
         label="css зураглал"
-        page="13"
+        page="14"
         total={TOTAL}
         footer={{ tag: "§02 сэргээх", topic: "CSS" }}
       >
@@ -531,7 +563,7 @@ export default function Lesson16() {
       {/* 14 · QUIZ */}
       <Slide
         label="quiz"
-        page="14"
+        page="15"
         total={TOTAL}
         footer={{ tag: "§02 сэргээх", topic: "өөрийгөө шалга" }}
       >
@@ -570,7 +602,7 @@ export default function Lesson16() {
       {/* 15 · QUIZ ХАРИУ */}
       <Slide
         label="quiz хариу"
-        page="15"
+        page="16"
         total={TOTAL}
         footer={{ tag: "§02 сэргээх", topic: "хариултууд" }}
       >
@@ -595,10 +627,10 @@ export default function Lesson16() {
 
       {/* 16 · ДАСГАЛ 2 */}
       <Exercise
-        label="Дасгал 2"
-        page="16"
+        label="Дасгал 3"
+        page="17"
         total={TOTAL}
-        tag="Дасгал 2 · хэсэг 2"
+        tag="Дасгал 3 · хэсэг 2"
         title="Сэтгэгдлийн section нэмэх"
         tasks={[
           <>
@@ -636,10 +668,41 @@ export default function Lesson16() {
           ~2:50–3:00 · ХУРААНГУЙ БА АСУУЛТ
           ============================================================ */}
 
+      {/* ДАСГАЛ 4 (§2) */}
+      <Exercise
+        label="Дасгал 4"
+        page="18"
+        total={TOTAL}
+        tag="Дасгал 4 · хэсэг 2"
+        title="Hero section шинээр угсрах"
+        tasks={[
+          <>
+            Семантик бүтэцтэй (<code>&lt;section&gt;</code>) hero хэсгийг
+            шинээр угсар: гарчиг, тайлбар, CTA товч.
+          </>,
+          <>
+            Агуулгыг flex-ээр босоо голлуулж, <code>gap</code>-аар зайчил.
+          </>,
+          <>
+            <code>@media</code>-ээр жижиг дэлгэцэд тохируулж responsive болго.
+          </>,
+          <>
+            Товчинд <code>:hover</code> + <code>transition</code> анимаци нэмж
+            Сар 1-ийн бүх ур чадвараа нэг хэсэгт хэрэглэ.
+          </>,
+        ]}
+        hints={[
+          "Сар 1-ийн бүх сэдвийг (бүтэц, layout, responsive, анимаци) нэгтгэ.",
+          "max-width container дотор голлуул.",
+          "hover-т transition нэмбэл зөөлөн харагдана.",
+        ]}
+        time="⏱ 20 минут"
+      />
+
       {/* 17 · ХУРААНГУЙ / CALLOUT */}
       <Callout
         label="Сар 1 дууслаа"
-        page="17"
+        page="19"
         total={TOTAL}
         quote={
           <>

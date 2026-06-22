@@ -35,7 +35,7 @@ export const metadata = {
  *   ~1:40–2:50  ХЭСЭГ 2 — Бодит layout: navbar ба картын эгнээ
  *   ~2:50–3:00  Хураангуй ба асуулт
  */
-const TOTAL = "18";
+const TOTAL = "20";
 
 /* ===== Дасгалын бэлэн шийдэл (зөвхөн энэ хичээл хүртэл үзсэн HTML/CSS) ===== */
 
@@ -477,8 +477,41 @@ export default function Lesson11() {
       {/* ============================================================
           ~1:20–1:40 · ЗАВСАРЛАГА
           ============================================================ */}
-      <Break
+      {/* ДАСГАЛ 2 (§1) */}
+      <Exercise
+        label="Дасгал 2"
         page="10"
+        total={TOTAL}
+        tag="Дасгал 2 · хэсэг 1"
+        title="Уян навбар угсрах"
+        tasks={[
+          <>
+            <code>&lt;nav&gt;</code>-д <code>display: flex</code>,{" "}
+            <code>align-items: center</code> өг.
+          </>,
+          <>
+            <code>justify-content: space-between</code>-ээр логог зүүн, цэсийг
+            баруун талд байрлуул.
+          </>,
+          <>
+            Цэсний холбоосуудыг өөр flex контейнерт хийж <code>gap</code>-аар
+            зайчил.
+          </>,
+          <>
+            Логоны хэсэгт <code>flex-grow: 1</code> өгөөд цэсийг хамгийн баруун
+            тийш түлхэх өөр аргыг туршиж үз.
+          </>,
+        ]}
+        hints={[
+          "space-between нь захын зүйлсийг хоёр тийш түлхэнэ.",
+          "align-items: center нь босоо тэнхлэгт голлуулна.",
+          "Цэсийг flex дотор flex (давхар) болгож болно.",
+        ]}
+        time="⏱ 15 минут"
+      />
+
+      <Break
+        page="11"
         total={TOTAL}
         mins={20}
         resumeTopic="Navbar ба картын эгнээ угсрах"
@@ -491,7 +524,7 @@ export default function Lesson11() {
       {/* 11 · SECTION DIVIDER 2 */}
       <SectionDivider
         label="§ Бодит layout"
-        page="11"
+        page="12"
         total={TOTAL}
         ghost="02"
         section="ХЭСЭГ 02"
@@ -508,7 +541,7 @@ export default function Lesson11() {
       {/* 12 · NAVBAR ЗАГВАР */}
       <Slide
         label="navbar загвар"
-        page="12"
+        page="13"
         total={TOTAL}
         footer={{ tag: "§02 layout", topic: "navbar бүтэц" }}
       >
@@ -579,7 +612,7 @@ export default function Lesson11() {
       {/* 13 · КАРТЫН ЭГНЭЭ */}
       <Slide
         label="картын эгнээ"
-        page="13"
+        page="14"
         total={TOTAL}
         footer={{ tag: "§02 layout", topic: "тэнцүү багана" }}
       >
@@ -639,7 +672,7 @@ export default function Lesson11() {
       {/* 14 · ALIGN-SELF */}
       <Slide
         label="align-self"
-        page="14"
+        page="15"
         total={TOTAL}
         footer={{ tag: "§02 layout", topic: "align-self" }}
       >
@@ -698,7 +731,7 @@ export default function Lesson11() {
       {/* 15 · ЁСТОЙ / ЁСГҮЙ */}
       <Slide
         label="зөвлөмж"
-        page="15"
+        page="16"
         total={TOTAL}
         footer={{ tag: "§02 layout", topic: "сайн дадал" }}
       >
@@ -727,10 +760,10 @@ export default function Lesson11() {
 
       {/* 16 · ДАСГАЛ 2 */}
       <Exercise
-        label="Дасгал 2"
-        page="16"
+        label="Дасгал 3"
+        page="17"
         total={TOTAL}
-        tag="Дасгал 2 · хэсэг 2"
+        tag="Дасгал 3 · хэсэг 2"
         title="Үнийн багцын эгнээ"
         tasks={[
           <>
@@ -770,9 +803,42 @@ export default function Lesson11() {
           ============================================================ */}
 
       {/* 17 · ХУРААНГУЙ */}
+      {/* ДАСГАЛ 4 (§2) */}
+      <Exercise
+        label="Дасгал 4"
+        page="18"
+        total={TOTAL}
+        tag="Дасгал 4 · хэсэг 2"
+        title="grow / shrink / basis тааруулах"
+        tasks={[
+          <>
+            3 картыг нэг flex эгнээнд тавьж, бүгдэд нь <code>flex: 1</code> өгч
+            тэнцүү өргөнтэй болго.
+          </>,
+          <>
+            Дунд картыг <code>flex: 2</code> болгож, бусдаасаа 2 дахин өргөн
+            болго.
+          </>,
+          <>
+            <code>flex-basis</code>-ээр карт бүрийн анхны өргөнг тогтоож, дараа
+            нь <code>flex-grow</code>-аар үлдсэн зайг хуваа.
+          </>,
+          <>
+            Цонхыг нарийсгаад <code>flex-shrink</code> картуудыг хэрхэн
+            багасгаж байгааг ажигла.
+          </>,
+        ]}
+        hints={[
+          "flex: 1 = flex-grow:1; flex-shrink:1; flex-basis:0.",
+          "flex: 2 элемент үлдсэн зайнаас 2 дахин их хувь авна.",
+          "flex-basis нь grow/shrink хийхээс өмнөх 'эхлэлийн' өргөн.",
+        ]}
+        time="⏱ 15 минут"
+      />
+
       <Recap
         label="Хураангуй"
-        page="17"
+        page="19"
         total={TOTAL}
         eyebrow="Хичээл 11 · хураангуй"
         title="Хураангуй"

@@ -34,7 +34,7 @@ export const metadata = {
  *   ~1:40–2:50  ХЭСЭГ 2 — minmax, grid-template-areas, Flexbox vs Grid
  *   ~2:50–3:00  Хураангуй ба асуулт
  */
-const TOTAL = "18";
+const TOTAL = "20";
 
 /* ===== Дасгалын бэлэн шийдэл (зөвхөн энэ хичээл хүртэл үзсэн HTML/CSS) ===== */
 
@@ -496,8 +496,41 @@ export default function Lesson12() {
       {/* ============================================================
           ~1:20–1:40 · ЗАВСАРЛАГА
           ============================================================ */}
-      <Break
+      {/* ДАСГАЛ 2 (§1) */}
+      <Exercise
+        label="Дасгал 2"
         page="10"
+        total={TOTAL}
+        tag="Дасгал 2 · хэсэг 1"
+        title="Зургийн галерей (grid)"
+        tasks={[
+          <>
+            6 «зураг» (өнгөт хайрцаг)-ийг{" "}
+            <code>grid-template-columns: repeat(3, 1fr)</code> ба{" "}
+            <code>gap</code>-аар угсар.
+          </>,
+          <>
+            Эхний нэг зургийг <code>grid-column: span 2</code>-оор 2 баганын
+            өргөнтэй болго.
+          </>,
+          <>
+            Баганын тоог <code>repeat(auto-fit, minmax(150px, 1fr))</code>{" "}
+            болгож responsive болго.
+          </>,
+          <>
+            Цонхыг нарийсгаад баганын тоо хэрхэн өөрөө цөөрч байгааг ажигла.
+          </>,
+        ]}
+        hints={[
+          "1fr нь үлдсэн зайг тэнцүү хуваана.",
+          "span 2 нь нэг элементийг 2 нүд эзлүүлнэ.",
+          "auto-fit + minmax = автомат responsive grid.",
+        ]}
+        time="⏱ 15 минут"
+      />
+
+      <Break
+        page="11"
         total={TOTAL}
         mins={20}
         resumeTopic="minmax, grid-areas ба Flexbox vs Grid"
@@ -510,7 +543,7 @@ export default function Lesson12() {
       {/* 11 · SECTION DIVIDER 2 */}
       <SectionDivider
         label="§ Grid гүнзгий"
-        page="11"
+        page="12"
         total={TOTAL}
         ghost="02"
         section="ХЭСЭГ 02"
@@ -527,7 +560,7 @@ export default function Lesson12() {
       {/* 12 · MINMAX + AUTO-FIT */}
       <Slide
         label="minmax"
-        page="12"
+        page="13"
         total={TOTAL}
         footer={{ tag: "§02 grid", topic: "minmax · auto-fit" }}
       >
@@ -585,7 +618,7 @@ export default function Lesson12() {
       {/* 13 · ГОЛ ОЙЛГОЛТ: GRID-AREAS */}
       <KeyTerm
         label="Гол ойлголт: grid-areas"
-        page="13"
+        page="14"
         total={TOTAL}
         term="grid-template-areas"
         def={
@@ -602,7 +635,7 @@ export default function Lesson12() {
       {/* 14 · GRID-AREAS КОД БА ҮР ДҮН */}
       <Slide
         label="grid-areas жишээ"
-        page="14"
+        page="15"
         total={TOTAL}
         footer={{ tag: "§02 grid", topic: "хуудасны бүтэц" }}
       >
@@ -659,7 +692,7 @@ export default function Lesson12() {
       {/* 15 · FLEXBOX VS GRID */}
       <Slide
         label="flexbox vs grid"
-        page="15"
+        page="16"
         total={TOTAL}
         footer={{ tag: "§02 grid", topic: "хэзээ алийг нь" }}
       >
@@ -689,10 +722,10 @@ export default function Lesson12() {
 
       {/* 16 · ДАСГАЛ 2 */}
       <Exercise
-        label="Дасгал 2"
-        page="16"
+        label="Дасгал 3"
+        page="17"
         total={TOTAL}
-        tag="Дасгал 2 · хэсэг 2"
+        tag="Дасгал 3 · хэсэг 2"
         title="Хуудасны бүтэц угсрах"
         tasks={[
           <>
@@ -733,9 +766,42 @@ export default function Lesson12() {
           ============================================================ */}
 
       {/* 17 · ХУРААНГУЙ */}
+      {/* ДАСГАЛ 4 (§2) */}
+      <Exercise
+        label="Дасгал 4"
+        page="18"
+        total={TOTAL}
+        tag="Дасгал 4 · хэсэг 2"
+        title="grid-template-areas-аар бүтэц угсрах"
+        tasks={[
+          <>
+            <code>header</code>, <code>sidebar</code>, <code>main</code>,{" "}
+            <code>footer</code> хэсгүүдийг <code>grid-template-areas</code>-аар
+            байрлуул.
+          </>,
+          <>
+            <code>header</code> ба <code>footer</code> бүтэн өргөнийг, дунд нь
+            sidebar + main байрлахаар areas зур.
+          </>,
+          <>
+            <code>grid-template-columns</code>-д sidebar-т тогтмол, main-д{" "}
+            <code>1fr</code> өг.
+          </>,
+          <>
+            Хэсэг бүрт <code>grid-area</code> нэр оноож газартаа суулга.
+          </>,
+        ]}
+        hints={[
+          "areas нь мөр бүрийг хашилтанд зурдаг: \"header header\".",
+          "Ижил нэрийг давтан бичвэл тэр хэсэг сунаж байрлана.",
+          "Элемент бүрт grid-area: нэр; гэж зааж өгнө.",
+        ]}
+        time="⏱ 15 минут"
+      />
+
       <Recap
         label="Хураангуй"
-        page="17"
+        page="19"
         total={TOTAL}
         eyebrow="Хичээл 12 · хураангуй"
         title="Хураангуй"

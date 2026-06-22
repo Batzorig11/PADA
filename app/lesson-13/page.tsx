@@ -35,7 +35,7 @@ export const metadata = {
  *   ~1:40–2:50  ХЭСЭГ 2 — responsive нэгж, responsive зураг, нуух/харуулах
  *   ~2:50–3:00  Хураангуй ба асуулт
  */
-const TOTAL = "18";
+const TOTAL = "20";
 
 /* ===== Дасгалын бэлэн шийдэл (зөвхөн энэ хичээл хүртэл үзсэн HTML/CSS) ===== */
 
@@ -465,8 +465,39 @@ export default function Lesson13() {
       {/* ============================================================
           ~1:20–1:40 · ЗАВСАРЛАГА
           ============================================================ */}
-      <Break
+      {/* ДАСГАЛ 2 (§1) */}
+      <Exercise
+        label="Дасгал 2"
         page="10"
+        total={TOTAL}
+        tag="Дасгал 2 · хэсэг 1"
+        title="Mobile-first breakpoint-ууд"
+        tasks={[
+          <>
+            Картын grid-ийг <b>анхдагчаар</b> (mobile) 1 баганатай бич.
+          </>,
+          <>
+            <code>@media (min-width: 768px)</code>-д 2 багана,{" "}
+            <code>min-width: 1024px</code>-д 3 багана болго.
+          </>,
+          <>
+            Breakpoint бүрд <code>gap</code> ба гарчгийн <code>font-size</code>-
+            ийг өсгө.
+          </>,
+          <>
+            DevTools-ийн responsive горимоор өргөнийг өөрчилж шилжилтийг ажигла.
+          </>,
+        ]}
+        hints={[
+          "Mobile-first = жижиг дэлгэцийг үндсэн загвар болгож, min-width-ээр томруулна.",
+          "Breakpoint түгээмэл: 768px (таблет), 1024px (десктоп).",
+          "Зөвхөн @media доторх дүрэм тухайн өргөнөөс хойш үйлчилнэ.",
+        ]}
+        time="⏱ 15 минут"
+      />
+
+      <Break
+        page="11"
         total={TOTAL}
         mins={20}
         resumeTopic="Responsive нэгж, зураг ба нуух/харуулах"
@@ -479,7 +510,7 @@ export default function Lesson13() {
       {/* 11 · SECTION DIVIDER 2 */}
       <SectionDivider
         label="§ Уян элементүүд"
-        page="11"
+        page="12"
         total={TOTAL}
         ghost="02"
         section="ХЭСЭГ 02"
@@ -496,7 +527,7 @@ export default function Lesson13() {
       {/* 12 · RESPONSIVE UNITS */}
       <Slide
         label="responsive нэгж"
-        page="12"
+        page="13"
         total={TOTAL}
         footer={{ tag: "§02 уян", topic: "max-width · %" }}
       >
@@ -549,7 +580,7 @@ export default function Lesson13() {
       {/* 13 · RESPONSIVE IMAGE */}
       <Slide
         label="responsive зураг"
-        page="13"
+        page="14"
         total={TOTAL}
         footer={{ tag: "§02 уян", topic: "уян зураг" }}
       >
@@ -609,7 +640,7 @@ export default function Lesson13() {
       {/* 14 · HIDE / SHOW */}
       <Slide
         label="нуух / харуулах"
-        page="14"
+        page="15"
         total={TOTAL}
         footer={{ tag: "§02 уян", topic: "display: none" }}
       >
@@ -661,7 +692,7 @@ export default function Lesson13() {
       {/* 15 · ЁСТОЙ / ЁСГҮЙ */}
       <Slide
         label="зөвлөмж"
-        page="15"
+        page="16"
         total={TOTAL}
         footer={{ tag: "§02 уян", topic: "сайн дадал" }}
       >
@@ -690,10 +721,10 @@ export default function Lesson13() {
 
       {/* 16 · ДАСГАЛ 2 */}
       <Exercise
-        label="Дасгал 2"
-        page="16"
+        label="Дасгал 3"
+        page="17"
         total={TOTAL}
-        tag="Дасгал 2 · хэсэг 2"
+        tag="Дасгал 3 · хэсэг 2"
         title="Responsive navbar"
         tasks={[
           <>
@@ -733,9 +764,42 @@ export default function Lesson13() {
           ============================================================ */}
 
       {/* 17 · ХУРААНГУЙ */}
+      {/* ДАСГАЛ 4 (§2) */}
+      <Exercise
+        label="Дасгал 4"
+        page="18"
+        total={TOTAL}
+        tag="Дасгал 4 · хэсэг 2"
+        title="Responsive hero ба зураг"
+        tasks={[
+          <>
+            Hero доторх зурагт <code>max-width: 100%</code>,{" "}
+            <code>height: auto</code> өгч хальж гарахаас сэргийл.
+          </>,
+          <>
+            Жижиг дэлгэцэд (<code>max-width: 600px</code>) дэлгэрэнгүй цэсийг{" "}
+            <code>display: none</code>-оор нуу.
+          </>,
+          <>
+            Гарчгийн хэмжээг <code>clamp(1.5rem, 5vw, 3rem)</code>-ээр уян хатан
+            болго.
+          </>,
+          <>
+            Hero-г жижиг дэлгэцэд босоо (<code>flex-direction: column</code>)
+            болго.
+          </>,
+        ]}
+        hints={[
+          "max-width: 100% нь зургийг эх элементээсээ хэтрэхгүй болгоно.",
+          "clamp(min, дэлгэцэд хамаарах, max) — уян хатан хэмжээ.",
+          "display: none нь элементийг бүрэн нууна.",
+        ]}
+        time="⏱ 15 минут"
+      />
+
       <Recap
         label="Хураангуй"
-        page="17"
+        page="19"
         total={TOTAL}
         eyebrow="Хичээл 13 · хураангуй"
         title="Хураангуй"

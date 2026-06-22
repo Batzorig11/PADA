@@ -34,7 +34,7 @@ export const metadata = {
  *   ~1:40–2:50  ХЭСЭГ 2 — Нэгжүүд: px vs em/rem vs %/vw/vh
  *   ~2:50–3:00  Хураангуй ба асуулт
  */
-const TOTAL = "20";
+const TOTAL = "22";
 
 /* ===== Дасгалын бэлэн шийдэл (зөвхөн энэ хичээл хүртэл үзсэн HTML/CSS) ===== */
 
@@ -563,11 +563,44 @@ export default function Lesson08() {
         }
       />
 
+      {/* ДАСГАЛ 2 (§1) */}
+      <Exercise
+        label="Дасгал 2"
+        page="11"
+        total={TOTAL}
+        tag="Дасгал 2 · хэсэг 1"
+        title="Иш татсан блок загварчлах"
+        tasks={[
+          <>
+            <code>&lt;blockquote&gt;</code> дотор иш татсан текст ба зохиогчийн
+            нэрийг бич.
+          </>,
+          <>
+            Ишийг том <code>font-size</code>, <code>font-style: italic</code>,{" "}
+            <code>line-height: 1.6</code>-аар уншимтгай болго.
+          </>,
+          <>
+            Зохиогчийн нэрэнд жижиг хэмжээ, <code>font-weight: 700</code> ба бүдэг
+            өнгө өг.
+          </>,
+          <>
+            <code>letter-spacing</code> ба <code>text-transform: uppercase</code>
+            -аар нэрийг чимэглэ.
+          </>,
+        ]}
+        hints={[
+          "font-style: italic нь ишлэлд тохиромжтой.",
+          "line-height нэгжгүй тоо (1.6) хамгийн уншимтгай.",
+          "Бүдэг өнгөнд #9aa4b2 мэт сонгож болно.",
+        ]}
+        time="⏱ 15 минут"
+      />
+
       {/* ============================================================
           ~1:20–1:40 · ЗАВСАРЛАГА
           ============================================================ */}
       <Break
-        page="11"
+        page="12"
         total={TOTAL}
         mins={20}
         resumeTopic="px vs em / rem vs % / vw / vh"
@@ -580,7 +613,7 @@ export default function Lesson08() {
       {/* 12 · SECTION DIVIDER 2 */}
       <SectionDivider
         label="§ Нэгжүүд"
-        page="12"
+        page="13"
         total={TOTAL}
         ghost="02"
         section="ХЭСЭГ 02"
@@ -597,7 +630,7 @@ export default function Lesson08() {
       {/* 13 · ГОЛ ОЙЛГОЛТ: НЭГЖҮҮД */}
       <KeyTerm
         label="Гол ойлголт: нэгжүүд"
-        page="13"
+        page="14"
         total={TOTAL}
         term="Үнэмлэхүй vs харьцангуй"
         def={
@@ -617,7 +650,7 @@ export default function Lesson08() {
       {/* 14 · PX — ҮНЭМЛЭХҮЙ */}
       <Slide
         label="px"
-        page="14"
+        page="15"
         total={TOTAL}
         footer={{ tag: "§02 нэгж", topic: "px — тогтмол" }}
       >
@@ -671,7 +704,7 @@ export default function Lesson08() {
       {/* 15 · EM / REM */}
       <Slide
         label="em / rem"
-        page="15"
+        page="16"
         total={TOTAL}
         footer={{ tag: "§02 нэгж", topic: "em vs rem" }}
       >
@@ -722,7 +755,7 @@ export default function Lesson08() {
       {/* 16 · % / VW / VH */}
       <Slide
         label="% / vw / vh"
-        page="16"
+        page="17"
         total={TOTAL}
         footer={{ tag: "§02 нэгж", topic: "хувь · дэлгэц" }}
       >
@@ -761,7 +794,7 @@ export default function Lesson08() {
       {/* 17 · НЭГЖ ХЭЗЭЭ ХЭРЭГЛЭХ */}
       <Slide
         label="нэгж сонгох"
-        page="17"
+        page="18"
         total={TOTAL}
         footer={{ tag: "§02 нэгж", topic: "аль нэгжийг хэзээ" }}
       >
@@ -786,12 +819,12 @@ export default function Lesson08() {
         </Frame>
       </Slide>
 
-      {/* 18 · ДАСГАЛ 2 */}
+      {/* 18 · ДАСГАЛ 3 */}
       <Exercise
-        label="Дасгал 2"
-        page="18"
+        label="Дасгал 3"
+        page="19"
         total={TOTAL}
-        tag="Дасгал 2 · хэсэг 2"
+        tag="Дасгал 3 · хэсэг 2"
         title="Нэгжээр hero хэсэг угсрах"
         tasks={[
           <>
@@ -831,10 +864,41 @@ export default function Lesson08() {
           ~2:50–3:00 · ХУРААНГУЙ БА АСУУЛТ
           ============================================================ */}
 
+      {/* ДАСГАЛ 4 (§2) */}
+      <Exercise
+        label="Дасгал 4"
+        page="20"
+        total={TOTAL}
+        tag="Дасгал 4 · хэсэг 2"
+        title="px-ийг харьцангуй нэгж болгох"
+        tasks={[
+          <>
+            Өгөгдсөн картын бүх <code>font-size</code>-ийг <code>px</code>-ээс{" "}
+            <code>rem</code> болгон хөрвүүл (<code>html: 16px</code> суурьтай).
+          </>,
+          <>
+            Товчны <code>padding</code>-ийг <code>em</code>-ээр өг.
+          </>,
+          <>
+            Картын өргөнг <code>%</code>, өндрийг <code>vh</code>-ээр тохируул.
+          </>,
+          <>
+            <code>html</code>-ийн <code>font-size</code>-ийг 20px болгоод rem
+            утгууд хэрхэн зэрэг өсөхийг ажигла.
+          </>,
+        ]}
+        hints={[
+          "16px → 1rem, 24px → 1.5rem, 40px → 2.5rem.",
+          "em нь товчны өөрийн font-size-аас хамаарна.",
+          "html font-size өөрчлөхөд бүх rem зэрэг масштаблана.",
+        ]}
+        time="⏱ 15 минут"
+      />
+
       {/* 19 · ХУРААНГУЙ */}
       <Recap
         label="Хураангуй"
-        page="19"
+        page="21"
         total={TOTAL}
         eyebrow="Хичээл 08 · хураангуй"
         title="Хураангуй"

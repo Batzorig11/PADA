@@ -37,7 +37,7 @@ export const metadata = {
  *   ~1:40–2:50  ХЭСЭГ 2 — Features, footer, responsive ба polish
  *   ~2:50–3:00  Хураангуй ба асуулт
  */
-const TOTAL = "18";
+const TOTAL = "20";
 
 /* ===== Дасгалын бэлэн шийдэл (зөвхөн Сар 1-д үзсэн HTML/CSS) ===== */
 
@@ -609,8 +609,39 @@ export default function Lesson15() {
       {/* ============================================================
           ~1:20–1:40 · ЗАВСАРЛАГА
           ============================================================ */}
-      <Break
+      {/* ДАСГАЛ 2 (§1) */}
+      <Exercise
+        label="Дасгал 2"
         page="10"
+        total={TOTAL}
+        tag="Дасгал 2 · хэсэг 1"
+        title="Features section угсрах"
+        tasks={[
+          <>
+            <code>&lt;section class=&quot;features&quot;&gt;</code> дотор 3
+            давуу талын картыг grid эсвэл flex-ээр угсар.
+          </>,
+          <>
+            Карт бүрт icon (эмодзи), гарчиг, богино тайлбар бүхий бүтэц хий.
+          </>,
+          <>
+            Картуудыг тэнцүү өргөнтэй, зайтай (<code>gap</code>) болго.
+          </>,
+          <>
+            Карт <code>:hover</code> дээр бага зэрэг дээш хөдлөх (
+            <code>transform: translateY(-6px)</code>) эффект нэм.
+          </>,
+        ]}
+        hints={[
+          "Тэнцүү багана: grid repeat(3, 1fr) эсвэл flex: 1.",
+          "Section бүрийг max-width container дотор голлуул.",
+          "hover-т transition нэмбэл зөөлөн харагдана.",
+        ]}
+        time="⏱ 18 минут"
+      />
+
+      <Break
+        page="11"
         total={TOTAL}
         mins={20}
         resumeTopic="Features, footer, responsive ба polish"
@@ -623,7 +654,7 @@ export default function Lesson15() {
       {/* 11 · SECTION DIVIDER 2 */}
       <SectionDivider
         label="§ Section-ууд"
-        page="11"
+        page="12"
         total={TOTAL}
         ghost="02"
         section="ХЭСЭГ 02"
@@ -640,7 +671,7 @@ export default function Lesson15() {
       {/* 12 · FEATURES GRID */}
       <Slide
         label="features grid"
-        page="12"
+        page="13"
         total={TOTAL}
         footer={{ tag: "§02 section", topic: "боломжуудын grid" }}
       >
@@ -709,7 +740,7 @@ export default function Lesson15() {
       {/* 13 · CTA + FOOTER */}
       <Slide
         label="cta + footer"
-        page="13"
+        page="14"
         total={TOTAL}
         footer={{ tag: "§02 section", topic: "CTA ба footer" }}
       >
@@ -764,7 +795,7 @@ export default function Lesson15() {
       {/* 14 · RESPONSIVE PASS */}
       <Slide
         label="responsive"
-        page="14"
+        page="15"
         total={TOTAL}
         footer={{ tag: "§02 polish", topic: "responsive" }}
       >
@@ -810,7 +841,7 @@ export default function Lesson15() {
       {/* 15 · POLISH ЁСТОЙ/ЁСГҮЙ */}
       <Slide
         label="polish"
-        page="15"
+        page="16"
         total={TOTAL}
         footer={{ tag: "§02 polish", topic: "өнгөлгөө" }}
       >
@@ -839,10 +870,10 @@ export default function Lesson15() {
 
       {/* 16 · ДАСГАЛ 2 */}
       <Exercise
-        label="Дасгал 2"
-        page="16"
+        label="Дасгал 3"
+        page="17"
         total={TOTAL}
-        tag="Дасгал 2 · хэсэг 2"
+        tag="Дасгал 3 · хэсэг 2"
         title="Landing page-ээ дуусгах"
         tasks={[
           <>
@@ -882,9 +913,42 @@ export default function Lesson15() {
           ============================================================ */}
 
       {/* 17 · ХУРААНГУЙ */}
+      {/* ДАСГАЛ 4 (§2) */}
+      <Exercise
+        label="Дасгал 4"
+        page="18"
+        total={TOTAL}
+        tag="Дасгал 4 · хэсэг 2"
+        title="Landing page-ээ responsive болгох"
+        tasks={[
+          <>
+            Бүх хэсгийг нэг <code>max-width</code> бүхий <code>.container</code>{" "}
+            дотор голлуул.
+          </>,
+          <>
+            <code>@media (max-width: 768px)</code>-д features grid-ийг 1 багана
+            болго.
+          </>,
+          <>
+            Navbar-ийг жижиг дэлгэцэд босоо (<code>flex-direction: column</code>)
+            болго.
+          </>,
+          <>
+            Hero гарчгийн хэмжээг <code>clamp()</code> эсвэл breakpoint-аар уян
+            хатан болгож, төслөө бүрэн responsive болго.
+          </>,
+        ]}
+        hints={[
+          "container: max-width + margin: 0 auto.",
+          "Mobile-д ихэвчлэн бүх grid 1 багана болдог.",
+          "DevTools responsive горимоор бүх breakpoint-оо шалга.",
+        ]}
+        time="⏱ 20 минут"
+      />
+
       <Recap
         label="Хураангуй"
-        page="17"
+        page="19"
         total={TOTAL}
         eyebrow="Хичээл 15 · хураангуй"
         title="Хураангуй"

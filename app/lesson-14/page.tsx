@@ -34,7 +34,7 @@ export const metadata = {
  *   ~1:40–2:50  ХЭСЭГ 2 — transform, @keyframes animation
  *   ~2:50–3:00  Хураангуй ба асуулт
  */
-const TOTAL = "18";
+const TOTAL = "20";
 
 /* ===== Дасгалын бэлэн шийдэл (зөвхөн энэ хичээл хүртэл үзсэн HTML/CSS) ===== */
 
@@ -427,8 +427,39 @@ export default function Lesson14() {
       {/* ============================================================
           ~1:20–1:40 · ЗАВСАРЛАГА
           ============================================================ */}
-      <Break
+      {/* ДАСГАЛ 2 (§1) */}
+      <Exercise
+        label="Дасгал 2"
         page="10"
+        total={TOTAL}
+        tag="Дасгал 2 · хэсэг 1"
+        title="Холбоосын hover анимаци"
+        tasks={[
+          <>
+            Холбоост <code>:hover</code> дээр өнгө ба арын дэвсгэрийг өөрчил.
+          </>,
+          <>
+            <code>transition: all 0.3s ease</code> нэмж шилжилтийг зөөлрүүл.
+          </>,
+          <>
+            <code>:focus</code> төлөв нэмж, гарын товчлуураар сонгоход ч
+            харагдуул.
+          </>,
+          <>
+            <code>transition-duration</code>-ийг 0.1s ба 0.6s болгож хурдны
+            ялгааг мэдэр.
+          </>,
+        ]}
+        hints={[
+          "transition-ийг анхдагч (hover биш) төлөв дээр зарлана.",
+          ":focus нь хүртээмжид чухал — зөвхөн hover хангалтгүй.",
+          "ease, linear, ease-in-out — хурдны муруйнууд.",
+        ]}
+        time="⏱ 15 минут"
+      />
+
+      <Break
+        page="11"
         total={TOTAL}
         mins={20}
         resumeTopic="transform ба @keyframes анимаци"
@@ -441,7 +472,7 @@ export default function Lesson14() {
       {/* 11 · SECTION DIVIDER 2 */}
       <SectionDivider
         label="§ transform ба анимаци"
-        page="11"
+        page="12"
         total={TOTAL}
         ghost="02"
         section="ХЭСЭГ 02"
@@ -458,7 +489,7 @@ export default function Lesson14() {
       {/* 12 · TRANSFORM */}
       <Slide
         label="transform"
-        page="12"
+        page="13"
         total={TOTAL}
         footer={{ tag: "§02 transform", topic: "scale · rotate · translate" }}
       >
@@ -499,7 +530,7 @@ export default function Lesson14() {
       {/* 13 · TRANSFORM + TRANSITION */}
       <Slide
         label="transform + transition"
-        page="13"
+        page="14"
         total={TOTAL}
         footer={{ tag: "§02 transform", topic: "карт өргөх" }}
       >
@@ -545,7 +576,7 @@ export default function Lesson14() {
       {/* 14 · ГОЛ ОЙЛГОЛТ: @KEYFRAMES */}
       <KeyTerm
         label="Гол ойлголт: @keyframes"
-        page="14"
+        page="15"
         total={TOTAL}
         term="@keyframes"
         def={
@@ -562,7 +593,7 @@ export default function Lesson14() {
       {/* 15 · @KEYFRAMES КОД БА ҮР ДҮН */}
       <Slide
         label="@keyframes жишээ"
-        page="15"
+        page="16"
         total={TOTAL}
         footer={{ tag: "§02 анимаци", topic: "pulse" }}
       >
@@ -611,10 +642,10 @@ export default function Lesson14() {
 
       {/* 16 · ДАСГАЛ 2 */}
       <Exercise
-        label="Дасгал 2"
-        page="16"
+        label="Дасгал 3"
+        page="17"
         total={TOTAL}
-        tag="Дасгал 2 · хэсэг 2"
+        tag="Дасгал 3 · хэсэг 2"
         title="Хөдөлгөөнт карт"
         tasks={[
           <>
@@ -657,9 +688,43 @@ export default function Lesson14() {
           ============================================================ */}
 
       {/* 17 · ХУРААНГУЙ */}
+      {/* ДАСГАЛ 4 (§2) */}
+      <Exercise
+        label="Дасгал 4"
+        page="18"
+        total={TOTAL}
+        tag="Дасгал 4 · хэсэг 2"
+        title="Spinner ба keyframes анимаци"
+        tasks={[
+          <>
+            <code>@keyframes spin</code> зарлаж, <code>0%</code> →{" "}
+            <code>transform: rotate(0)</code>, <code>100%</code> →{" "}
+            <code>rotate(360deg)</code> бич.
+          </>,
+          <>
+            Дугуй элементэд <code>animation: spin 1s linear infinite</code> өгч
+            эргэлдүүл.
+          </>,
+          <>
+            Картад <code>:hover</code> дээр <code>transform: scale(1.05)</code>{" "}
+            өгч томсго.
+          </>,
+          <>
+            <code>@keyframes pulse</code> үүсгэж opacity-г 1 → 0.4 → 1 болгож
+            «амьсгалах» эффект хий.
+          </>,
+        ]}
+        hints={[
+          "infinite нь анимацийг тасралтгүй давтана.",
+          "transform: scale нь элементийг томруулна/жижигрүүлнэ.",
+          "@keyframes-д 0% ба 100%-ийг заавал зааж өг.",
+        ]}
+        time="⏱ 15 минут"
+      />
+
       <Recap
         label="Хураангуй"
-        page="17"
+        page="19"
         total={TOTAL}
         eyebrow="Хичээл 14 · хураангуй"
         title="Хураангуй"

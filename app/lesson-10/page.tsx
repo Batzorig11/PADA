@@ -34,7 +34,7 @@ export const metadata = {
  *   ~1:40–2:50  ХЭСЭГ 2 — flex-direction, flex-wrap, бодит layout
  *   ~2:50–3:00  Хураангуй ба асуулт
  */
-const TOTAL = "19";
+const TOTAL = "21";
 
 /* ===== Дасгалын бэлэн шийдэл (зөвхөн энэ хичээл хүртэл үзсэн HTML/CSS) ===== */
 
@@ -591,8 +591,42 @@ export default function Lesson10() {
       {/* ============================================================
           ~1:20–1:40 · ЗАВСАРЛАГА
           ============================================================ */}
-      <Break
+      {/* ДАСГАЛ 2 (§1) */}
+      <Exercise
+        label="Дасгал 2"
         page="11"
+        total={TOTAL}
+        tag="Дасгал 2 · хэсэг 1"
+        title="Картыг дэлгэц голд нь байрлуулах"
+        tasks={[
+          <>
+            Контейнерт <code>display: flex</code>, <code>min-height: 100vh</code>{" "}
+            өг.
+          </>,
+          <>
+            <code>justify-content: center</code> ба{" "}
+            <code>align-items: center</code>-ээр картыг хэвтээ ба босоо
+            чиглэлд голлуул.
+          </>,
+          <>
+            Картын дотор гарчиг, текст, товчийг <code>flex-direction: column</code>{" "}
+            ба <code>gap</code>-аар зайтай угсар.
+          </>,
+          <>
+            <code>justify-content</code>-ийн <code>flex-start</code>,{" "}
+            <code>space-between</code> зэргийг туршиж ялгааг ажигла.
+          </>,
+        ]}
+        hints={[
+          "Голлуулах хоёр тэнхлэг: justify-content (үндсэн), align-items (хөндлөн).",
+          "min-height: 100vh өгөхгүй бол босоо голлуулалт харагдахгүй.",
+          "gap нь зөвхөн flex/grid дотор ажиллана.",
+        ]}
+        time="⏱ 15 минут"
+      />
+
+      <Break
+        page="12"
         total={TOTAL}
         mins={20}
         resumeTopic="flex-direction, flex-wrap ба бодит layout"
@@ -605,7 +639,7 @@ export default function Lesson10() {
       {/* 12 · SECTION DIVIDER 2 */}
       <SectionDivider
         label="§ Чиглэл ба боолт"
-        page="12"
+        page="13"
         total={TOTAL}
         ghost="02"
         section="ХЭСЭГ 02"
@@ -622,7 +656,7 @@ export default function Lesson10() {
       {/* 13 · ГОЛ ОЙЛГОЛТ: FLEX-DIRECTION */}
       <KeyTerm
         label="Гол ойлголт: flex-direction"
-        page="13"
+        page="14"
         total={TOTAL}
         term="flex-direction"
         def={
@@ -639,7 +673,7 @@ export default function Lesson10() {
       {/* 14 · FLEX-DIRECTION */}
       <Slide
         label="flex-direction"
-        page="14"
+        page="15"
         total={TOTAL}
         footer={{ tag: "§02 layout", topic: "row vs column" }}
       >
@@ -710,7 +744,7 @@ export default function Lesson10() {
       {/* 15 · FLEX-WRAP */}
       <Slide
         label="flex-wrap"
-        page="15"
+        page="16"
         total={TOTAL}
         footer={{ tag: "§02 layout", topic: "flex-wrap" }}
       >
@@ -777,7 +811,7 @@ export default function Lesson10() {
       {/* 16 · БҮХ ЗҮЙЛ НЭГ ДЭЭР */}
       <Slide
         label="бүгд хамт"
-        page="16"
+        page="17"
         total={TOTAL}
         footer={{ tag: "§02 layout", topic: "картын эгнээ" }}
       >
@@ -851,10 +885,10 @@ export default function Lesson10() {
 
       {/* 17 · ДАСГАЛ 2 */}
       <Exercise
-        label="Дасгал 2"
-        page="17"
+        label="Дасгал 3"
+        page="18"
         total={TOTAL}
-        tag="Дасгал 2 · хэсэг 2"
+        tag="Дасгал 3 · хэсэг 2"
         title="Картын эгнээ угсрах"
         tasks={[
           <>
@@ -896,9 +930,41 @@ export default function Lesson10() {
           ============================================================ */}
 
       {/* 18 · ХУРААНГУЙ */}
+      {/* ДАСГАЛ 4 (§2) */}
+      <Exercise
+        label="Дасгал 4"
+        page="19"
+        total={TOTAL}
+        tag="Дасгал 4 · хэсэг 2"
+        title="Таг жагсаалт ба wrap"
+        tasks={[
+          <>
+            8–10 «таг» (<code>span</code>)-ийг <code>display: flex</code> +{" "}
+            <code>flex-wrap: wrap</code>-аар олон мөр дамжуулж байрлуул.
+          </>,
+          <>
+            <code>gap</code>-аар тагуудын хооронд жигд зай үүсгэ.
+          </>,
+          <>
+            <code>flex-direction: column</code> болгож, нэг баганат босоо
+            жагсаалт болгож үз.
+          </>,
+          <>
+            Толгой мөрийг <code>justify-content: space-between</code>-ээр зүүн
+            гарчиг, баруун товчтой болго.
+          </>,
+        ]}
+        hints={[
+          "flex-wrap: wrap бол элементүүд багтахгүй бол доош шинэ мөр рүү шилжинэ.",
+          "wrap байхгүй бол бүгд нэг мөрөнд шахагдана.",
+          "space-between нь захын элементүүдийг хоёр тийш түлхэнэ.",
+        ]}
+        time="⏱ 15 минут"
+      />
+
       <Recap
         label="Хураангуй"
-        page="18"
+        page="20"
         total={TOTAL}
         eyebrow="Хичээл 10 · хураангуй"
         title="Хураангуй"

@@ -34,7 +34,7 @@ export const metadata = {
  *   ~1:40–2:50  ХЭСЭГ 2 — position (static/relative/absolute/fixed/sticky), z-index
  *   ~2:50–3:00  Хураангуй ба асуулт
  */
-const TOTAL = "19";
+const TOTAL = "21";
 
 /* ===== Дасгалын бэлэн шийдэл (зөвхөн энэ хичээл хүртэл үзсэн HTML/CSS) ===== */
 
@@ -480,8 +480,41 @@ export default function Lesson09() {
       {/* ============================================================
           ~1:20–1:40 · ЗАВСАРЛАГА
           ============================================================ */}
-      <Break
+      {/* ДАСГАЛ 2 (§1) */}
+      <Exercise
+        label="Дасгал 2"
         page="10"
+        total={TOTAL}
+        tag="Дасгал 2 · хэсэг 1"
+        title="display төрлүүдийг туршиж ойлгох"
+        tasks={[
+          <>
+            Гурван <code>&lt;span&gt;</code>-д <code>padding</code> өгөөд, яагаад
+            дээд/доод зай нөлөөлөхгүй байгааг ажигла.
+          </>,
+          <>
+            Тэдгээрийг <code>display: inline-block</code> болгож, зэрэгцсэн
+            хэвээр padding бүрэн авахыг хар.
+          </>,
+          <>
+            Нэг <code>&lt;span&gt;</code>-ийг <code>display: block</code> болгож,
+            бүтэн мөр эзлэхийг ажигла.
+          </>,
+          <>
+            Жижиг хайрцагт урт текст хийж <code>overflow: auto</code> өгч гүйлгэх
+            боломжтой болго.
+          </>,
+        ]}
+        hints={[
+          "inline элемент дээд/доод padding-ийг бусдад түлхэхгүй.",
+          "inline-block = зэрэгцэнэ + хэмжээ авна.",
+          "overflow: auto зөвхөн шаардлагатай үед scrollbar гаргана.",
+        ]}
+        time="⏱ 15 минут"
+      />
+
+      <Break
+        page="11"
         total={TOTAL}
         mins={20}
         resumeTopic="position ба z-index"
@@ -494,7 +527,7 @@ export default function Lesson09() {
       {/* 11 · SECTION DIVIDER 2 */}
       <SectionDivider
         label="§ position"
-        page="11"
+        page="12"
         total={TOTAL}
         ghost="02"
         section="ХЭСЭГ 02"
@@ -510,7 +543,7 @@ export default function Lesson09() {
       {/* 12 · ГОЛ ОЙЛГОЛТ: POSITION */}
       <KeyTerm
         label="Гол ойлголт: position"
-        page="12"
+        page="13"
         total={TOTAL}
         term="position"
         def={
@@ -528,7 +561,7 @@ export default function Lesson09() {
       {/* 13 · POSITION УТГУУД */}
       <Slide
         label="position утгууд"
-        page="13"
+        page="14"
         total={TOTAL}
         footer={{ tag: "§02 position", topic: "5 утга" }}
       >
@@ -556,7 +589,7 @@ export default function Lesson09() {
       {/* 14 · RELATIVE + ABSOLUTE */}
       <Slide
         label="relative + absolute"
-        page="14"
+        page="15"
         total={TOTAL}
         footer={{ tag: "§02 position", topic: "relative тулгуур · absolute" }}
       >
@@ -633,7 +666,7 @@ export default function Lesson09() {
       {/* 15 · FIXED + STICKY */}
       <Slide
         label="fixed + sticky"
-        page="15"
+        page="16"
         total={TOTAL}
         footer={{ tag: "§02 position", topic: "fixed · sticky" }}
       >
@@ -686,7 +719,7 @@ export default function Lesson09() {
       {/* 16 · Z-INDEX */}
       <Slide
         label="z-index"
-        page="16"
+        page="17"
         total={TOTAL}
         footer={{ tag: "§02 position", topic: "z-index" }}
       >
@@ -758,10 +791,10 @@ export default function Lesson09() {
 
       {/* 17 · ДАСГАЛ 2 */}
       <Exercise
-        label="Дасгал 2"
-        page="17"
+        label="Дасгал 3"
+        page="18"
         total={TOTAL}
-        tag="Дасгал 2 · хэсэг 2"
+        tag="Дасгал 3 · хэсэг 2"
         title="Тэмдэгтэй карт байрлуулах"
         tasks={[
           <>
@@ -804,9 +837,42 @@ export default function Lesson09() {
           ============================================================ */}
 
       {/* 18 · ХУРААНГУЙ */}
+      {/* ДАСГАЛ 4 (§2) */}
+      <Exercise
+        label="Дасгал 4"
+        page="19"
+        total={TOTAL}
+        tag="Дасгал 4 · хэсэг 2"
+        title="Badge ба «дээш» товч байрлуулах"
+        tasks={[
+          <>
+            Картад <code>position: relative</code> өгч, дотор нь «ШИНЭ» badge-ийг{" "}
+            <code>position: absolute</code>-аар баруун дээд буланд тавь.
+          </>,
+          <>
+            <code>top</code>, <code>right</code> утгуудаар badge-ийн яг байрлалыг
+            тохируул.
+          </>,
+          <>
+            «Дээш ↑» товчийг <code>position: fixed</code>-ээр дэлгэцийн доод
+            баруун буланд тогтоо.
+          </>,
+          <>
+            <code>z-index</code>-ээр badge ба товчийг бусад агуулгын дээр гаргаж
+            давхцлыг зохицуул.
+          </>,
+        ]}
+        hints={[
+          "absolute нь хамгийн ойрын relative эх элементээс хэмжинэ.",
+          "fixed нь дэлгэцэд тогтож, гүйлгэхэд хөдлөхгүй.",
+          "z-index өндөр байх тусам дээр харагдана.",
+        ]}
+        time="⏱ 15 минут"
+      />
+
       <Recap
         label="Хураангуй"
-        page="18"
+        page="20"
         total={TOTAL}
         eyebrow="Хичээл 09 · хураангуй"
         title="Хураангуй"
