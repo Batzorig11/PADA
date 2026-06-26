@@ -316,6 +316,8 @@ export function Exercise({
   time,
   hintsTitle = "Зөвлөмж",
   aside,
+  palette,
+  paletteTitle = "Өнгөний кодууд",
   label,
 }: {
   page: ReactNode;
@@ -328,6 +330,9 @@ export function Exercise({
   hintsTitle?: ReactNode;
   /** Replaces the default hints aside (e.g. a target screenshot). */
   aside?: ReactNode;
+  /** Hex colour codes shown to students under the exercise. */
+  palette?: { hex: string; name?: ReactNode }[];
+  paletteTitle?: ReactNode;
   label?: string;
 }) {
   return (
@@ -343,17 +348,32 @@ export function Exercise({
             </div>
           ))}
         </div>
-        {aside ?? (
-          <div className="exercise-aside">
-            <div className="ea-title">{hintsTitle}</div>
-            <ul>
-              {(hints ?? []).map((h, i) => (
-                <li key={i}>{h}</li>
-              ))}
-            </ul>
-            {time && <div className="time">{time}</div>}
-          </div>
-        )}
+        <div className="exercise-col">
+          {aside ?? (
+            <div className="exercise-aside">
+              <div className="ea-title">{hintsTitle}</div>
+              <ul>
+                {(hints ?? []).map((h, i) => (
+                  <li key={i}>{h}</li>
+                ))}
+              </ul>
+              {time && <div className="time">{time}</div>}
+            </div>
+          )}
+          {palette && palette.length > 0 && (
+            <div className="exercise-palette">
+              <div className="ep-title">{paletteTitle}</div>
+              <div className="ep-swatches">
+                {palette.map((c, i) => (
+                  <div className="ep-swatch" key={i}>
+                    <span className="ep-chip" style={{ background: c.hex }} />
+                    <span className="ep-hex">{c.hex}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );

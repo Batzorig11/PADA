@@ -603,6 +603,35 @@ section.slide,
   align-items: center; gap: 12px;
 }
 
+/* right column wrapper: code/hints box + palette under it */
+.exercise-col { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+
+/* exercise colour palette — hex codes shown right under the example box */
+.exercise-palette {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 18px 22px;
+}
+.exercise-palette .ep-title {
+  font-size: 17px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--fg-dim); margin-bottom: 14px;
+}
+.exercise-palette .ep-swatches {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.exercise-palette .ep-swatch {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 12px 6px 8px;
+}
+.exercise-palette .ep-chip {
+  width: 20px; height: 20px; border-radius: 5px; flex: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.exercise-palette .ep-hex {
+  font-family: var(--mono, monospace); font-size: 18px; color: var(--fg);
+  letter-spacing: 0.02em;
+}
+
 /* exercise solution files — filename + copy button, code hidden */
 .exercise-files {
   background: var(--panel); border: 1px solid var(--border);

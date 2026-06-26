@@ -172,6 +172,128 @@ const PRICING_CSS = `body {
 }
 `;
 
+const NAVBAR_HTML = `<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Навбар</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">erxes</div>
+      <div class="menu">
+        <a href="#">Нүүр</a>
+        <a href="#">Үнэ</a>
+        <a href="#" class="btn">Нэвтрэх</a>
+      </div>
+    </nav>
+  </body>
+</html>
+`;
+
+const NAVBAR_CSS = `body {
+  background: #0d1117;
+  color: #f8fafc;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  /* лого зүүн, цэс баруун тийш */
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: #161b22;
+}
+
+.logo {
+  color: #39d353;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.menu {
+  /* цэс өөрөө flex контейнер */
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu a {
+  color: #9aa4b2;
+  text-decoration: none;
+}
+
+.menu .btn {
+  background: #39d353;
+  color: #0d1117;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+`;
+
+const GROW_HTML = `<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <title>grow / shrink / basis</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="row">
+      <div class="card">A</div>
+      <div class="card mid">B</div>
+      <div class="card">C</div>
+    </div>
+  </body>
+</html>
+`;
+
+const GROW_CSS = `body {
+  background: #0d1117;
+  color: #f8fafc;
+  font-family: Arial, sans-serif;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+  padding: 40px;
+}
+
+.card {
+  /* эхлэлийн өргөн 120px, дараа нь үлдсэн зайг тэнцүү хуваана */
+  flex: 1 1 120px;
+  padding: 40px 0;
+  background: #161b22;
+  border: 1px solid #21262d;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.mid {
+  /* дунд карт бусдаасаа 2 дахин их зай авна */
+  flex: 2 1 120px;
+  background: #39d353;
+  color: #0d1117;
+}
+`;
+
+/* ===== Дасгалд хэрэглэх өнгөний код (hex) ===== */
+const C = {
+  bg: { hex: "#0d1117", name: "Дэвсгэр" },
+  panel: { hex: "#161b22", name: "Самбар" },
+  border: { hex: "#21262d", name: "Хүрээ" },
+  text: { hex: "#f8fafc", name: "Текст" },
+  muted: { hex: "#9aa4b2", name: "Бүдэг текст" },
+  accent: { hex: "#39d353", name: "Онцлох ногоон" },
+};
+
 export default function Lesson11() {
   return (
     <Deck>
@@ -472,6 +594,7 @@ export default function Lesson11() {
             ]}
           />
         }
+        palette={[C.bg, C.panel, C.text, C.muted, C.accent]}
       />
 
       {/* ============================================================
@@ -507,7 +630,17 @@ export default function Lesson11() {
           "align-items: center нь босоо тэнхлэгт голлуулна.",
           "Цэсийг flex дотор flex (давхар) болгож болно.",
         ]}
-        time="⏱ 15 минут"
+        aside={
+          <ExerciseFiles
+            className="anim anim-4"
+            caption="⏱ 15 минут"
+            files={[
+              { name: "index.html", lang: "html", code: NAVBAR_HTML },
+              { name: "style.css", lang: "css", code: NAVBAR_CSS },
+            ]}
+          />
+        }
+        palette={[C.bg, C.panel, C.text, C.muted, C.accent]}
       />
 
       <Break
@@ -796,6 +929,7 @@ export default function Lesson11() {
             ]}
           />
         }
+        palette={[C.bg, C.panel, C.border, C.text, C.muted, C.accent]}
       />
 
       {/* ============================================================
@@ -833,7 +967,17 @@ export default function Lesson11() {
           "flex: 2 элемент үлдсэн зайнаас 2 дахин их хувь авна.",
           "flex-basis нь grow/shrink хийхээс өмнөх 'эхлэлийн' өргөн.",
         ]}
-        time="⏱ 15 минут"
+        aside={
+          <ExerciseFiles
+            className="anim anim-4"
+            caption="⏱ 15 минут"
+            files={[
+              { name: "index.html", lang: "html", code: GROW_HTML },
+              { name: "style.css", lang: "css", code: GROW_CSS },
+            ]}
+          />
+        }
+        palette={[C.bg, C.panel, C.border, C.text, C.accent]}
       />
 
       <Recap
