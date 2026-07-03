@@ -167,6 +167,177 @@ const NAV_CSS = `body {
 }
 `;
 
+const BP_HTML = `<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mobile-first breakpoint</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Манай багц</h1>
+    <section class="grid">
+      <div class="card">Эхлэгч</div>
+      <div class="card">Дунд</div>
+      <div class="card">Ахисан</div>
+      <div class="card">Баг</div>
+      <div class="card">Байгууллага</div>
+      <div class="card">Тусгай</div>
+    </section>
+  </body>
+</html>
+`;
+
+const BP_CSS = `body {
+  margin: 0;
+  padding: 24px;
+  background: #0d1117;
+  color: #f8fafc;
+  font-family: Arial, sans-serif;
+}
+
+/* Mobile-first: анхдагч = утас */
+h1 {
+  font-size: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.card {
+  padding: 28px;
+  background: #161b22;
+  border: 1px solid #21262d;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* таблет: 2 багана, зай ба гарчиг томорно */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* десктоп: 3 багана, зай ба гарчиг дахин томорно */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+`;
+
+const HERO_HTML = `<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Responsive hero</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="logo">erxes</div>
+      <nav class="menu">
+        <a href="#">Нүүр</a>
+        <a href="#">Бүтээгдэхүүн</a>
+        <a href="#">Үнэ</a>
+        <a href="#">Холбоо барих</a>
+      </nav>
+    </header>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Бүх дэлгэцэд тохирно</h1>
+        <p>Утас, таблет, десктоп — нэг л хуудас бүгдэд зохицно.</p>
+      </div>
+      <img src="images/hero.jpg" alt="Танилцуулга зураг" />
+    </section>
+  </body>
+</html>
+`;
+
+const HERO_CSS = `body {
+  margin: 0;
+  background: #0d1117;
+  color: #f8fafc;
+  font-family: Arial, sans-serif;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #161b22;
+}
+
+.logo {
+  font-weight: 700;
+  color: #39d353;
+  font-size: 22px;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  color: #f8fafc;
+  text-decoration: none;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 48px 24px;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+/* Уян гарчиг: жижигт 1.5rem, томд 3rem хүртэл */
+.hero h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+}
+
+/* Зураг хүрээнээсээ хальж гарахгүй */
+.hero img {
+  flex: 1;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Жижиг дэлгэц: цэсийг нууж, hero-г босоо болгоно */
+@media (max-width: 600px) {
+  .menu {
+    display: none;
+  }
+
+  .hero {
+    flex-direction: column;
+  }
+}
+`;
+
 export default function Lesson13() {
   return (
     <Deck>
@@ -453,6 +624,7 @@ export default function Lesson13() {
         aside={
           <ExerciseFiles
             className="anim anim-4"
+            passcode="0109"
             caption="⏱ 20 минут"
             files={[
               { name: "index.html", lang: "html", code: GRID_HTML },
@@ -488,12 +660,17 @@ export default function Lesson13() {
             DevTools-ийн responsive горимоор өргөнийг өөрчилж шилжилтийг ажигла.
           </>,
         ]}
-        hints={[
-          "Mobile-first = жижиг дэлгэцийг үндсэн загвар болгож, min-width-ээр томруулна.",
-          "Breakpoint түгээмэл: 768px (таблет), 1024px (десктоп).",
-          "Зөвхөн @media доторх дүрэм тухайн өргөнөөс хойш үйлчилнэ.",
-        ]}
-        time="⏱ 15 минут"
+        aside={
+          <ExerciseFiles
+            className="anim anim-4"
+            passcode="0109"
+            caption="⏱ 15 минут"
+            files={[
+              { name: "index.html", lang: "html", code: BP_HTML },
+              { name: "style.css", lang: "css", code: BP_CSS },
+            ]}
+          />
+        }
       />
 
       <Break
@@ -750,6 +927,7 @@ export default function Lesson13() {
         aside={
           <ExerciseFiles
             className="anim anim-4"
+            passcode="0109"
             caption="⏱ 20 минут"
             files={[
               { name: "index.html", lang: "html", code: NAV_HTML },
@@ -789,12 +967,17 @@ export default function Lesson13() {
             болго.
           </>,
         ]}
-        hints={[
-          "max-width: 100% нь зургийг эх элементээсээ хэтрэхгүй болгоно.",
-          "clamp(min, дэлгэцэд хамаарах, max) — уян хатан хэмжээ.",
-          "display: none нь элементийг бүрэн нууна.",
-        ]}
-        time="⏱ 15 минут"
+        aside={
+          <ExerciseFiles
+            className="anim anim-4"
+            passcode="0109"
+            caption="⏱ 15 минут"
+            files={[
+              { name: "index.html", lang: "html", code: HERO_HTML },
+              { name: "style.css", lang: "css", code: HERO_CSS },
+            ]}
+          />
+        }
       />
 
       <Recap

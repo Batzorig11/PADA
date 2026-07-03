@@ -675,6 +675,22 @@ section.slide,
   margin-top: 24px; font-size: 24px; color: var(--accent); display: flex;
   align-items: center; gap: 12px;
 }
+.exercise-files .ef-lock {
+  margin-top: 16px; display: flex; align-items: center; gap: 16px;
+}
+.exercise-files .ef-code {
+  flex: 1; min-width: 0;
+  font-family: var(--font-mono); font-size: 24px; color: var(--fg);
+  background: var(--panel2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 10px 18px;
+  letter-spacing: 0.3em;
+}
+.exercise-files .ef-code:focus {
+  outline: none; border-color: var(--accent);
+}
+.exercise-files .ef-wrong {
+  flex: none; font-size: 21px; color: #f85149;
+}
 
 /* exercise target preview — a screenshot of what to build (legacy) */
 .exercise-target { display: flex; flex-direction: column; gap: 18px;
