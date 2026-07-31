@@ -6,7 +6,6 @@ import {
   KeyTerm,
   CompareTable,
   Exercise,
-  ExerciseFiles,
   Break,
   Recap,
   Slide,
@@ -32,50 +31,6 @@ export const metadata = {
  *   ХЭСЭГ 2 — Scope ба arrow function
  */
 const TOTAL = "19";
-
-/* ===== Дасгалын бэлэн шийдэл ===== */
-
-const FUNC_JS = `// Тэгш өнцөгтийн талбай
-function area(width, height) {
-  return width * height;
-}
-console.log(area(5, 3)); // 15
-
-// Мэндчилгээ
-function greet(name) {
-  return "Сайн уу, " + name + "!";
-}
-console.log(greet("Болд")); // "Сайн уу, Болд!"
-
-// Анхдагч утга (default parameter)
-function greet2(name = "зочин") {
-  return "Тавтай морил, " + name;
-}
-console.log(greet2());        // "Тавтай морил, зочин"
-console.log(greet2("Сараа")); // "Тавтай морил, Сараа"
-`;
-
-const ARROW_JS = `// 1) Энгийн функц
-function double(n) {
-  return n * 2;
-}
-
-// 2) Функц илэрхийлэл
-const triple = function (n) {
-  return n * 3;
-};
-
-// 3) Arrow function — товч
-const square = (n) => n * n;
-
-console.log(double(4)); // 8
-console.log(triple(4)); // 12
-console.log(square(4)); // 16
-
-// Хэд хэдэн параметртэй arrow
-const add = (a, b) => a + b;
-console.log(add(2, 5)); // 7
-`;
 
 export default function Lesson20() {
   return (
@@ -152,7 +107,7 @@ export default function Lesson20() {
                 title: "Scope ба arrow",
                 desc: "Хувьсагчийн хүрээ, arrow function.",
               },
-              { idx: "★", title: "4 дасгал", desc: "Хэсэг бүрт 2 — нийт 4." },
+              { idx: "★", title: "2 дасгал", desc: "Нийт 2 дадлагын хэсэг." },
             ]}
           />
         </Frame>
@@ -249,10 +204,170 @@ export default function Lesson20() {
         </Frame>
       </Slide>
 
-      {/* 07 · RETURN */}
+      {/* 07 · ФУНКЦИЙН СИНТАКС */}
+      <Slide
+        label="функцийн синтакс"
+        page="07"
+        total={TOTAL}
+        footer={{ tag: "§01 функц", topic: "синтакс · бүтэц" }}
+      >
+        <Frame>
+          <Eyebrow className="anim">Бүтцийг нэг дор харах</Eyebrow>
+          <h2 className="slide-title anim anim-2">Функцийн синтакс</h2>
+          <div className="lesson-teaching-split anim anim-3">
+            <div>
+              <CodeWindow numbered sm filename="syntax.js" lang="js">
+                <Line>
+                  <T.kw>function</T.kw> <T.fn>functionName</T.fn>
+                  <T.punct>(</T.punct>
+                  <T.attr>param1</T.attr>
+                  <T.punct>,</T.punct> <T.attr>param2</T.attr>
+                  <T.punct>) {"{"}</T.punct>
+                </Line>
+                <Line indent={2}>
+                  <T.kw>const</T.kw> <T.attr>result</T.attr>{" "}
+                  <T.punct>=</T.punct> <T.attr>param1</T.attr>{" "}
+                  <T.punct>+</T.punct> <T.attr>param2</T.attr>
+                  <T.punct>;</T.punct>
+                </Line>
+                <Line indent={2} state="hl">
+                  <T.kw>return</T.kw> <T.attr>result</T.attr>
+                  <T.punct>;</T.punct>
+                </Line>
+                <Line>
+                  <T.punct>{"}"}</T.punct>
+                </Line>
+                <Line>
+                  <T.kw>const</T.kw> <T.attr>answer</T.attr>{" "}
+                  <T.punct>=</T.punct> <T.fn>functionName</T.fn>
+                  <T.punct>(</T.punct>
+                  <T.num>4</T.num>
+                  <T.punct>,</T.punct> <T.num>6</T.num>
+                  <T.punct>);</T.punct>
+                </Line>
+              </CodeWindow>
+              <CodeCaption style={{ marginTop: 20 }}>
+                Зарлахдаа бүтцийг тодорхойлно; <b>дуудахад</b> код ажиллана.
+              </CodeCaption>
+            </div>
+            <ConceptList
+              num
+              compact
+              items={[
+                {
+                  idx: "01",
+                  title: <code>function</code>,
+                  desc: "Функц зарлах түлхүүр үг.",
+                },
+                {
+                  idx: "02",
+                  title: <code>functionName</code>,
+                  desc: "Дуудахад хэрэглэх нэр.",
+                },
+                {
+                  idx: "03",
+                  title: <code>(param1, param2)</code>,
+                  desc: "Оролтын параметрүүд.",
+                },
+                {
+                  idx: "04",
+                  title: "Бие + return",
+                  desc: "Ажлыг хийж, үр дүнг буцаана.",
+                },
+                {
+                  idx: "05",
+                  title: <code>functionName(4, 6)</code>,
+                  desc: "Аргумент өгч функцийг дуудна.",
+                },
+              ]}
+            />
+          </div>
+        </Frame>
+      </Slide>
+
+      {/* 08 · ПАРАМЕТР ба АРГУМЕНТ */}
+      <Slide
+        label="параметр ба аргумент"
+        page="08"
+        total={TOTAL}
+        footer={{ tag: "§01 функц", topic: "параметр · аргумент" }}
+      >
+        <Frame>
+          <Eyebrow className="anim">Оролтыг нэрлэх ба утга өгөх</Eyebrow>
+          <h2 className="slide-title anim anim-2">Параметр ба аргумент</h2>
+          <div className="lesson-teaching-split anim anim-3">
+            <div>
+              <CodeWindow numbered sm filename="parameters.js" lang="js">
+                <Line>
+                  <T.kw>function</T.kw> <T.fn>greet</T.fn>
+                  <T.punct>(</T.punct>
+                  <T.attr>name</T.attr>
+                  <T.punct>,</T.punct> <T.attr>mark</T.attr>{" "}
+                  <T.punct>=</T.punct> <T.str>&quot;!&quot;</T.str>
+                  <T.punct>) {"{"}</T.punct>
+                </Line>
+                <Line indent={2}>
+                  <T.kw>return</T.kw> <T.str>&quot;Сайн уу, &quot;</T.str>{" "}
+                  <T.punct>+</T.punct> <T.attr>name</T.attr>{" "}
+                  <T.punct>+</T.punct> <T.attr>mark</T.attr>
+                  <T.punct>;</T.punct>
+                </Line>
+                <Line>
+                  <T.punct>{"}"}</T.punct>
+                </Line>
+                <Line state="hl">
+                  <T.fn>greet</T.fn>
+                  <T.punct>(</T.punct>
+                  <T.str>&quot;Ану&quot;</T.str>
+                  <T.punct>,</T.punct> <T.str>&quot;?&quot;</T.str>
+                  <T.punct>);</T.punct>
+                </Line>
+                <Line>
+                  <T.fn>greet</T.fn>
+                  <T.punct>(</T.punct>
+                  <T.str>&quot;Тэмүүжин&quot;</T.str>
+                  <T.punct>);</T.punct>
+                </Line>
+              </CodeWindow>
+              <CodeCaption style={{ marginTop: 20 }}>
+                <code>name</code> утгаа <code>“Ану”</code>-гаас,{" "}
+                <code>mark</code> утгаа <code>“?”</code>-оос авна.
+              </CodeCaption>
+            </div>
+            <ConceptList
+              num
+              compact
+              items={[
+                {
+                  idx: "01",
+                  title: "Параметр",
+                  desc: <>Зарлах үеийн нэр: <code>name, mark</code>.</>,
+                },
+                {
+                  idx: "02",
+                  title: "Аргумент",
+                  desc: <>Дуудах үеийн утга: <code>“Ану”, “?”</code>.</>,
+                },
+                {
+                  idx: "03",
+                  title: "Байрлал",
+                  desc: "Зүүнээс баруун тийш дарааллаар таарна.",
+                },
+                {
+                  idx: "04",
+                  title: "Анхдагч утга",
+                  desc: <>Аргументгүй бол <code>mark = “!”</code>.</>,
+                },
+              ]}
+            />
+          </div>
+        </Frame>
+      </Slide>
+
+      {/* 09 · RETURN */}
       <Slide
         label="return"
-        page="07"
+        page="09"
         total={TOTAL}
         footer={{ tag: "§01 функц", topic: "return утга" }}
       >
@@ -278,39 +393,10 @@ export default function Lesson20() {
         </Frame>
       </Slide>
 
-      {/* 08 · ДАСГАЛ 1 (§1) */}
-      <Exercise
-        label="Дасгал 1"
-        page="08"
-        total={TOTAL}
-        tag="Дасгал 1 · хэсэг 1"
-        title="Анхны функцууд"
-        tasks={[
-          <>
-            <code>area(width, height)</code> функц бичиж, тэгш өнцөгтийн талбайг
-            буцаа.
-          </>,
-          <>
-            <code>greet(name)</code> функц бичиж «Сайн уу, [нэр]!» текст буцаа.
-          </>,
-          <>
-            <code>greet2(name = &quot;зочин&quot;)</code> анхдагч утгатай
-            функц бичиж, аргументгүй ба аргументтэй хоёуланг дууд.
-          </>,
-        ]}
-        aside={
-          <ExerciseFiles
-            className="anim anim-4"
-            caption="⏱ 15 минут · шийдлийн жишээ"
-            files={[{ name: "func.js", lang: "js", code: FUNC_JS }]}
-          />
-        }
-      />
-
-      {/* 09 · ОЛОН ПАРАМЕТР */}
+      {/* 10 · ОЛОН ПАРАМЕТР */}
       <Slide
         label="олон параметр"
-        page="09"
+        page="10"
         total={TOTAL}
         footer={{ tag: "§01 функц", topic: "логик + return" }}
       >
@@ -356,39 +442,54 @@ export default function Lesson20() {
         </Frame>
       </Slide>
 
-      {/* 10 · ДАСГАЛ 2 (§1) */}
+      {/* 11 · ДАСГАЛ 1 (§1) */}
       <Exercise
-        label="Дасгал 2"
-        page="10"
+        label="Дасгал 1"
+        page="11"
         total={TOTAL}
-        tag="Дасгал 2 · хэсэг 1"
-        title="Туслах функцууд"
+        tag="Дасгал 1 · 10 бодлого"
+        title="Функц бичих дадлага"
+        taskColumns={2}
         tasks={[
           <>
-            <code>isEven(n)</code> функц бичиж, тоо тэгш эсэхийг (boolean) буцаа.
+            <code>sayHello()</code> — <b>“Сайн уу!”</b> текст буцаа.
           </>,
           <>
-            <code>max(a, b)</code> функц бичиж, томыг нь буцаа (
-            <code>if</code> эсвэл ternary).
+            <code>double(n)</code> — тоог 2-оор үржүүлж буцаа.
           </>,
           <>
-            <code>celsiusToF(c)</code> функц бичиж,{" "}
-            <code>c * 9/5 + 32</code>-оор Фаренгейт болго.
+            <code>square(n)</code> — тооны квадратыг буцаа.
+          </>,
+          <>
+            <code>area(w, h)</code> — тэгш өнцөгтийн талбайг буцаа.
+          </>,
+          <>
+            <code>perimeter(w, h)</code> — периметрийг буцаа.
+          </>,
+          <>
+            <code>greet(name)</code> — <b>“Сайн уу, [нэр]!”</b> текст буцаа.
+          </>,
+          <>
+            <code>fullName(first, last)</code> — бүтэн нэрийг буцаа.
+          </>,
+          <>
+            <code>minutesToSeconds(min)</code> — секунд рүү хөрвүүл.
+          </>,
+          <>
+            <code>celsiusToF(c)</code> — <code>c × 9/5 + 32</code> тооц.
+          </>,
+          <>
+            <code>welcome(name = &quot;зочин&quot;)</code> — аргументтай ба
+            аргументгүй дууд.
           </>,
         ]}
-        hints={[
-          "isEven: return n % 2 === 0.",
-          "max: return a > b ? a : b.",
-          "Дуудаж console.log хийж шалга.",
-        ]}
-        time="⏱ 12 минут"
       />
 
       {/* ============================================================
           ЗАВСАРЛАГА
           ============================================================ */}
       <Break
-        page="11"
+        page="12"
         total={TOTAL}
         mins={20}
         resumeTopic="Scope ба arrow function"
@@ -398,10 +499,10 @@ export default function Lesson20() {
           ХЭСЭГ 2 — SCOPE + ARROW
           ============================================================ */}
 
-      {/* 12 · SECTION DIVIDER 2 */}
+      {/* 13 · SECTION DIVIDER 2 */}
       <SectionDivider
         label="§ Scope · arrow"
-        page="12"
+        page="13"
         total={TOTAL}
         ghost="02"
         section="ХЭСЭГ 02"
@@ -415,10 +516,10 @@ export default function Lesson20() {
         lead="Хувьсагч хаана «харагдах» вэ (scope), функц бичих өөр хэлбэрүүд ба орчин үеийн arrow function-ийг үзнэ."
       />
 
-      {/* 13 · SCOPE */}
+      {/* 14 · SCOPE */}
       <KeyTerm
         label="Гол ойлголт: scope"
-        page="13"
+        page="14"
         total={TOTAL}
         term="Scope (хүрээ)"
         def={
@@ -431,10 +532,10 @@ export default function Lesson20() {
         note="local · global"
       />
 
-      {/* 14 · ФУНКЦИЙН 3 ХЭЛБЭР */}
+      {/* 15 · ФУНКЦИЙН 3 ХЭЛБЭР */}
       <Slide
         label="3 хэлбэр"
-        page="14"
+        page="15"
         total={TOTAL}
         footer={{ tag: "§02 arrow", topic: "declaration · expression · arrow" }}
       >
@@ -491,34 +592,6 @@ export default function Lesson20() {
         </Frame>
       </Slide>
 
-      {/* 15 · ДАСГАЛ 3 (§2) */}
-      <Exercise
-        label="Дасгал 3"
-        page="15"
-        total={TOTAL}
-        tag="Дасгал 3 · хэсэг 2"
-        title="Arrow function руу хөрвүүлэх"
-        tasks={[
-          <>
-            <code>double</code>, <code>triple</code>, <code>square</code>{" "}
-            функцийг гурван хэлбэрээр (declaration / expression / arrow) бич.
-          </>,
-          <>
-            <code>add(a, b)</code>-г <b>arrow</b> хэлбэрээр нэг мөрөөр бич.
-          </>,
-          <>
-            Бүгдийг дуудаж <code>console.log</code>-оор үр дүнг шалга.
-          </>,
-        ]}
-        aside={
-          <ExerciseFiles
-            className="anim anim-4"
-            caption="⏱ 18 минут · шийдлийн жишээ"
-            files={[{ name: "arrow.js", lang: "js", code: ARROW_JS }]}
-          />
-        }
-      />
-
       {/* 16 · НИЙТЛЭГ АЛДАА */}
       <Slide
         label="нийтлэг алдаа"
@@ -552,34 +625,58 @@ export default function Lesson20() {
         </Frame>
       </Slide>
 
-      {/* 17 · ДАСГАЛ 4 (§2) */}
+      {/* 17 · ДАСГАЛ 2 (§2) */}
       <Exercise
-        label="Дасгал 4"
+        label="Дасгал 2"
         page="17"
         total={TOTAL}
-        tag="Дасгал 4 · хэсэг 2"
-        title="Scope-ийг туршиж ойлгох"
+        tag="Дасгал 2 · 10 бодлого"
+        title="Ахисан функцийн сорилт"
+        taskColumns={2}
         tasks={[
           <>
-            Функц <b>дотор</b> <code>let secret = 42</code> зарлаад, функцийн{" "}
-            <b>гадна</b> <code>console.log(secret)</code> хийж — ямар алдаа
-            гарахыг тэмдэглэ.
+            <code>scopeTest()</code> дотор <code>let secret = 42</code> зарла.
+            Гаднаас хэвлэхэд гарах алдааг урьдчилан таамаглаж, шалтгааныг бич.
           </>,
           <>
-            <code>discount(price, percent)</code> arrow функц бичиж, хямдруулсан
-            үнийг буцаа.
+            <code>discount(price, percent)</code> arrow функц бич.{" "}
+            <code>discount(100000, 15)</code> нь <b>85000</b> буцаана.
           </>,
           <>
-            Дотроо <code>discount</code>-ийг дуудаж эцсийн нийт үнийг тооцоолдог{" "}
-            <code>total(price)</code> функц бич (функц дотроос функц дуудах).
+            <code>finalPrice(price, percent)</code> дотроос{" "}
+            <code>discount()</code>-ийг дуудаж эцсийн үнэ буцаа.
+          </>,
+          <>
+            <code>minOfThree(a, b, c)</code> бич. <code>Math.min</code>{" "}
+            ашиглалгүй <code>minOfThree(8, 3, 5)</code> → <b>3</b>.
+          </>,
+          <>
+            <code>middleOfThree(a, b, c)</code> дундах утгыг буцаа.{" "}
+            <code>sort</code> ашиглалгүй <code>middleOfThree(9, 2, 5)</code> →{" "}
+            <b>5</b>.
+          </>,
+          <>
+            <code>grade(score)</code>: 90+ → A, 80+ → B, 70+ → C, 60+ → D,
+            бусад → F.
+          </>,
+          <>
+            <code>calculatePrice(price, discount = 0, tax = 10)</code>: эхлээд
+            хямдрал, дараа нь татвар тооц.
+          </>,
+          <>
+            <code>isLeapYear(year)</code> бич. <b>2000 → true</b>,{" "}
+            <b>1900 → false</b> болох дүрмийг зөв хэрэгжүүл.
+          </>,
+          <>
+            <code>factorial(n)</code>-ийг давталтаар бод.{" "}
+            <code>factorial(0)</code> → <b>1</b>, <code>factorial(5)</code> →{" "}
+            <b>120</b>.
+          </>,
+          <>
+            <code>calculator(a, b, operator)</code>-т <code>switch</code>{" "}
+            ашиглан +, −, ×, ÷ үйлдэл болон 0-д хуваах алдааг зохицуул.
           </>,
         ]}
-        hints={[
-          "Local хувьсагчийг гадна дуудвал ReferenceError.",
-          "discount = (price, percent) => price * (1 - percent / 100).",
-          "Функцийг бусад функц дотроос дуудаж болно.",
-        ]}
-        time="⏱ 12 минут"
       />
 
       {/* ============================================================

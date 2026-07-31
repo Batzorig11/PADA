@@ -316,6 +316,7 @@ export function Exercise({
   time,
   hintsTitle = "Зөвлөмж",
   aside,
+  taskColumns = 1,
   palette,
   paletteTitle = "Өнгөний кодууд",
   label,
@@ -330,50 +331,80 @@ export function Exercise({
   hintsTitle?: ReactNode;
   /** Replaces the default hints aside (e.g. a target screenshot). */
   aside?: ReactNode;
+  /** Splits a longer exercise list into balanced, continuously numbered columns. */
+  taskColumns?: 1 | 2;
   /** Hex colour codes shown to students under the exercise. */
   palette?: { hex: string; name?: ReactNode }[];
   paletteTitle?: ReactNode;
   label?: string;
 }) {
+  const hasExerciseColumn =
+    aside !== undefined ||
+    Boolean(hints?.length) ||
+    time !== undefined ||
+    Boolean(palette?.length);
+  const taskGroups =
+    taskColumns === 2
+      ? [tasks.slice(0, Math.ceil(tasks.length / 2)), tasks.slice(Math.ceil(tasks.length / 2))]
+      : [tasks];
+
   return (
     <section className="slide s-exercise grid" data-label={label}>
       <Brandbar page={page} total={total} />
       <div className="exercise-tag anim">{tag}</div>
       <h2 className="anim anim-2">{title}</h2>
-      <div className="exercise-grid anim anim-3">
-        <div className="task-list">
-          {tasks.map((t, i) => (
-            <div className="task" key={i}>
-              <div>{t}</div>
+      <div
+        className={`exercise-grid anim anim-3${
+          hasExerciseColumn ? "" : " is-wide"
+        }`}
+      >
+        <div className={taskColumns === 2 ? "task-columns" : ""}>
+          {taskGroups.map((group, groupIndex) => (
+            <div
+              className="task-list"
+              key={groupIndex}
+              style={
+                groupIndex > 0
+                  ? { counterReset: `task ${taskGroups[0].length}` }
+                  : undefined
+              }
+            >
+              {group.map((task, taskIndex) => (
+                <div className="task" key={taskIndex}>
+                  <div>{task}</div>
+                </div>
+              ))}
             </div>
           ))}
         </div>
-        <div className="exercise-col">
-          {aside ?? (
-            <div className="exercise-aside">
-              <div className="ea-title">{hintsTitle}</div>
-              <ul>
-                {(hints ?? []).map((h, i) => (
-                  <li key={i}>{h}</li>
-                ))}
-              </ul>
-              {time && <div className="time">{time}</div>}
-            </div>
-          )}
-          {palette && palette.length > 0 && (
-            <div className="exercise-palette">
-              <div className="ep-title">{paletteTitle}</div>
-              <div className="ep-swatches">
-                {palette.map((c, i) => (
-                  <div className="ep-swatch" key={i}>
-                    <span className="ep-chip" style={{ background: c.hex }} />
-                    <span className="ep-hex">{c.hex}</span>
-                  </div>
-                ))}
+        {hasExerciseColumn && (
+          <div className="exercise-col">
+            {aside ?? (
+              <div className="exercise-aside">
+                <div className="ea-title">{hintsTitle}</div>
+                <ul>
+                  {(hints ?? []).map((h, i) => (
+                    <li key={i}>{h}</li>
+                  ))}
+                </ul>
+                {time && <div className="time">{time}</div>}
               </div>
-            </div>
-          )}
-        </div>
+            )}
+            {palette && palette.length > 0 && (
+              <div className="exercise-palette">
+                <div className="ep-title">{paletteTitle}</div>
+                <div className="ep-swatches">
+                  {palette.map((c, i) => (
+                    <div className="ep-swatch" key={i}>
+                      <span className="ep-chip" style={{ background: c.hex }} />
+                      <span className="ep-hex">{c.hex}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );
